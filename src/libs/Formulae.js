@@ -3,7 +3,6 @@
 * @Desc: Functions to calculate economic indicators based on formulae
 * @Date: 2022/08/24
 * @TODO:
--- High priority: Parse all args to floats **
 -Remaining Depreciation Formulae
 -Net Forign Factor Income
 ***NOTE TO SELF: DON'T FORGET TO PARSE CONSTRUCTOR ARGS INTO FLOATS!!!a
@@ -21,10 +20,10 @@ class GDPExpApproach {
         * - Receive values passed into new Class instance
         * - Parss values into integers to be used in formula
         */
-        this.consumption = parseInt(consumption);
-        this.investment = parseInt(investment);
-        this.governmentExpenditure = parseInt(governmentExpenditure);
-        this.netExports = parseInt(netExports);
+        this.consumption = parseFloat(consumption);
+        this.investment = parseFloat(investment);
+        this.governmentExpenditure = parseFloat(governmentExpenditure);
+        this.netExports = parseFloat(netExports);
     };
 
     solve() {
@@ -53,10 +52,10 @@ class GDPIncomeApproach {
         * - Receive values passed into new Class instance
         * - Parss values into integers to be used in formula
         */
-        this.totalNationalIncome = parseInt(totalNationalIncome);
-        this.salesTaxes = parseInt(salesTaxes);
-        this.depreciation = parseInt(depreciation);
-        this.netForeignFactorIncome = parseInt(netForeignFactorIncome);
+        this.totalNationalIncome = parseFloat(totalNationalIncome);
+        this.salesTaxes = parseFloat(salesTaxes);
+        this.depreciation = parseFloat(depreciation);
+        this.netForeignFactorIncome = parseFloat(netForeignFactorIncome);
     };
 
     solve() {
@@ -79,8 +78,8 @@ class BalanceOfTradeFormula {
         * - Receive values passed into new Class instance
         * - Parss values into integers to be used in formula
         */
-        this.valueOfExports = parseInt(valueOfExports);
-        this.valueOfImports = parseInt(valueOfImports);
+        this.valueOfExports = parseFloat(valueOfExports);
+        this.valueOfImports = parseFloat(valueOfImports);
     };
 
     solve() {
@@ -106,10 +105,10 @@ class CurrentAccountFormula{
         * - Receive values passed into new Class instance
         * - Parss values into integers to be used in formula
         */
-        this.exportOfGoodsAndServices = parseInt(exportOfGoodsAndServices);
-        this.importOfGoodsAndServices = parseInt(importOfGoodsAndServices);
-        this.netEarningsFromAbroad = parseInt(netEarningsFromAbroad);
-        this.netTransferPayments = parseInt(netTransferPayments);
+        this.exportOfGoodsAndServices = parseFloat(exportOfGoodsAndServices);
+        this.importOfGoodsAndServices = parseFloat(importOfGoodsAndServices);
+        this.netEarningsFromAbroad = parseFloat(netEarningsFromAbroad);
+        this.netTransferPayments = parseFloat(netTransferPayments);
     };
 
     solve() {
@@ -132,8 +131,8 @@ class CAGDPRatio {
         * - Receive values passed into new Class instance
         * - Parss values into integers to be used in formula
         */
-        this.currentAccount = parseInt(currentAccount);
-        this.gdp = parseInt(gdp);
+        this.currentAccount = parseFloat(currentAccount);
+        this.gdp = parseFloat(gdp);
     };
 
     solve() {
@@ -153,8 +152,8 @@ class GDGDPRatio{
         * - Receive values passed into new Class instance
         * - Parss values into integers to be used in formula
         */
-        this.governmentDebt = parseInt(governmentDebt);
-        this.gdp = parseInt(gdp);
+        this.governmentDebt = parseFloat(governmentDebt);
+        this.gdp = parseFloat(gdp);
     };
 
     solve() {
@@ -174,8 +173,8 @@ class RealGDPQuaterlyGrowthRateFormula {
         * - Receive values passed into new Class instance
         * - Parss values into integers to be used in formula
         */
-        this.gdpQ1 = parseInt(gdpQ1);
-        this.gdpQ2 = parseInt(gdpQ2);
+        this.gdpQ1 = parseFloat(gdpQ1);
+        this.gdpQ2 = parseFloat(gdpQ2);
     }
 
     solve() {
@@ -196,8 +195,8 @@ class RealGDPAnnualGrowthRateFormula {
         * - Receive values passed into new Class instance
         * - Parss values into integers to be used in formula
         */
-        this.gdpPreviousYear = parseInt(gdpPreviousYear);
-        this.gdpCurrentYear = parseInt(gdpCurrentYear);
+        this.gdpPreviousYear = parseFloat(gdpPreviousYear);
+        this.gdpCurrentYear = parseFloat(gdpCurrentYear);
     }
 
     solve() {
@@ -218,8 +217,8 @@ class GDPDeflatorFormula {
         * - Receive values passed into new Class instance
         * - Parss values into integers to be used in formula
         */
-        this.nominalGDP = parseInt(nominalGDP);
-        this.realGDP = parseInt(realGDP);
+        this.nominalGDP = parseFloat(nominalGDP);
+        this.realGDP = parseFloat(realGDP);
     }
 
     solve() {
@@ -240,8 +239,8 @@ class RealGDPFormula {
         * - Receive values passed into new Class instance
         * - Parss values into integers to be used in formula
         */
-        this.nominalGDP = parseInt(nominalGDP);
-        this.gdpDeflator = parseInt(gdpDeflator);
+        this.nominalGDP = parseFloat(nominalGDP);
+        this.gdpDeflator = parseFloat(gdpDeflator);
     }
 
     solve() {
@@ -262,8 +261,8 @@ class InflationRateFormula {
         * - Receive values passed into new Class instance
         * - Parss values into integers to be used in formula
         */
-        this.pastConsumerPriceIndex = parseInt(pastConsumerPriceIndex);
-        this.currentConsumerPriceIndex = parseInt(currentConsumerPriceIndex);
+        this.pastConsumerPriceIndex = parseFloat(pastConsumerPriceIndex);
+        this.currentConsumerPriceIndex = parseFloat(currentConsumerPriceIndex);
     }
 
     solve() {
@@ -284,9 +283,9 @@ class InterestRateFormula {
         * - Receive values passed into new Class instance
         * - Parss values into integers to be used in formula
         */
-        this.simpleInterest = parseInt(simpleInterest);
-        this.principalAmount = parseInt(principalAmount);
-        this.timePeriod = parseInt(timePeriod);
+        this.simpleInterest = parseFloat(simpleInterest);
+        this.principalAmount = parseFloat(principalAmount);
+        this.timePeriod = parseFloat(timePeriod);
     }
 
     solve() {
@@ -308,10 +307,10 @@ class CompoundInterestRateFormula {
         * - Receive values passed into new Class instance
         * - Parss values into integers to be used in formula
         */
-        this.principalAmount = parseInt(principalAmount);
-        this.rateOfInterest = parseInt(rateOfInterest);
-        this.timePeriod = parseInt(timePeriod);
-        this.compoundInterest = parseInt(compoundInterest);
+        this.principalAmount = parseFloat(principalAmount);
+        this.rateOfInterest = parseFloat(rateOfInterest);
+        this.timePeriod = parseFloat(timePeriod);
+        this.compoundInterest = parseFloat(compoundInterest);
     }
 
     solve() {
@@ -332,8 +331,8 @@ class UnemploymentRateFormula {
         * - Receive values passed into new Class instance
         * - Parss values into integers to be used in formula
         */
-        this.numberOfUnemployedPeople = parseInt(numberOfUnemployedPeople);
-        this.labourForce = parseInt(labourForce);
+        this.numberOfUnemployedPeople = parseFloat(numberOfUnemployedPeople);
+        this.labourForce = parseFloat(labourForce);
     }
 
     solve() {
@@ -354,8 +353,8 @@ class NetExportsFormula {
         * - Receive values passed into new Class instance
         * - Parss values into integers to be used in formula
         */
-        this.valueOfExports = parseInt(valueOfExports);
-        this.valueOfImports = parseInt(valueOfImports);
+        this.valueOfExports = parseFloat(valueOfExports);
+        this.valueOfImports = parseFloat(valueOfImports);
     }
 
     solve() {
@@ -379,9 +378,9 @@ class StraightLineDepreciationFormula {
         * - Receive values passed into new Class instance
         * - Parse values into integers to be used in formula
         */
-        this.cost = parseInt(cost);
-        this.salvageValue = parseInt(salvageValue);
-        this.assetLifespan = parseInt(assetLifespan);
+        this.cost = parseFloat(cost);
+        this.salvageValue = parseFloat(salvageValue);
+        this.assetLifespan = parseFloat(assetLifespan);
   }
 
   solve() {
@@ -402,8 +401,8 @@ class DoubleDecliningBalanceDepreciationFormula {
         * - Receive values passed into new Class instance
         * - Parse values into integers to be used in formula
         */
-        this.startingBookValue = parseInt(startingBookValue);
-        this.assetLifespan = parseInt(assetLifespan);
+        this.startingBookValue = parseFloat(startingBookValue);
+        this.assetLifespan = parseFloat(assetLifespan);
     }
 
     solve() {
