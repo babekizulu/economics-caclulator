@@ -470,7 +470,7 @@ class SumOfYearsDigitsDepreciation {
 
 //Net Foreign Factor Income
 
-class NetForeignFactorIncome {
+class NetForeignFactorIncomeFormula {
     constructor(GNP, GDP) {
          /*@Desc: 
         * - Receive values passed into new Class instance
@@ -511,5 +511,5 @@ export {
     DoubleDecliningBalanceDepreciationFormula,
     UnitsOfProductionDepreciationFormula,
     SumOfYearsDigitsDepreciation,
-    NetForeignFactorIncome
+    NetForeignFactorIncomeFormula
 };
