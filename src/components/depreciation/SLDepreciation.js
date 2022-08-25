@@ -2,7 +2,7 @@ import React from "react";
 
 const SLDepreciation = () => {
     return (
-        <div>
+        <div className="calculator">
             Straight Line Depreciation Calculator
         </div>
     );

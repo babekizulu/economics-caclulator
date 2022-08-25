@@ -2,7 +2,7 @@ import React from "react";
 
 const DDBDepreciation = () => {
     return (
-        <div>
+        <div className="calculator">
             Double Declining Balance Depreciation Calculator
         </div>
     );

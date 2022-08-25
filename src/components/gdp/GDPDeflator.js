@@ -2,7 +2,7 @@ import React from 'react';
 
 const GDPDeflator = () => {
     return (
-        <div>
+        <div className='calculator'>
             GDP Deflator
         </div>
     );

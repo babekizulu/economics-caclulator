@@ -2,7 +2,7 @@ import React from "react";
 
 const SYDDepreciation = () => {
     return (
-        <div>
+        <div className="calculator">
             Sum of Years Digits Depreciation Calculator
         </div>
     );

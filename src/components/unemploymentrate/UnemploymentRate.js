@@ -2,7 +2,7 @@ import React from "react";
 
 const UnemploymentRate = () => {
     return (
-        <div>
+        <div className="calculator">
             Unemployment Rate
         </div>
     );

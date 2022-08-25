@@ -2,7 +2,7 @@ import React from "react";
 
 const CurrentAcc = () => {
     return (
-        <div>
+        <div className="calculator">
             Current Account Calculator
         </div>
     );

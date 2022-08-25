@@ -30,6 +30,12 @@ const Explorer = () => {
             <Link href='/current-account' className='current-account-calculator icon'>
                 Current Account Calculator
             </Link>
+            <Link 
+            href='/net-foreign-factor-income'
+            className='nffi-calculator icon'
+            >
+                Net Foreign Factor Income Calculator
+            </Link>
         </div>
     );
 };

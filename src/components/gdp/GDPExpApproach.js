@@ -3,7 +3,7 @@ import React from "react";
 
 const GDPExpApproach = () => {
     return (
-        <div>
+        <div className="calculator">
             GDP Expenditure Approach Calculator
         </div>
     );

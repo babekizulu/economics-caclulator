@@ -2,7 +2,7 @@ import React from "react";
 
 const RealGDP = () => {
     return (
-        <div>
+        <div className="calculator">
             Real GDP
         </div>
     );

@@ -13,6 +13,7 @@ import BalanceOfTrade from './balanceoftrade/BalanceOfTrade';
 import Ratios from './ratios/Ratios';
 import UnemploymentRate from './unemploymentrate/UnemploymentRate';
 import CurrentAcc from "./currentacc/CurrentAcc";
+import NetForeignFactorIncome from "./netForeignFactorIncome/NetForeignFactorIncome";
 
 
 const App = () => {
@@ -45,6 +46,9 @@ const App = () => {
             </Route>
             <Route path='/current-account'>
                 <CurrentAcc/>
+            </Route>
+            <Route path='/net-foreign-factor-income'>
+                <NetForeignFactorIncome/>
             </Route>
         </div>
     );

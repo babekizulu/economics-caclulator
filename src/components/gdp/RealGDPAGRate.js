@@ -2,7 +2,7 @@ import React from "react";
 
 const RealGDPAGRate = () => {
     return (
-        <div>
+        <div className="calculator">
             Real GDP Annual Growth Rate
         </div>
     );

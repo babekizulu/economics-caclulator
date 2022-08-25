@@ -1,10 +1,9 @@
 //libraries
 import React from "react";
-//components
 
 const BalanceOfTrade = () => {
     return (
-        <div>
+        <div className="calculator">
             Balance of Trade
         </div>
     );

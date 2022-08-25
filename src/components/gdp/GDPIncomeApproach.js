@@ -3,7 +3,7 @@ import React from "react";
 
 const GDPIncomeApproach = () => {
     return (
-        <div>
+        <div className="calculator">
             GDP Income Approach
         </div>
     );

@@ -12,25 +12,25 @@ const Depreciation = () => {
         <div className='depreciation-calculator-container'>
             <Link 
             href='/depreciation/double-declining-balance'
-            className='calculator'
+            className='double-declining-balance-calculator icon'
             >
                 Double Declining Balance Depreciation Calculator
             </Link>
             <Link 
             href='/depreciation/straight-line'
-            className='calculator'
+            className='straight-line-calculator icon'
             >
                 Straight Line Depreciation Calculator
             </Link>
             <Link 
             href='/depreciation/sum-of-the-years'
-            className='calculator'
+            className='syd-calculator icon'
             >
                 Sum of the Years Depreciation Calculator
             </Link>
             <Link 
             href='/depreciation/units-of-production'
-            className='calculator'
+            className='units-of-production-calculator icon'
             >
                 Units of Production Depreciation Calculator
             </Link>

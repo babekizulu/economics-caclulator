@@ -16,28 +16,52 @@ import Link from "../Link";
 const GDP = () => {
     return (
         <div className="gdp-calculator-container">
-            <Link href='/gdp/expenditure-approach'>
+            <Link 
+            href='/gdp/expenditure-approach'
+            className='expenditure-approach-calculator icon'
+            >
                 GDP Expenditure Approach Calculator
             </Link>
-            <Link href='/gdp/income-approach'>
+            <Link 
+            href='/gdp/income-approach'
+            className='income-approach-calculator icon'
+            >
                 GDP Income Approach Calculator
             </Link>
-            <Link href='/gdp/deflator'>
+            <Link 
+            href='/gdp/deflator'
+            className='deflator-calculator icon'
+            >
                 GDP Deflator Calculator
             </Link>
-            <Link href='/gdp/growth-rate'>
+            <Link 
+            href='/gdp/growth-rate'
+            className='growth-rate-calculator icon'
+            >
                 GDP Growth Rate Calculator
             </Link>
-            <Link href='/gdp/net-exports'>
+            <Link 
+            href='/gdp/net-exports'
+            className='net-exports-calculator icon'
+            >
                 Net Exports Calculator
             </Link>
-            <Link href='/gdp/real-gdp'>
+            <Link 
+            href='/gdp/real-gdp'
+            className='rgdp-calculator icon'
+            >
                 Real GDP Calculator
             </Link>
-            <Link href='/gdp/real-gdp-quarterly-growth-rate'>
+            <Link 
+            href='/gdp/real-gdp-quarterly-growth-rate'
+            className='rgdp-qg-rate-calculator icon'
+            >
                 Real GDP Quarterly Growth Rate Calculator
             </Link>
-            <Link href='/gdp/real-gdp-annual-growth-rate'>
+            <Link 
+            href='/gdp/real-gdp-annual-growth-rate'
+            className='rgdp-ag-rate-calculator icon'
+            >
                 Real GDP Annual Growth Rate Calculator
             </Link>
             <Route path='/gdp/expenditure-approach'>

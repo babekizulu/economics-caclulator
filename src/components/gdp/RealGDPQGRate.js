@@ -2,7 +2,7 @@ import React from "react";
 
 const RealGDPQGRate = () => {
     return (
-        <div>
+        <div className="calculator">
             Real GDP Quaterly Growth Rate Calculator
         </div>
     );

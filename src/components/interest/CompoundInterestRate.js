@@ -2,7 +2,7 @@ import React from "react";
 
 const CompoundInterestRate = () => {
     return (
-        <div>
+        <div className="calculator">
             Compound Interest Rate
         </div>
     );
