@@ -1,9 +1,13 @@
+//libraries
 import React from "react";
+//components
+import Calculator from "../Calculator";
+
 
 const CurrentAcc = () => {
     return (
         <div className="calculator">
-            Current Account Calculator
+            <Calculator/>
         </div>
     );
 };

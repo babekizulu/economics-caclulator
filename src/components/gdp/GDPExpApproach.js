@@ -1,10 +1,12 @@
 //libraries
 import React from "react";
+//components
+import Calculator from "../Calculator";
 
 const GDPExpApproach = () => {
     return (
         <div className="calculator">
-            GDP Expenditure Approach Calculator
+            <Calculator/>
         </div>
     );
 };

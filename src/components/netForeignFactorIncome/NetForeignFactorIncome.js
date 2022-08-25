@@ -1,10 +1,12 @@
 //libraries
 import React from "react";
+//components
+import Calculator from "../Calculator";
 
 const NetForeignFactorIncome = () => {
     return (
         <div className="calculator">
-            Net Foreign Factor Income Formula
+            <Calculator/>
         </div>
     );
 };

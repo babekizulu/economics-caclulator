@@ -1,9 +1,12 @@
+//libraries
 import React from "react";
+//components
+import Calculator from "../Calculator";
 
 const UnemploymentRate = () => {
     return (
         <div className="calculator">
-            Unemployment Rate
+            <Calculator/>
         </div>
     );
 };

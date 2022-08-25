@@ -1,9 +1,12 @@
+//libraries
 import React from "react";
+//components
+import Calculator from "../Calculator";
 
 const GDPGrowthRate = () => {
     return (
         <div className="calculator">
-            GDP Growth Rate Calculator
+            <Calculator/>
         </div>
     );
 };

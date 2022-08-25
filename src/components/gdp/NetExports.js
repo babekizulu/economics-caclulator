@@ -1,9 +1,12 @@
+//libraries
 import React from "react";
+//components
+import Calculator from "../Calculator";
 
 const NetExports = () => {
     return (
         <div className="calculator">
-            Net Exports
+            <Calculator/>
         </div>
     );
 };

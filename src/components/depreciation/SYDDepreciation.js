@@ -1,9 +1,12 @@
+//libraries
 import React from "react";
+//components
+import Calculator from "../Calculator";
 
 const SYDDepreciation = () => {
     return (
         <div className="calculator">
-            Sum of Years Digits Depreciation Calculator
+            <Calculator/>
         </div>
     );
 };

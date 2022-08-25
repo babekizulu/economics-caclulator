@@ -1,9 +1,12 @@
+//libraries
 import React from "react";
+//components
+import Calculator from "../Calculator";
 
 const GovDebtGDPRatio = () => {
     return (
         <div>
-            Government Debt to GDP Ratio Calculator
+            <Calculator/>
         </div>
     );
 };

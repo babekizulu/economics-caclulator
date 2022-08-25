@@ -1,9 +1,12 @@
+//libraries
 import React from "react";
+//components
+import Calculator from "../Calculator";
 
 const InflationRate = () => {
     return (
         <div className="calculator">
-            Inflation Rate Calculator
+            <Calculator/>
         </div>
     );
 };

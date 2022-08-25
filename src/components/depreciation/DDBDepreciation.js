@@ -1,9 +1,12 @@
+//libraries
 import React from "react";
+//components
+import Calculator from "../Calculator";
 
 const DDBDepreciation = () => {
     return (
         <div className="calculator">
-            Double Declining Balance Depreciation Calculator
+            <Calculator/>
         </div>
     );
 };
