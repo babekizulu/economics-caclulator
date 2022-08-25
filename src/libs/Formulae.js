@@ -2,10 +2,6 @@
 * @Author: Lwandle Babekizulu Dlamini
 * @Desc: Functions to calculate economic indicators based on formulae
 * @Date: 2022/08/24
-* @TODO:
--Remaining Depreciation Formulae
--Net Forign Factor Income
-***NOTE TO SELF: DON'T FORGET TO PARSE CONSTRUCTOR ARGS INTO FLOATS!!!a
 */
 
 //Nominal Gross Domestic Product using the Expenditure Approach
@@ -371,6 +367,8 @@ class NetExportsFormula {
 //Depreciation
 // 1. Straight-Line Depreciation Formula
 //2. Double Declining Balance Depreciation Formula
+//3. Units of Production Depreciation Formula
+//4. Sum of Years Digits Depreciation Formula
 
 class StraightLineDepreciationFormula {
   constructor(cost, salvageValue, assetLifespan) {
@@ -420,6 +418,79 @@ class DoubleDecliningBalanceDepreciationFormula {
     }
 }
 
+class UnitsOfProductionDepreciationFormula {
+    constructor(numOfUnitsProduced, lifespanUnits, cost, salvageValue) {
+         /*@Desc: 
+        * - Receive values passed into new Class instance
+        * - Parse values into integers to be used in formula
+        */
+        this.numOfUnitsProduced = parseFloat(numOfUnitsProduced);
+        this.lifespanUnits = parseFloat(lifespanUnits);
+        this.cost = parseFloat(cost);
+        this.salvageValue = parseFloat(salvageValue);
+    }
+
+    solve() {
+        //@Desc: Store variables to use in formula
+        //@variables: number of units produced, lifespan in units, cost, salvage value
+        const p = this.numOfUnitsProduced;
+        const l = this.lifespanUnits;
+        const c = this.cost;
+        const sv = this.salvageValue;
+        //solve using units of production depreciation formula
+        const depreciation = (p/l)*(c-sv);
+        return depreciation;
+    }
+}
+
+class SumOfYearsDigitsDepreciation {
+    constructor(remainingLife, sumOfYearsDigits, cost, salvageValue){
+         /*@Desc: 
+        * - Receive values passed into new Class instance
+        * - Parse values into integers to be used in formula
+        */
+        this.remainingLife = parseFloat(remainingLife);
+        this.sumOfYearsDigits = parseFloat(sumOfYearsDigits);
+        this.cost = parseFloat(cost);
+        this.salvageValue = parseFloat(salvageValue);
+    }
+
+    solve() {
+        //@Desc: Store variables to use in formula
+        //@variables: remaining life of asset, sum of the years, cost, salvage value
+        const rl = this.remainingLife;
+        const syd = this.sumOfYearsDigits;
+        const c = this.cost;
+        const sv = this.salvageValue;
+        //solve using sum of years digits depreciation formula
+        const depreciation = (rl/syd)*(c-sv);
+        return depreciation;
+    }
+}
+
+//Net Foreign Factor Income
+
+class NetForeignFactorIncome {
+    constructor(GNP, GDP) {
+         /*@Desc: 
+        * - Receive values passed into new Class instance
+        * - Parse values into integers to be used in formula
+        */
+        this.GNP = parseFloat(GNP);
+        this.GDP = parseFloat(GDP);
+    }
+
+    solve() {
+        //@Desc: Store variables to use in formula
+        //@variables: gross domestic product, gross national product
+        const GNP = this.GNP;
+        const GDP = this.GDP;
+        //solve using net foreign factor income formula
+        const nffi = GNP-GDP;
+        return nffi;
+    }
+}
+
 export {
     GDPExpApproach, 
     GDPIncomeApproach, 
@@ -437,5 +508,8 @@ export {
     UnemploymentRateFormula,
     NetExportsFormula,
     StraightLineDepreciationFormula,
-    DoubleDecliningBalanceDepreciationFormula
+    DoubleDecliningBalanceDepreciationFormula,
+    UnitsOfProductionDepreciationFormula,
+    SumOfYearsDigitsDepreciation,
+    NetForeignFactorIncome
 };

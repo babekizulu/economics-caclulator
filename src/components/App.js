@@ -19,7 +19,9 @@ const App = () => {
     return (
         <div className="app-container">
             <Header/>
-            <Explorer/>
+            <Route path='/'>
+                <Explorer/>
+            </Route>
             <Route path='/gdp'>
                 <GDP/>
             </Route>
