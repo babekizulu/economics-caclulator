@@ -1,12 +1,12 @@
 //libraries
 import React from "react";
 //components
-import Calculator from "../Calculator";
+import InputDisplay from "../InputDisplay";
 
 const GovDebtGDPRatio = () => {
     return (
         <div>
-            <Calculator/>
+            <InputDisplay/>
         </div>
     );
 };

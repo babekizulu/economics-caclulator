@@ -1,12 +1,12 @@
 //libraries
 import React from "react";
 //component
-import Calculator from "../Calculator";
+import InputDisplay from "../InputDisplay";
 
 const RealGDPAGRate = () => {
     return (
         <div className="calculator">
-            <Calculator/>
+            <InputDisplay/>
         </div>
     );
 };

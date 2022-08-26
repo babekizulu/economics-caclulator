@@ -1,13 +1,13 @@
 //libraries
 import React from "react";
 //components
-import Calculator from "../Calculator";
+import InputDisplay from "../InputDisplay";
 
 
 const CurrentAcc = () => {
     return (
         <div className="calculator">
-            <Calculator/>
+            <InputDisplay/>
         </div>
     );
 };

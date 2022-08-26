@@ -1,12 +1,12 @@
 //libraries
 import React from "react";
 //components
-import Calculator from "../Calculator";
+import InputDisplay from "../InputDisplay";
 
 const GDPExpApproach = () => {
     return (
         <div className="calculator">
-            <Calculator/>
+            <InputDisplay/>
         </div>
     );
 };
