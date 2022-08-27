@@ -23,11 +23,11 @@ import UPDepreciation from './depreciation/UPDepreciation';
 import GDPExpApproach from "./gdp/GDPExpApproach";
 import GDPIncomeApproach from "./gdp/GDPIncomeApproach";
 import GDPDeflator from './gdp/GDPDeflator';
-import GDPGrowthRate from './gdp/GDPGrowthRate';
+import GDPGrowthRate from './gdp/growth_rate/GDPGrowthRate';
 import NetExports from './gdp/NetExports';
 import RealGDP from './gdp/RealGDP';
-import RealGDPQGRate from './gdp/RealGDPQGRate';
-import RealGDPAGRate from "./gdp/RealGDPAGRate";
+import RealGDPQGRate from './gdp/growth_rate/RealGDPQGRate';
+import RealGDPAGRate from "./gdp/growth_rate/RealGDPAGRate";
 
 
 const App = () => {
@@ -94,11 +94,11 @@ const App = () => {
             <Route path='/gdp/real-gdp'>
                 <RealGDP/>
             </Route>
-            <Route path='/gdp/real-gdp-quarterly-growth-rate'>
-                <RealGDPQGRate/>
+            <Route path='/gdp/growth-rate/real-annual'>
+                <RealGDPAGRate/>  
             </Route>
-            <Route path='/gdp/real-gdp-annual-growth-rate'>
-                <RealGDPAGRate/>
+            <Route path='/gdp/growth-rate/real-quarterly'>
+                <RealGDPQGRate/>
             </Route>
         </div>
     );

@@ -48,18 +48,6 @@ const GDP = () => {
             >
                 Real GDP Calculator
             </Link>
-            <Link 
-            href='/gdp/real-gdp-quarterly-growth-rate'
-            className='rgdp-qg-rate-calculator icon'
-            >
-                Real GDP Quarterly Growth Rate Calculator
-            </Link>
-            <Link 
-            href='/gdp/real-gdp-annual-growth-rate'
-            className='rgdp-ag-rate-calculator icon'
-            >
-                Real GDP Annual Growth Rate Calculator
-            </Link>
         </div>
     );
 };

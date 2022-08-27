@@ -14,7 +14,7 @@ class GDPExpApproachFormula {
     ) {
         /*@Desc: 
         * - Receive values passed into new Class instance
-        * - Parss values into integers to be used in formula
+        * - Parse values into integers to be used in formula
         */
         this.consumption = parseFloat(consumption);
         this.investment = parseFloat(investment);
@@ -51,7 +51,7 @@ class GDPIncomeApproachFormula {
     ) {
         /*@Desc: 
         * - Receive values passed into new Class instance
-        * - Parss values into integers to be used in formula
+        * - Parse values into integers to be used in formula
         */
         this.totalNationalIncome = parseFloat(totalNationalIncome);
         this.salesTaxes = parseFloat(salesTaxes);
@@ -82,7 +82,7 @@ class BalanceOfTradeFormula {
     constructor(valueOfExports, valueOfImports) {
         /*@Desc: 
         * - Receive values passed into new Class instance
-        * - Parss values into integers to be used in formula
+        * - Parse values into integers to be used in formula
         */
         this.valueOfExports = parseFloat(valueOfExports);
         this.valueOfImports = parseFloat(valueOfImports);
@@ -114,7 +114,7 @@ class CurrentAccountFormula{
     ) {
         /*@Desc: 
         * - Receive values passed into new Class instance
-        * - Parss values into integers to be used in formula
+        * - Parse values into integers to be used in formula
         */
         this.exportOfGoodsAndServices = parseFloat(exportOfGoodsAndServices);
         this.importOfGoodsAndServices = parseFloat(importOfGoodsAndServices);
@@ -145,7 +145,7 @@ class CAGDPRatio {
     constructor(currentAccount, gdp) {
         /*@Desc: 
         * - Receive values passed into new Class instance
-        * - Parss values into integers to be used in formula
+        * - Parse values into integers to be used in formula
         */
         this.currentAccount = parseFloat(currentAccount);
         this.gdp = parseFloat(gdp);
@@ -172,7 +172,7 @@ class GDGDPRatio{
     constructor(governmentDebt, gdp) {
         /*@Desc: 
         * - Receive values passed into new Class instance
-        * - Parss values into integers to be used in formula
+        * - Parse values into integers to be used in formula
         */
         this.governmentDebt = parseFloat(governmentDebt);
         this.gdp = parseFloat(gdp);
@@ -199,7 +199,7 @@ class RealGDPQuaterlyGrowthRateFormula {
     constructor(gdpQ1, gdpQ2) {
         /*@Desc: 
         * - Receive values passed into new Class instance
-        * - Parss values into integers to be used in formula
+        * - Parse values into integers to be used in formula
         */
         this.gdpQ1 = parseFloat(gdpQ1);
         this.gdpQ2 = parseFloat(gdpQ2);
@@ -226,7 +226,7 @@ class RealGDPAnnualGrowthRateFormula {
     constructor(gdpPreviousYear, gdpCurrentYear) {
         /*@Desc: 
         * - Receive values passed into new Class instance
-        * - Parss values into integers to be used in formula
+        * - Parse values into integers to be used in formula
         */
         this.gdpPreviousYear = parseFloat(gdpPreviousYear);
         this.gdpCurrentYear = parseFloat(gdpCurrentYear);
@@ -253,7 +253,7 @@ class GDPDeflatorFormula {
     constructor(nominalGDP, realGDP) {
         /*@Desc: 
         * - Receive values passed into new Class instance
-        * - Parss values into integers to be used in formula
+        * - Parse values into integers to be used in formula
         */
         this.nominalGDP = parseFloat(nominalGDP);
         this.realGDP = parseFloat(realGDP);
@@ -280,7 +280,7 @@ class RealGDPFormula {
     constructor(nominalGDP, gdpDeflator) {
         /*@Desc: 
         * - Receive values passed into new Class instance
-        * - Parss values into integers to be used in formula
+        * - Parse values into integers to be used in formula
         */
         this.nominalGDP = parseFloat(nominalGDP);
         this.gdpDeflator = parseFloat(gdpDeflator);
@@ -307,7 +307,7 @@ class InflationRateFormula {
     constructor(pastConsumerPriceIndex, currentConsumerPriceIndex) {
         /*@Desc: 
         * - Receive values passed into new Class instance
-        * - Parss values into integers to be used in formula
+        * - Parse values into integers to be used in formula
         */
         this.pastConsumerPriceIndex = parseFloat(pastConsumerPriceIndex);
         this.currentConsumerPriceIndex = parseFloat(currentConsumerPriceIndex);
@@ -334,7 +334,7 @@ class InterestRateFormula {
     constructor(simpleInterest, principalAmount, timePeriod) {
         /*@Desc: 
         * - Receive values passed into new Class instance
-        * - Parss values into integers to be used in formula
+        * - Parse values into integers to be used in formula
         */
         this.simpleInterest = parseFloat(simpleInterest);
         this.principalAmount = parseFloat(principalAmount);
@@ -363,7 +363,7 @@ class CompoundInterestRateFormula {
     constructor(principalAmount, rateOfInterest, timePeriod, compoundInterest){
         /*@Desc: 
         * - Receive values passed into new Class instance
-        * - Parss values into integers to be used in formula
+        * - Parse values into integers to be used in formula
         */
         this.principalAmount = parseFloat(principalAmount);
         this.rateOfInterest = parseFloat(rateOfInterest);
@@ -392,7 +392,7 @@ class UnemploymentRateFormula {
     constructor(numberOfUnemployedPeople, labourForce) {
         /*@Desc: 
         * - Receive values passed into new Class instance
-        * - Parss values into integers to be used in formula
+        * - Parse values into integers to be used in formula
         */
         this.numberOfUnemployedPeople = parseFloat(numberOfUnemployedPeople);
         this.labourForce = parseFloat(labourForce);
@@ -419,7 +419,7 @@ class NetExportsFormula {
     constructor(valueOfExports, valueOfImports) {
         /*@Desc: 
         * - Receive values passed into new Class instance
-        * - Parss values into integers to be used in formula
+        * - Parse values into integers to be used in formula
         */
         this.valueOfExports = parseFloat(valueOfExports);
         this.valueOfImports = parseFloat(valueOfImports);
