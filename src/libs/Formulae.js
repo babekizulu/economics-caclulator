@@ -5,7 +5,7 @@
 */
 
 //Nominal Gross Domestic Product using the Expenditure Approach
-class GDPExpApproach {
+class GDPExpApproachFormula {
     constructor(
         consumption,
         investment,
@@ -31,13 +31,18 @@ class GDPExpApproach {
         const nx = this.netExports;
         //gdp expenditure approach formula
         const gdp = c + i + g + nx;
-        return gdp;
+        //Check if the answer is a number
+        if (isNaN(gdp)) {
+            return 'Sorry, this operation is invalid!';
+        } else {
+            return gdp;
+        };
     };
 };
 
 
 //Nominal Gross Domestic Product using the Income Approach
-class GDPIncomeApproach {
+class GDPIncomeApproachFormula {
     constructor(
     totalNationalIncome,
     salesTaxes,
@@ -63,7 +68,12 @@ class GDPIncomeApproach {
         const f = this.netForeignFactorIncome;
         //gdp income approach formula
         const gdp = tni + t + d + f;
-        return gdp;
+        //Check if the answer is a number
+        if (isNaN(gdp)) {
+            return 'Sorry, this operation is invalid!';
+        } else {
+            return gdp;
+        };
     };
 };
 
@@ -85,7 +95,12 @@ class BalanceOfTradeFormula {
         const vi = this.valueOfImports;
         //solve using balance of trade formula
         const bot = ve - vi;
-        return bot;
+        //Check if the answer is a number
+        if (isNaN(bot)) {
+            return 'Sorry, this operation is invalid!';
+        } else {
+            return bot;
+        };
     };
 };
 
@@ -116,9 +131,14 @@ class CurrentAccountFormula{
         const nct = this.netTransferPayments;
         //solve using current account formula
         const currentAccount = (x-m) + ny + nct;
-        return currentAccount;
+        //Check if the answer is a number
+        if (isNaN(currentAccount)) {
+            return 'Sorry, this operation is invalid!';
+        } else {
+            return currentAccount;
+        };
     };
-}
+};
 
 //Current Account to GDP Ratio
 class CAGDPRatio {
@@ -137,9 +157,15 @@ class CAGDPRatio {
         const ca = this.currentAccount;
         const gdp = this.gdp;
         //solve by getting ratio of current account to gdp
-        return ca/gdp * 100;
+        const ratio =  ca/gdp * 100;
+        //Check if the answer is a number
+        if (isNaN(ratio)) {
+            return 'Sorry, this operation is invalid!';
+        } else {
+            return ratio;
+        };
     };
-}
+};
 
 //Government Debt to GDP Ratio
 class GDGDPRatio{
@@ -158,9 +184,15 @@ class GDGDPRatio{
         const gd = this.governmentDebt;
         const gdp = this.gdp;
         //solve by getting ratio of government debt to gdp
-        return gd/gdp * 100;
+        const ratio =  gd/gdp * 100;
+        //Check if the answer is a number
+        if (isNaN(ratio)) {
+            return 'Sorry, this operation is invalid!';
+        } else {
+            return ratio;
+        };
     };
-}
+};
 
 //Real GDP Quaterly Growth Rate
 class RealGDPQuaterlyGrowthRateFormula {
@@ -171,7 +203,7 @@ class RealGDPQuaterlyGrowthRateFormula {
         */
         this.gdpQ1 = parseFloat(gdpQ1);
         this.gdpQ2 = parseFloat(gdpQ2);
-    }
+    };
 
     solve() {
         //@Desc: Store variables to use in formula
@@ -180,9 +212,14 @@ class RealGDPQuaterlyGrowthRateFormula {
         const q2 = this.gdpQ2;
         //solve using growth rate formula
         const growth = (q2 - q1)/q1;
-        return growth;
-    }
-}
+        //Check if the answer is a number
+        if (isNaN(growth)) {
+            return 'Sorry, this operation is invalid!';
+        } else {
+            return growth;
+        };
+    };
+};
 
 //Real GDP Annual Growth Rate
 class RealGDPAnnualGrowthRateFormula {
@@ -193,7 +230,7 @@ class RealGDPAnnualGrowthRateFormula {
         */
         this.gdpPreviousYear = parseFloat(gdpPreviousYear);
         this.gdpCurrentYear = parseFloat(gdpCurrentYear);
-    }
+    };
 
     solve() {
         //@Desc: Store variables to use in formula
@@ -202,9 +239,14 @@ class RealGDPAnnualGrowthRateFormula {
         const y2 = this.gdpCurrentYear;
         //solve using the growth rate formula
         const growth = (y2-y1)/y1;
-        return growth;
-    }
-}
+        //Check if the answer is a number
+        if (isNaN(growth)) {
+            return 'Sorry, this operation is invalid!';
+        } else {
+            return growth;
+        };
+    };
+};
 
 //GDP Deflator
 class GDPDeflatorFormula {
@@ -215,7 +257,7 @@ class GDPDeflatorFormula {
         */
         this.nominalGDP = parseFloat(nominalGDP);
         this.realGDP = parseFloat(realGDP);
-    }
+    };
 
     solve() {
         //@Desc: Store variables to use in formula
@@ -224,9 +266,14 @@ class GDPDeflatorFormula {
         const r = this.realGDP;
         //solve using gdp deflator formula
         const deflator = (n/r)*100;
-        return deflator;
-    }
-}
+        //Check if the answer is a number
+        if (isNaN(deflator)) {
+            return 'Sorry, this operation is invalid!';
+        } else {
+            return deflator;
+        };
+    };
+};
 
 //Real GDP
 class RealGDPFormula {
@@ -237,7 +284,7 @@ class RealGDPFormula {
         */
         this.nominalGDP = parseFloat(nominalGDP);
         this.gdpDeflator = parseFloat(gdpDeflator);
-    }
+    };
 
     solve() {
         //@Desc: Store variables to use in formula
@@ -246,9 +293,14 @@ class RealGDPFormula {
         const d = this.gdpDeflator;
         //solve using the real gdp formula
         const gdp = n/d;
-        return gdp;
-    }
-}
+        //Check if the answer is a number
+        if (isNaN(gdp)) {
+            return 'Sorry, this operation is invalid!';
+        } else {
+            return gdp;
+        };
+    };
+};
 
 //Inflation Rate
 class InflationRateFormula {
@@ -259,7 +311,7 @@ class InflationRateFormula {
         */
         this.pastConsumerPriceIndex = parseFloat(pastConsumerPriceIndex);
         this.currentConsumerPriceIndex = parseFloat(currentConsumerPriceIndex);
-    }
+    };
 
     solve() {
         //@Desc: Store variables to use in formula
@@ -268,9 +320,14 @@ class InflationRateFormula {
         const b = this.currentConsumerPriceIndex;
         //solve using inflation rate formula
         const inflationRate = ((b-a)/a)*100;
-        return inflationRate;
-    }
-}
+        //Check if the answer is a number
+        if (isNaN(inflationRate)) {
+            return 'Sorry, this operation is invalid!';
+        } else {
+            return inflationRate;
+        };
+    };
+};
 
 //Simple Interest Rate
 class InterestRateFormula {
@@ -282,7 +339,7 @@ class InterestRateFormula {
         this.simpleInterest = parseFloat(simpleInterest);
         this.principalAmount = parseFloat(principalAmount);
         this.timePeriod = parseFloat(timePeriod);
-    }
+    };
 
     solve() {
         //@Desc: Store variables to use in formula
@@ -292,9 +349,14 @@ class InterestRateFormula {
         const t = this.timePeriod;
         //solve using interest rate formula
         const interestRate = (si * 100)/(p * t);
-        return interestRate;
-    }
-}
+        //Check if the answer is a number
+        if (isNaN(interestRate)) {
+            return 'Sorry, this operation is invalid!';
+        } else {
+            return interestRate;
+        };
+    };
+};
 
 //Compound Interest Rate
 class CompoundInterestRateFormula {
@@ -307,7 +369,7 @@ class CompoundInterestRateFormula {
         this.rateOfInterest = parseFloat(rateOfInterest);
         this.timePeriod = parseFloat(timePeriod);
         this.compoundInterest = parseFloat(compoundInterest);
-    }
+    };
 
     solve() {
         //@Desc: Store variables to use in formula
@@ -316,9 +378,14 @@ class CompoundInterestRateFormula {
         const r = this.rateOfInterest;
         const t = this.timePeriod;
         const ci = (p(1+(r/100))**t)-p;
-        return ci;
-    }
-}
+        //Check if the answer is a number
+        if (isNaN(ci)) {
+            return 'Sorry, this operation is invalid!';
+        } else {
+            return ci;
+        };
+    };
+};
 
 //Unemployment Rate
 class UnemploymentRateFormula {
@@ -329,7 +396,7 @@ class UnemploymentRateFormula {
         */
         this.numberOfUnemployedPeople = parseFloat(numberOfUnemployedPeople);
         this.labourForce = parseFloat(labourForce);
-    }
+    };
 
     solve() {
         //@Desc: Store variables to use in formula
@@ -338,9 +405,14 @@ class UnemploymentRateFormula {
         const l = this.labourForce;
         //solve using unemployment rate formula
         const unemploymentRate = (up/l) * 100;
-        return unemploymentRate;
-    }
-}
+        //Check if the answer is a number
+        if (isNaN(unemploymentRate)) {
+            return 'Sorry, this operation is invalid!';
+        } else {
+            return unemploymentRate;
+        };
+    };
+};
 
 //Net Exports
 class NetExportsFormula {
@@ -351,7 +423,7 @@ class NetExportsFormula {
         */
         this.valueOfExports = parseFloat(valueOfExports);
         this.valueOfImports = parseFloat(valueOfImports);
-    }
+    };
 
     solve() {
         //@Desc: Store variables to use in formula
@@ -360,9 +432,14 @@ class NetExportsFormula {
         const i = this.valueOfImports;
         //solve using net exports formula
         const nx = e-i;
-        return nx;
-    }
-}
+        //Check if the answer is a number
+        if (isNaN(nx)) {
+            return 'Sorry, this operation is invalid!';
+        } else {
+            return nx;
+        };
+    };
+};
 
 //Depreciation
 // 1. Straight-Line Depreciation Formula
@@ -379,7 +456,7 @@ class StraightLineDepreciationFormula {
         this.cost = parseFloat(cost);
         this.salvageValue = parseFloat(salvageValue);
         this.assetLifespan = parseFloat(assetLifespan);
-  }
+  };
 
   solve() {
         //@Desc: Store variables to use in formula
@@ -389,9 +466,14 @@ class StraightLineDepreciationFormula {
         const ls = this.assetLifespan;
         //solve using straight-line depreciation formula
         const depreciation = (c-sv)/ls;
-        return depreciation;
-  }
-}
+        //Check if the answer is a number
+        if (isNaN(depreciation)) {
+            return 'Sorry, this operation is invalid!';
+        } else {
+            return depreciation;
+        };
+    };
+};
 
 class DoubleDecliningBalanceDepreciationFormula {
     constructor(startingBookValue, assetLifespan) {
@@ -401,7 +483,7 @@ class DoubleDecliningBalanceDepreciationFormula {
         */
         this.startingBookValue = parseFloat(startingBookValue);
         this.assetLifespan = parseFloat(assetLifespan);
-    }
+    };
 
     solve() {
         //@Desc: Store variables to use in formula
@@ -414,9 +496,14 @@ class DoubleDecliningBalanceDepreciationFormula {
         const rd = ((1/1)/ls)*2;
         //solve using double declining balance depreciation formula
         const periodicDepreciation = sbv * rd;
-        return periodicDepreciation;
-    }
-}
+        //Check if the answer is a number
+        if (isNaN(periodicDepreciation)) {
+            return 'Sorry, this operation is invalid!';
+        } else {
+            return periodicDepreciation;
+        };
+    };
+};
 
 class UnitsOfProductionDepreciationFormula {
     constructor(numOfUnitsProduced, lifespanUnits, cost, salvageValue) {
@@ -428,7 +515,7 @@ class UnitsOfProductionDepreciationFormula {
         this.lifespanUnits = parseFloat(lifespanUnits);
         this.cost = parseFloat(cost);
         this.salvageValue = parseFloat(salvageValue);
-    }
+    };
 
     solve() {
         //@Desc: Store variables to use in formula
@@ -439,9 +526,14 @@ class UnitsOfProductionDepreciationFormula {
         const sv = this.salvageValue;
         //solve using units of production depreciation formula
         const depreciation = (p/l)*(c-sv);
-        return depreciation;
-    }
-}
+        //Check if the answer is a number
+        if (isNaN(depreciation)) {
+            return 'Sorry, this operation is invalid!';
+        } else {
+            return depreciation;
+        };
+    };
+};
 
 class SumOfYearsDigitsDepreciation {
     constructor(remainingLife, sumOfYearsDigits, cost, salvageValue){
@@ -453,7 +545,7 @@ class SumOfYearsDigitsDepreciation {
         this.sumOfYearsDigits = parseFloat(sumOfYearsDigits);
         this.cost = parseFloat(cost);
         this.salvageValue = parseFloat(salvageValue);
-    }
+    };
 
     solve() {
         //@Desc: Store variables to use in formula
@@ -464,9 +556,14 @@ class SumOfYearsDigitsDepreciation {
         const sv = this.salvageValue;
         //solve using sum of years digits depreciation formula
         const depreciation = (rl/syd)*(c-sv);
-        return depreciation;
-    }
-}
+        //Check if the answer is a number
+        if (isNaN(depreciation)) {
+            return 'Sorry, this operation is invalid!';
+        } else {
+            return depreciation;
+        };
+    };
+};
 
 //Net Foreign Factor Income
 
@@ -478,7 +575,7 @@ class NetForeignFactorIncomeFormula {
         */
         this.GNP = parseFloat(GNP);
         this.GDP = parseFloat(GDP);
-    }
+    };
 
     solve() {
         //@Desc: Store variables to use in formula
@@ -487,13 +584,18 @@ class NetForeignFactorIncomeFormula {
         const GDP = this.GDP;
         //solve using net foreign factor income formula
         const nffi = GNP-GDP;
-        return nffi;
-    }
-}
+        //Check if the answer is a number
+        if (isNaN(nffi)) {
+            return 'Sorry, this operation is invalid!';
+        } else {
+            return nffi;
+        };
+    };
+};
 
 export {
-    GDPExpApproach, 
-    GDPIncomeApproach, 
+    GDPExpApproachFormula, 
+    GDPIncomeApproachFormula, 
     BalanceOfTradeFormula, 
     CurrentAccountFormula, 
     CAGDPRatio, 

@@ -1,15 +1,14 @@
 import React from "react";
 //components
-import DDBDepreciation from './DDBDepreciation';
-import SLDepreciation from './SLDepreciation';
-import SYDDepreciation from './SYDDepreciation';
-import UPDepreciation from './UPDepreciation';
 import Link from '../Link';
-import Route from '../Route';
+import CalcName from '../CalcName';
+import BackBtn from "../BackBtn";
 
 const Depreciation = () => {
     return (
         <div className='depreciation-calculator-container'>
+            <CalcName calculatorName='Depreciation Calculator Set'/>
+            <BackBtn prevDir='/'/>
             <Link 
             href='/depreciation/double-declining-balance'
             className='double-declining-balance-calculator icon'
@@ -34,18 +33,6 @@ const Depreciation = () => {
             >
                 Units of Production Depreciation Calculator
             </Link>
-            <Route path='/depreciation/double-declining-balance'>
-                <DDBDepreciation/>
-            </Route>
-            <Route path='/depreciation/straight-line'>
-                <SLDepreciation/>
-            </Route>
-            <Route path='/depreciation/sum-of-the-years'>
-                <SYDDepreciation/>
-            </Route>
-            <Route path='/depreciation/units-of-production'>
-                <UPDepreciation/>
-            </Route>
         </div>
     );
 };

@@ -2,8 +2,11 @@
 import {React, useState} from "react";
 import {BalanceOfTradeFormula} from '../../libs/Formulae';
 //components
+import CalcName from "../CalcName";
+import BackBtn from "../BackBtn";
 import InputDisplay from "../InputDisplay";
 import CalcBtn from "../CalcBtn";
+import SolutionName from "../SolutionName";
 import SolutionDisplay from "../SolutionDisplay";
 
 const BalanceOfTrade = () => {
@@ -11,12 +14,17 @@ const BalanceOfTrade = () => {
     const [importsValue, setImportsValue] = useState(0);
     const [solution, setSolution] = useState(0);
 
-    const onChangeHandler = (variableName, e) => {
-        if (variableName === 'exportsValue') {
-            setExportsValue(e.target.value);
+    //solution name
+    const vname1 = 'Value of Exports';
+    const vname2 = 'Value of Imports';
+    const solname = 'Balance of Trade';
+
+    const onChangeHandler = (variableName, value) => {
+        if (variableName === vname1) {
+            setExportsValue(value);
         }
-        else if (variableName === 'importsValue') {
-            setImportsValue(e.target.value);
+        else if (variableName === vname2) {
+            setImportsValue(value);
         }
     }
 
@@ -26,18 +34,22 @@ const BalanceOfTrade = () => {
     }
     
     return (
-        <div className="calculator">
+        <div className="bot-calculator-container">
+            <CalcName calculatorName='Balance of Trade Calculator'/>
+            <BackBtn prevDir='/'/>
             <InputDisplay 
-            variableName='exportsValue' 
+            variableName={vname1}
             onChangeHandler={onChangeHandler}
             inputState={exportsValue}
             />
             <InputDisplay
-            variableName='importsValue'
+            variableName={vname2}
             onChangeHandler={onChangeHandler}
             inputState={importsValue}
             />
             <CalcBtn calculateHandler={calculateHandler}/>
+            <SolutionName/>
+            <SolutionName solutionName={solname}/>
             <SolutionDisplay solution={solution}/>
         </div>
     );

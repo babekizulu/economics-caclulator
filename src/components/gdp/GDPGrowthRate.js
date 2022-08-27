@@ -1,12 +1,12 @@
 //libraries
 import React from "react";
 //components
-import InputDisplay from "../InputDisplay";
+import Link from '../Link';
 
 const GDPGrowthRate = () => {
     return (
         <div className="calculator">
-            <InputDisplay/>
+            
         </div>
     );
 };

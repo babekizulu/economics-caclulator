@@ -1,21 +1,17 @@
 //libraries
 import React from "react";
 //components
-import GDPExpApproach from "./GDPExpApproach";
-import GDPIncomeApproach from "./GDPIncomeApproach";
-import GDPDeflator from './GDPDeflator';
-import GDPGrowthRate from './GDPGrowthRate';
-import NetExports from './NetExports';
-import RealGDP from './RealGDP';
-import RealGDPQGRate from './RealGDPQGRate';
-import RealGDPAGRate from "./RealGDPAGRate";
-import Route from "../Route";
 import Link from "../Link";
+import CalcName from '../CalcName';
+import BackBtn from '../BackBtn';
 
 
 const GDP = () => {
+    const calcName = 'Gross Domestic Product Calculator Set';
     return (
         <div className="gdp-calculator-container">
+            <CalcName calculatorName={calcName}/>
+            <BackBtn prevDir='/'/>
             <Link 
             href='/gdp/expenditure-approach'
             className='expenditure-approach-calculator icon'
@@ -64,30 +60,6 @@ const GDP = () => {
             >
                 Real GDP Annual Growth Rate Calculator
             </Link>
-            <Route path='/gdp/expenditure-approach'>
-                <GDPExpApproach/>
-            </Route>
-            <Route path='/gdp/income-approach'>
-                <GDPIncomeApproach/>
-            </Route>
-            <Route path='/gdp/deflator'>
-                <GDPDeflator/>
-            </Route>
-            <Route path='/gdp/growth-rate'>
-                <GDPGrowthRate/>
-            </Route>
-            <Route path='/gdp/net-exports'>
-                <NetExports/>
-            </Route>
-            <Route path='/gdp/real-gdp'>
-                <RealGDP/>
-            </Route>
-            <Route path='/gdp/real-gdp-quarterly-growth-rate'>
-                <RealGDPQGRate/>
-            </Route>
-            <Route path='/gdp/real-gdp-annual-growth-rate'>
-                <RealGDPAGRate/>
-            </Route>
         </div>
     );
 };
