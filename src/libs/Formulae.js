@@ -17,7 +17,8 @@ class GDPExpApproachFormula {
         consumption,
         investment,
         governmentExpenditure,
-        netExports
+        netExports,
+        unitOfMeasurement
     ) {
         /*@Desc: 
         * - Receive values passed into new Class instance
@@ -27,6 +28,7 @@ class GDPExpApproachFormula {
         this.investment = parseFloat(investment);
         this.governmentExpenditure = parseFloat(governmentExpenditure);
         this.netExports = parseFloat(netExports);
+        this.unitOfMeasurement = unitOfMeasurement;
     };
 
     solve() {
@@ -36,13 +38,15 @@ class GDPExpApproachFormula {
         const i = this.investment;
         const g = this.governmentExpenditure;
         const nx = this.netExports;
+        //unit of measurement
+        const UM = this.unitOfMeasurement;
         //gdp expenditure approach formula
         const gdp = (c + i + g + nx).toFixed(2);
         //Check if the answer is a number
         if (isNaN(gdp)) {
             return 'Sorry, this operation is invalid!';
         } else {
-            return gdp;
+            return `${UM}${gdp}`;
         };
     };
 };
@@ -54,7 +58,8 @@ class GDPIncomeApproachFormula {
     totalNationalIncome,
     salesTaxes,
     depreciation,
-    netForeignFactorIncome
+    netForeignFactorIncome,
+    unitOfMeasurement
     ) {
         /*@Desc: 
         * - Receive values passed into new Class instance
@@ -64,6 +69,7 @@ class GDPIncomeApproachFormula {
         this.salesTaxes = parseFloat(salesTaxes);
         this.depreciation = parseFloat(depreciation);
         this.netForeignFactorIncome = parseFloat(netForeignFactorIncome);
+        this.unitOfMeasurement = unitOfMeasurement;
     };
 
     solve() {
@@ -73,26 +79,29 @@ class GDPIncomeApproachFormula {
         const t = this.salesTaxes;
         const d = this.depreciation;
         const f = this.netForeignFactorIncome;
+        //unit of measurement
+        const UM = this.unitOfMeasurement;
         //gdp income approach formula
         const gdp = (tni + t + d + f).toFixed(2);
         //Check if the answer is a number
         if (isNaN(gdp)) {
             return 'Sorry, this operation is invalid!';
         } else {
-            return gdp;
+            return `${UM}${gdp}`;
         };
     };
 };
 
 //Balance of Trade
 class BalanceOfTradeFormula {
-    constructor(valueOfExports, valueOfImports) {
+    constructor(valueOfExports, valueOfImports, unitOfMeasurement) {
         /*@Desc: 
         * - Receive values passed into new Class instance
         * - Parse values into integers to be used in formula
         */
         this.valueOfExports = parseFloat(valueOfExports);
         this.valueOfImports = parseFloat(valueOfImports);
+        this.unitOfMeasurement = unitOfMeasurement;
     };
 
     solve() {
@@ -100,13 +109,15 @@ class BalanceOfTradeFormula {
         //@variables: value of exports, value of imports
         const ve = this.valueOfExports;
         const vi = this.valueOfImports;
+        //unit of measurement
+        const UM = this.unitOfMeasurement;
         //solve using balance of trade formula
         const bot = (ve - vi).toFixed(2);
         //Check if the answer is a number
         if (isNaN(bot)) {
             return 'Sorry, this operation is invalid!';
         } else {
-            return bot;
+            return `${UM}${bot}`;
         };
     };
 };
@@ -117,7 +128,8 @@ class CurrentAccountFormula{
         exportOfGoodsAndServices,
         importOfGoodsAndServices,
         netEarningsFromAbroad,
-        netTransferPayments
+        netTransferPayments,
+        unitOfMeasurement
     ) {
         /*@Desc: 
         * - Receive values passed into new Class instance
@@ -127,6 +139,7 @@ class CurrentAccountFormula{
         this.importOfGoodsAndServices = parseFloat(importOfGoodsAndServices);
         this.netEarningsFromAbroad = parseFloat(netEarningsFromAbroad);
         this.netTransferPayments = parseFloat(netTransferPayments);
+        this.unitOfMeasurement = unitOfMeasurement;
     };
 
     solve() {
@@ -136,26 +149,29 @@ class CurrentAccountFormula{
         const m = this.importOfGoodsAndServices;
         const ny = this.netEarningsFromAbroad;
         const nct = this.netTransferPayments;
+        //unit of measurement
+        const UM = this.unitOfMeasurement;
         //solve using current account formula
         const currentAccount = ((x-m) + ny + nct).toFixed(2);
         //Check if the answer is a number
         if (isNaN(currentAccount)) {
             return 'Sorry, this operation is invalid!';
         } else {
-            return currentAccount;
+            return `${UM}${currentAccount}`;
         };
     };
 };
 
 //Current Account to GDP Ratio
 class CAGDPRatio {
-    constructor(currentAccount, gdp) {
+    constructor(currentAccount, gdp, unitOfMeasurement) {
         /*@Desc: 
         * - Receive values passed into new Class instance
         * - Parse values into integers to be used in formula
         */
         this.currentAccount = parseFloat(currentAccount);
         this.gdp = parseFloat(gdp);
+        this.unitOfMeasurement = unitOfMeasurement;
     };
 
     solve() {
@@ -163,26 +179,29 @@ class CAGDPRatio {
         //variables: current account, gross domestic product
         const ca = this.currentAccount;
         const gdp = this.gdp;
+        //unit of measurement
+        const UM = this.unitOfMeasurement;
         //solve by getting ratio of current account to gdp
         const ratio =  (ca/gdp * 100).toFixed(2);
         //Check if the answer is a number
         if (isNaN(ratio)) {
             return 'Sorry, this operation is invalid!';
         } else {
-            return ratio;
+            return `${ratio}${UM}`;
         };
     };
 };
 
 //Government Debt to GDP Ratio
 class GDGDPRatio{
-    constructor(governmentDebt, gdp) {
+    constructor(governmentDebt, gdp, unitOfMeasurement) {
         /*@Desc: 
         * - Receive values passed into new Class instance
         * - Parse values into integers to be used in formula
         */
         this.governmentDebt = parseFloat(governmentDebt);
         this.gdp = parseFloat(gdp);
+        this.unitOfMeasurement = unitOfMeasurement;
     };
 
     solve() {
@@ -190,26 +209,29 @@ class GDGDPRatio{
         //@variables: government debt, gross domestic product
         const gd = this.governmentDebt;
         const gdp = this.gdp;
+        //unit of measurement
+        const UM = this.unitOfMeasurement;
         //solve by getting ratio of government debt to gdp
         const ratio =  (gd/gdp * 100).toFixed(2);
         //Check if the answer is a number
         if (isNaN(ratio)) {
             return 'Sorry, this operation is invalid!';
         } else {
-            return ratio;
+            return `${ratio}${UM}`;
         };
     };
 };
 
 //Real GDP Quaterly Growth Rate
 class RealGDPQuaterlyGrowthRateFormula {
-    constructor(gdpQ1, gdpQ2) {
+    constructor(gdpQ1, gdpQ2, unitOfMeasurement) {
         /*@Desc: 
         * - Receive values passed into new Class instance
         * - Parse values into integers to be used in formula
         */
         this.gdpQ1 = parseFloat(gdpQ1);
         this.gdpQ2 = parseFloat(gdpQ2);
+        this.unitOfMeasurement = unitOfMeasurement;
     };
 
     solve() {
@@ -217,6 +239,8 @@ class RealGDPQuaterlyGrowthRateFormula {
         //@variables: prior quarter gdp, recent/current quarter gdp
         const q1 = this.gdpQ1;
         const q2 = this.gdpQ2;
+        //unit of measurement
+        const UM = this.uni
         //solve using growth rate formula
         const growth = ((q2 - q1)/q1).toFixed(2);
         //Check if the answer is a number
