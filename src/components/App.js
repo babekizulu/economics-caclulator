@@ -1,3 +1,9 @@
+/*
+* @Author: Lwandle Babekizulu Dlamini
+* @Desc: Main App file for Econmics Calculator
+* @TODO: Add clear button to all calculators
+* @Date: 2022/08/28
+*/
 //libraries
 import React from "react";
 //components
@@ -31,6 +37,9 @@ import RealGDPAGRate from "./gdp/growth_rate/RealGDPAGRate";
 //interest calcs
 import InterestRate from './interest/InterestRate';
 import CompoundInterestRate from './interest/CompoundInterestRate';
+//ratio calcs 
+import CurrentAccGDPRatio from './ratios/CurrentAccGDPRatio';
+import GovDebtGDPRatio from './ratios/GovDebtGDPRatio';
 
 
 const App = () => {
@@ -108,6 +117,12 @@ const App = () => {
             </Route>
             <Route path='/interest/compound-interest-rate'>
                 <CompoundInterestRate/>
+            </Route>
+            <Route path='/ratios/current-account-to-gdp'>
+                <CurrentAccGDPRatio/>
+            </Route>
+            <Route path='/ratios/government-debt-to-gdp'>
+                <GovDebtGDPRatio/>
             </Route>
         </div>
     );

@@ -1,13 +1,14 @@
 import React from "react";
 //components
-import CurrentAccGDPRatio from './CurrentAccGDPRatio';
-import GovDebtGDPRatio from './GovDebtGDPRatio';
 import Link from '../Link';
-import Route from '../Route';
+import CalcName from '../CalcName';
+import BackBtn from '../BackBtn';
 
 const Ratios = () => {
     return (
         <div className="ratio-calculators-container">
+            <CalcName calculatorName='Ratio Calculator Set'/>
+            <BackBtn prevDir='/'/>
             <Link 
             href='/ratios/current-account-to-gdp'
             className='cagdp-ratio-calculator icon'
@@ -20,12 +21,6 @@ const Ratios = () => {
             >
                 Government Debt to GDP Ratio Calculator
             </Link>
-            <Route path='/ratios/current-account-to-gdp'>
-                <CurrentAccGDPRatio/>
-            </Route>
-            <Route path='/ratios/government-debt-to-gdp'>
-                <GovDebtGDPRatio/>
-            </Route>
         </div>
     );
 };
