@@ -240,27 +240,28 @@ class RealGDPQuaterlyGrowthRateFormula {
         const q1 = this.gdpQ1;
         const q2 = this.gdpQ2;
         //unit of measurement
-        const UM = this.uni
+        const UM = this.unitOfMeasurement;
         //solve using growth rate formula
         const growth = ((q2 - q1)/q1).toFixed(2);
         //Check if the answer is a number
         if (isNaN(growth)) {
             return 'Sorry, this operation is invalid!';
         } else {
-            return growth;
+            return `${growth}${UM}`;
         };
     };
 };
 
 //Real GDP Annual Growth Rate
 class RealGDPAnnualGrowthRateFormula {
-    constructor(gdpPreviousYear, gdpCurrentYear) {
+    constructor(gdpPreviousYear, gdpCurrentYear, unitOfMeasurement) {
         /*@Desc: 
         * - Receive values passed into new Class instance
         * - Parse values into integers to be used in formula
         */
         this.gdpPreviousYear = parseFloat(gdpPreviousYear);
         this.gdpCurrentYear = parseFloat(gdpCurrentYear);
+        this.unitOfMeasurement = unitOfMeasurement;
     };
 
     solve() {
@@ -268,13 +269,15 @@ class RealGDPAnnualGrowthRateFormula {
         //@variables: prior year gdp, recent/current year gdp
         const y1 = this.gdpPreviousYear;
         const y2 = this.gdpCurrentYear;
+        //unit of measurement
+        const UM = this.unitOfMeasurement;
         //solve using the growth rate formula
         const growth = ((y2-y1)/y1).toFixed(2);
         //Check if the answer is a number
         if (isNaN(growth)) {
             return 'Sorry, this operation is invalid!';
         } else {
-            return growth;
+            return `${growth}${UM}`;
         };
     };
 };
@@ -308,13 +311,14 @@ class GDPDeflatorFormula {
 
 //Real GDP
 class RealGDPFormula {
-    constructor(nominalGDP, gdpDeflator) {
+    constructor(nominalGDP, gdpDeflator, unitOfMeasurement) {
         /*@Desc: 
         * - Receive values passed into new Class instance
         * - Parse values into integers to be used in formula
         */
         this.nominalGDP = parseFloat(nominalGDP);
         this.gdpDeflator = parseFloat(gdpDeflator);
+        this.unitOfMeasurement = unitOfMeasurement;
     };
 
     solve() {
@@ -322,26 +326,29 @@ class RealGDPFormula {
         //@variables: nominal gross domestic product, gross domestic product deflator
         const n = this.nominalGDP;
         const d = this.gdpDeflator;
+        //unit of measurement
+        const UM = this.unitOfMeasurement;
         //solve using the real gdp formula
         const gdp = (n/d).toFixed();
         //Check if the answer is a number
         if (isNaN(gdp)) {
             return 'Sorry, this operation is invalid!';
         } else {
-            return gdp;
+            return `${UM}${gdp}`;
         };
     };
 };
 
 //Inflation Rate
 class InflationRateFormula {
-    constructor(pastConsumerPriceIndex, currentConsumerPriceIndex) {
+    constructor(pastConsumerPriceIndex, currentConsumerPriceIndex, unitOfMeasurement) {
         /*@Desc: 
         * - Receive values passed into new Class instance
         * - Parse values into integers to be used in formula
         */
         this.pastConsumerPriceIndex = parseFloat(pastConsumerPriceIndex);
         this.currentConsumerPriceIndex = parseFloat(currentConsumerPriceIndex);
+        this.unitOfMeasurement = unitOfMeasurement;
     };
 
     solve() {
@@ -349,20 +356,22 @@ class InflationRateFormula {
         //@variables: past consumer price index, current consumer price index
         const a = this.pastConsumerPriceIndex;
         const b = this.currentConsumerPriceIndex;
+        //unit of measurement
+        const UM = this.unitOfMeasurement;
         //solve using inflation rate formula
         const inflationRate = (((b-a)/a)*100).toFixed(2);
         //Check if the answer is a number
         if (isNaN(inflationRate)) {
             return 'Sorry, this operation is invalid!';
         } else {
-            return inflationRate;
+            return `${inflationRate}${UM}`;
         };
     };
 };
 
 //Simple Interest Rate
 class InterestRateFormula {
-    constructor(simpleInterest, principalAmount, timePeriod) {
+    constructor(simpleInterest, principalAmount, timePeriod, unitOfMeasurement) {
         /*@Desc: 
         * - Receive values passed into new Class instance
         * - Parse values into integers to be used in formula
@@ -370,6 +379,7 @@ class InterestRateFormula {
         this.simpleInterest = parseFloat(simpleInterest);
         this.principalAmount = parseFloat(principalAmount);
         this.timePeriod = parseFloat(timePeriod);
+        this.unitOfMeasurement = unitOfMeasurement;
     };
 
     solve() {
@@ -378,20 +388,22 @@ class InterestRateFormula {
         const si = this.simpleInterest;
         const p = this.principalAmount;
         const t = this.timePeriod;
+        //unit of measurement
+        const UM = this.unitOfMeasurement;
         //solve using interest rate formula
         const interestRate = ((si * 100)/(p * t)).toFixed(2);
         //Check if the answer is a number
         if (isNaN(interestRate)) {
             return 'Sorry, this operation is invalid!';
         } else {
-            return `${interestRate}%`;
+            return `${interestRate}${UM}`;
         };
     };
 };
 
 //Compound Interest Rate
 class CompoundInterestRateFormula {
-    constructor(principalAmount, rateOfInterest, nTimesCompounded, timePeriod){
+    constructor(principalAmount, rateOfInterest, nTimesCompounded, timePeriod, unitOfMeasurement){
         /*@Desc: 
         * - Receive values passed into new Class instance
         * - Parse values into integers to be used in formula
@@ -400,6 +412,7 @@ class CompoundInterestRateFormula {
         this.rateOfInterest = parseFloat(rateOfInterest);
         this.nTimesCompounded = parseFloat(nTimesCompounded);
         this.timePeriod = parseFloat(timePeriod);
+        this.unitOfMeasurement = unitOfMeasurement;
     };
 
     solve() {
@@ -409,26 +422,30 @@ class CompoundInterestRateFormula {
         const r = this.rateOfInterest;
         const n = this.nTimesCompounded;
         const t = this.timePeriod;
+        //unit of measurement
+        const UM = this.unitOfMeasurement;
+        //solve using compound interest rate formula
         const ci = (p*(1+(r/100)/n)**(n*t)).toFixed(2);
         //Check if the answer is a number
         if (isNaN(ci)) {
             return 'Sorry, this operation is invalid!';
         } else {
             console.log(ci);
-            return `R${ci}`;
+            return `${UM}${ci}`;
         };
     };
 };
 
 //Unemployment Rate
 class UnemploymentRateFormula {
-    constructor(numberOfUnemployedPeople, labourForce) {
+    constructor(numberOfUnemployedPeople, labourForce, unitOfMeasurement) {
         /*@Desc: 
         * - Receive values passed into new Class instance
         * - Parse values into integers to be used in formula
         */
         this.numberOfUnemployedPeople = parseFloat(numberOfUnemployedPeople);
         this.labourForce = parseFloat(labourForce);
+        this.unitOfMeasurement = unitOfMeasurement;
     };
 
     solve() {
@@ -436,26 +453,29 @@ class UnemploymentRateFormula {
         //@variables: number of unemployed people, number of labourers in labour force
         const up = this.numberOfUnemployedPeople;
         const l = this.labourForce;
+        //unit of measurement
+        const UM = this.unitOfMeasurement;
         //solve using unemployment rate formula
         const unemploymentRate = ((up/l) * 100).toFixed(2);
         //Check if the answer is a number
         if (isNaN(unemploymentRate)) {
             return 'Sorry, this operation is invalid!';
         } else {
-            return unemploymentRate;
+            return `${unemploymentRate}${UM}`;
         };
     };
 };
 
 //Net Exports
 class NetExportsFormula {
-    constructor(valueOfExports, valueOfImports) {
+    constructor(valueOfExports, valueOfImports, unitOfMeasurement) {
         /*@Desc: 
         * - Receive values passed into new Class instance
         * - Parse values into integers to be used in formula
         */
         this.valueOfExports = parseFloat(valueOfExports);
         this.valueOfImports = parseFloat(valueOfImports);
+        this.unitOfMeasurement = unitOfMeasurement;
     };
 
     solve() {
@@ -463,13 +483,15 @@ class NetExportsFormula {
         //@variables: value of exports, value of imports
         const e = this.valueOfExports;
         const i = this.valueOfImports;
+        //unit of measurement
+        const UM = this.unitOfMeasurement;
         //solve using net exports formula
         const nx = (e-i).toFixed(2);
         //Check if the answer is a number
         if (isNaN(nx)) {
             return 'Sorry, this operation is invalid!';
         } else {
-            return nx;
+            return `${UM}${nx}`;
         };
     };
 };
@@ -481,7 +503,7 @@ class NetExportsFormula {
 //4. Sum of Years Digits Depreciation Formula
 
 class StraightLineDepreciationFormula {
-  constructor(cost, salvageValue, assetLifespan) {
+  constructor(cost, salvageValue, assetLifespan, unitOfMeasurement) {
         /*@Desc: 
         * - Receive values passed into new Class instance
         * - Parse values into integers to be used in formula
@@ -489,6 +511,7 @@ class StraightLineDepreciationFormula {
         this.cost = parseFloat(cost);
         this.salvageValue = parseFloat(salvageValue);
         this.assetLifespan = parseFloat(assetLifespan);
+        this.unitOfMeasurement = unitOfMeasurement;
   };
 
   solve() {
@@ -497,25 +520,28 @@ class StraightLineDepreciationFormula {
         const c = this.cost;
         const sv = this.salvageValue;
         const ls = this.assetLifespan;
+        //unit of measurement
+        const UM = this.unitOfMeasurement;
         //solve using straight-line depreciation formula
         const depreciation = ((c-sv)/ls).toFixed(2);
         //Check if the answer is a number
         if (isNaN(depreciation)) {
             return 'Sorry, this operation is invalid!';
         } else {
-            return depreciation;
+            return `${UM}${depreciation}`;
         };
     };
 };
 
 class DoubleDecliningBalanceDepreciationFormula {
-    constructor(startingBookValue, assetLifespan) {
+    constructor(startingBookValue, assetLifespan, unitOfMeasurement) {
         /*@Desc: 
         * - Receive values passed into new Class instance
         * - Parse values into integers to be used in formula
         */
         this.startingBookValue = parseFloat(startingBookValue);
         this.assetLifespan = parseFloat(assetLifespan);
+        this.unitOfMeasurement = unitOfMeasurement;
     };
 
     solve() {
@@ -527,19 +553,21 @@ class DoubleDecliningBalanceDepreciationFormula {
         // and rate of depreciation formula
         //We'll name it 'rd'
         const rd = ((1/1)/ls)*2;
+        //unit of measurement
+        const UM = this.unitOfMeasurement;
         //solve using double declining balance depreciation formula
         const periodicDepreciation = (sbv * rd).toFixed(2);
         //Check if the answer is a number
         if (isNaN(periodicDepreciation)) {
             return 'Sorry, this operation is invalid!';
         } else {
-            return periodicDepreciation;
+            return `${UM}${periodicDepreciation}`;
         };
     };
 };
 
 class UnitsOfProductionDepreciationFormula {
-    constructor(numOfUnitsProduced, lifespanUnits, cost, salvageValue) {
+    constructor(numOfUnitsProduced, lifespanUnits, cost, salvageValue, unitOfMeasurement) {
          /*@Desc: 
         * - Receive values passed into new Class instance
         * - Parse values into integers to be used in formula
@@ -548,6 +576,7 @@ class UnitsOfProductionDepreciationFormula {
         this.lifespanUnits = parseFloat(lifespanUnits);
         this.cost = parseFloat(cost);
         this.salvageValue = parseFloat(salvageValue);
+        this.unitOfMeasurement = unitOfMeasurement;
     };
 
     solve() {
@@ -557,19 +586,21 @@ class UnitsOfProductionDepreciationFormula {
         const l = this.lifespanUnits;
         const c = this.cost;
         const sv = this.salvageValue;
+        //unit of measurement
+        const UM = this.unitOfMeasurement;
         //solve using units of production depreciation formula
         const depreciation = ((p/l)*(c-sv)).toFixed(2);
         //Check if the answer is a number
         if (isNaN(depreciation)) {
             return 'Sorry, this operation is invalid!';
         } else {
-            return depreciation;
+            return `${UM}${depreciation}`;
         };
     };
 };
 
 class SumOfYearsDigitsDepreciation {
-    constructor(remainingLife, sumOfYearsDigits, cost, salvageValue){
+    constructor(remainingLife, sumOfYearsDigits, cost, salvageValue, unitOfMeasurement){
          /*@Desc: 
         * - Receive values passed into new Class instance
         * - Parse values into integers to be used in formula
@@ -578,6 +609,7 @@ class SumOfYearsDigitsDepreciation {
         this.sumOfYearsDigits = parseFloat(sumOfYearsDigits);
         this.cost = parseFloat(cost);
         this.salvageValue = parseFloat(salvageValue);
+        this.unitOfMeasurement = unitOfMeasurement;
     };
 
     solve() {
@@ -587,13 +619,15 @@ class SumOfYearsDigitsDepreciation {
         const syd = this.sumOfYearsDigits;
         const c = this.cost;
         const sv = this.salvageValue;
+        //unit of measurement
+        const UM = this.unitOfMeasurement;
         //solve using sum of years digits depreciation formula
         const depreciation = ((rl/syd)*(c-sv)).toFixed(2);
         //Check if the answer is a number
         if (isNaN(depreciation)) {
             return 'Sorry, this operation is invalid!';
         } else {
-            return depreciation;
+            return `${UM}${depreciation}`;
         };
     };
 };
@@ -601,13 +635,14 @@ class SumOfYearsDigitsDepreciation {
 //Net Foreign Factor Income
 
 class NetForeignFactorIncomeFormula {
-    constructor(GNP, GDP) {
+    constructor(GNP, GDP, unitOfMeasurement) {
          /*@Desc: 
         * - Receive values passed into new Class instance
         * - Parse values into integers to be used in formula
         */
         this.GNP = parseFloat(GNP);
         this.GDP = parseFloat(GDP);
+        this.unitOfMeasurement = unitOfMeasurement;
     };
 
     solve() {
@@ -615,13 +650,15 @@ class NetForeignFactorIncomeFormula {
         //@variables: gross domestic product, gross national product
         const GNP = this.GNP;
         const GDP = this.GDP;
+        //unit of measurement
+        const UM = this.unitOfMeasurement;
         //solve using net foreign factor income formula
         const nffi = (GNP-GDP).toFixed(2);
         //Check if the answer is a number
         if (isNaN(nffi)) {
             return 'Sorry, this operation is invalid!';
         } else {
-            return nffi;
+            return `${UM}${nffi}`;
         };
     };
 };

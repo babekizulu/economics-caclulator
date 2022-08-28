@@ -9,7 +9,7 @@ import CalcBtn from '../CalcBtn';
 import SolutionName from '../SolutionName';
 import SolutionDisplay from '../SolutionDisplay';
 
-const InterestRate = () => {
+const InterestRate = ({unitOfMeasurement}) => {
     const [simpleInterest, setSimpleInterest] = useState(0);
     const [principalAmount, setPrincipalAmount] = useState(0);
     const [timePeriod, setTimePeriod] = useState(0);
@@ -37,7 +37,8 @@ const InterestRate = () => {
         const calc = new InterestRateFormula(
             simpleInterest,
             principalAmount,
-            timePeriod
+            timePeriod,
+            unitOfMeasurement
         );
         setSolution(calc.solve());
     };

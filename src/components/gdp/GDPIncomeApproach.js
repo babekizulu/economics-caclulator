@@ -9,7 +9,7 @@ import CalcBtn from '../CalcBtn';
 import SolutionName from '../SolutionName';
 import SolutionDisplay from '../SolutionDisplay';
 
-const GDPIncomeApproach = () => {
+const GDPIncomeApproach = ({unitOfMeasurement}) => {
     const [totalNationalIncome, setTotalNationalIncome] = useState(0);
     const [salesTaxes, setSalesTaxes] = useState(0);
     const [depreciation, setDepreciation] = useState(0);
@@ -43,7 +43,8 @@ const GDPIncomeApproach = () => {
             totalNationalIncome,
             salesTaxes,
             depreciation,
-            netForeignFactorIncome
+            netForeignFactorIncome,
+            unitOfMeasurement
         );
         setSolution(calc.solve());
     }

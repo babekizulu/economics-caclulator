@@ -9,7 +9,7 @@ import CalcBtn from "../CalcBtn";
 import SolutionName from "../SolutionName";
 import SolutionDisplay from "../SolutionDisplay";
 
-const GDPExpApproach = () => {
+const GDPExpApproach = ({unitOfMeasurement}) => {
     const [consumption, setConsumption] = useState(0);
     const [investment, setInvestment] = useState(0);
     const [governmentExpenditure, setGovernmentExpenditure] = useState(0);
@@ -43,7 +43,8 @@ const GDPExpApproach = () => {
             consumption,
             investment,
             governmentExpenditure,
-            netExports
+            netExports,
+            unitOfMeasurement
         );
         setSolution(calc.solve());
     }

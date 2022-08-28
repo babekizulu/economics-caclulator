@@ -9,7 +9,7 @@ import CalcBtn from '../CalcBtn';
 import SolutionName from '../SolutionName';
 import SolutionDisplay from '../SolutionDisplay';
 
-const SYDDepreciation = () => {
+const SYDDepreciation = ({unitOfMeasurement}) => {
     const [remainingLife, setRemainingLife] = useState(0);
     const [sumOfYearsDigits, setSumOfYearsDigits] = useState(0);
     const [cost, setCost] = useState(0);
@@ -44,7 +44,8 @@ const SYDDepreciation = () => {
             remainingLife,
             sumOfYearsDigits,
             cost,
-            salvageValue
+            salvageValue,
+            unitOfMeasurement
         );
         setSolution(calc.solve());
     }

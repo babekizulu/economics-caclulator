@@ -9,7 +9,7 @@ import CalcBtn from "../CalcBtn";
 import SolutionName from "../SolutionName";
 import SolutionDisplay from "../SolutionDisplay";
 
-const NetForeignFactorIncome = () => {
+const NetForeignFactorIncome = ({unitOfMeasurement}) => {
     const [gnp, setGNP] = useState(0);
     const [gdp, setGDP] = useState(0);
     const [solution, setSolution] = useState(0);
@@ -31,7 +31,8 @@ const NetForeignFactorIncome = () => {
     const calculateHandler = () => {
         const calc = new NetForeignFactorIncomeFormula(
             gnp,
-            gdp
+            gdp,
+            unitOfMeasurement
         );
         setSolution(calc.solve());
     };

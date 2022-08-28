@@ -9,7 +9,7 @@ import CalcBtn from '../CalcBtn';
 import SolutionName from '../SolutionName';
 import SolutionDisplay from '../SolutionDisplay';
 
-const RealGDP = () => {
+const RealGDP = ({unitOfMeasurement}) => {
     const [nominalGDP, setNominalGDP] = useState(0);
     const [gdpDeflator, setGDPDeflator] = useState(0);
     const [solution, setSolution] = useState(0);
@@ -30,7 +30,8 @@ const RealGDP = () => {
     const calculateHandler = () => {
         const calc = new RealGDPFormula(
             nominalGDP,
-            gdpDeflator
+            gdpDeflator,
+            unitOfMeasurement
         );
         setSolution(calc.solve());
     };

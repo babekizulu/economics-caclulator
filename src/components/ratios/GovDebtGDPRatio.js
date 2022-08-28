@@ -9,7 +9,7 @@ import CalcBtn from "../CalcBtn";
 import SolutionName from "../SolutionName";
 import SolutionDisplay from "../SolutionDisplay";
 
-const GovDebtGDPRatio = () => {
+const GovDebtGDPRatio = ({unitOfMeasurement}) => {
     const [governmentDebt, setGovernmentDebt] = useState(0);
     const [gdp, setGDP] = useState(0);
     const [solution, setSolution] = useState(0);
@@ -29,7 +29,7 @@ const GovDebtGDPRatio = () => {
     };
 
     const calculateHandler = () => {
-        const calc = new GDGDPRatio(governmentDebt, gdp);
+        const calc = new GDGDPRatio(governmentDebt, gdp, unitOfMeasurement);
         setSolution(calc.solve());
     };
     return (

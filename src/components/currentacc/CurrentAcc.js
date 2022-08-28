@@ -10,7 +10,7 @@ import SolutionName from '../SolutionName';
 import SolutionDisplay from "../SolutionDisplay";
 
 
-const CurrentAcc = () => {
+const CurrentAcc = ({unitOfMeasurement}) => {
     const [expGoodsServices, setExpGoodsServices] = useState(0);
     const [impGoodsServices, setImpGoodsServices] = useState(0);
     const [netEarningsAbroad, setNetEarningsAbroad] = useState(0);
@@ -39,7 +39,13 @@ const CurrentAcc = () => {
     }
 
     const calculateHandler = () => {
-        const calc = new CurrentAccountFormula(expGoodsServices, impGoodsServices, netEarningsAbroad, netTransferPayments);
+        const calc = new CurrentAccountFormula(
+            expGoodsServices,
+            impGoodsServices, 
+            netEarningsAbroad, 
+            netTransferPayments,
+            unitOfMeasurement
+            );
         setSolution(calc.solve());
     }
 

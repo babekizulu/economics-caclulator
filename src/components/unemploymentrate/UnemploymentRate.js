@@ -9,7 +9,7 @@ import CalcBtn from "../CalcBtn";
 import SolutionName from "../SolutionName";
 import SolutionDisplay from "../SolutionDisplay";
 
-const UnemploymentRate = () => {
+const UnemploymentRate = ({unitOfMeasurement}) => {
     const [numberOfUnemployedPeople, setNumberOfUnemployedPeople] = useState(0);
     const [labourForce, setLabourForce] = useState(0);
     const [solution, setSolution] = useState(0);
@@ -31,7 +31,8 @@ const UnemploymentRate = () => {
     const calculateHandler = () => {
         const calc = new UnemploymentRateFormula(
             numberOfUnemployedPeople,
-            labourForce
+            labourForce,
+            unitOfMeasurement
         );
         setSolution(calc.solve());
     }

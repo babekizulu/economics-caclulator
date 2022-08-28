@@ -9,7 +9,7 @@ import SolutionName from "../SolutionName";
 import SolutionDisplay from "../SolutionDisplay";
 import CalcBtn from "../CalcBtn";
 
-const CurrentAccGDPRatio = () => {
+const CurrentAccGDPRatio = ({unitOfMeasurement}) => {
     const [currentAcc, setCurrentAcc] = useState(0);
     const [gdp, setGDP] = useState(0);
     const [solution, setSolution] = useState(0);
@@ -29,7 +29,7 @@ const CurrentAccGDPRatio = () => {
     };
 
     const calculateHandler = () => {
-        const calc = new CAGDPRatio(currentAcc, gdp);
+        const calc = new CAGDPRatio(currentAcc, gdp, unitOfMeasurement);
         setSolution(calc.solve());
     }
 

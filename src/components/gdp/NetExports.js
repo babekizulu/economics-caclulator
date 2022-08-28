@@ -9,7 +9,7 @@ import CalcBtn from '../CalcBtn';
 import SolutionName from '../SolutionName';
 import SolutionDisplay from '../SolutionDisplay';
 
-const NetExports = () => {
+const NetExports = ({unitOfMeasurement}) => {
     const [valueOfExports, setValueOfExports] = useState(0);
     const [valueOfImports, setValueOfImports] = useState(0);
     const [solution, setSolution] = useState(0);
@@ -30,7 +30,8 @@ const NetExports = () => {
     const calculateHandler = () => {
         const calc = new NetExportsFormula(
             valueOfExports,
-            valueOfImports
+            valueOfImports,
+            unitOfMeasurement
         );
         setSolution(calc.solve());
     }

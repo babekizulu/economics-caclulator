@@ -9,7 +9,7 @@ import CalcBtn from '../CalcBtn';
 import SolutionName from '../SolutionName';
 import SolutionDisplay from '../SolutionDisplay';
 
-const InflationRate = () => {
+const InflationRate = ({unitOfMeasurement}) => {
     const [pastConsumerPriceIndex, setPastConsumerPriceIndex] = useState(0);
     const [currentConsumerPriceIndex, setCurrentConsumerPriceIndex] = useState(0);
     const [solution, setSolution] = useState(0);
@@ -30,7 +30,8 @@ const InflationRate = () => {
     const calculateHandler = () => {
         const calc = new InflationRateFormula(
             pastConsumerPriceIndex,
-            currentConsumerPriceIndex
+            currentConsumerPriceIndex,
+            unitOfMeasurement
         );
         setSolution(calc.solve());
     }

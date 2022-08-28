@@ -9,7 +9,7 @@ import CalcBtn from '../CalcBtn';
 import SolutionName from '../SolutionName';
 import SolutionDisplay from '../SolutionDisplay';
 
-const UPDepreciation = () => {
+const UPDepreciation = ({unitOfMeasurement}) => {
     const [numOfUnitsProduced, setNumOfUnitsProduced] = useState(0);
     const [lifespanUnits, setLifespanUnits] = useState(0);
     const [cost, setCost] = useState(0);
@@ -44,7 +44,8 @@ const UPDepreciation = () => {
             numOfUnitsProduced,
             lifespanUnits,
             cost,
-            salvageValue
+            salvageValue,
+            unitOfMeasurement
         );
 
         setSolution(calc.solve());

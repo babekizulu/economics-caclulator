@@ -9,12 +9,13 @@ import CalcBtn from "../CalcBtn";
 import SolutionName from "../SolutionName";
 import SolutionDisplay from "../SolutionDisplay";
 
-const BalanceOfTrade = () => {
+const BalanceOfTrade = ({unitOfMeasurement}) => {
     const [exportsValue, setExportsValue] = useState(0);
     const [importsValue, setImportsValue] = useState(0);
     const [solution, setSolution] = useState(0);
 
-    //solution name
+    //calculator name, variable names & solution name
+    const calcName = 'Balance of Trade Calculator';
     const vname1 = 'Value of Exports';
     const vname2 = 'Value of Imports';
     const solname = 'Balance of Trade';
@@ -29,13 +30,13 @@ const BalanceOfTrade = () => {
     }
 
     const calculateHandler = () => {
-        const calc = new BalanceOfTradeFormula(exportsValue, importsValue);
+        const calc = new BalanceOfTradeFormula(exportsValue, importsValue, unitOfMeasurement);
         setSolution(calc.solve());
     }
     
     return (
         <div className="bot-calculator-container">
-            <CalcName calculatorName='Balance of Trade Calculator'/>
+            <CalcName calculatorName={calcName}/>
             <BackBtn prevDir='/'/>
             <InputDisplay 
             variableName={vname1}

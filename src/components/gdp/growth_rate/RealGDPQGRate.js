@@ -9,7 +9,7 @@ import CalcBtn from '../../CalcBtn';
 import SolutionName from '../../SolutionName';
 import SolutionDisplay from "../../SolutionDisplay";
 
-const RealGDPQGRate = () => {
+const RealGDPQGRate = ({unitOfMeasurement}) => {
     const [gdpQ1, setGDPQ1] = useState(0);
     const [gdpQ2, setGDPQ2] = useState(0);
     const [solution, setSolution] = useState(0);
@@ -31,7 +31,8 @@ const RealGDPQGRate = () => {
     const calculateHandler = () => {
         const calc = new RealGDPQuaterlyGrowthRateFormula(
             gdpQ1,
-            gdpQ2
+            gdpQ2,
+            unitOfMeasurement
         );
         setSolution(calc.solve());
     }

@@ -9,7 +9,7 @@ import CalcBtn from '../CalcBtn';
 import SolutionName from '../SolutionName';
 import SolutionDisplay from '../SolutionDisplay';
 
-const SLDepreciation = () => {
+const SLDepreciation = ({unitOfMeasurement}) => {
     const [cost, setCost] = useState(0);
     const [salvageValue, setSalvageValue] = useState(0);
     const [assetLifespan, setAssetLifespan] = useState(0);
@@ -21,6 +21,7 @@ const SLDepreciation = () => {
     const vname2 = 'Salvage Value';
     const vname3 = 'Asset Lifespan';
     const solname = 'Depreciation Expense';
+
     const onChangeHandler = (variableName, value) => {
         if (variableName === vname1) {
             setCost(value);
@@ -37,7 +38,8 @@ const SLDepreciation = () => {
         const calc = new StraightLineDepreciationFormula(
             cost,
             salvageValue,
-            assetLifespan
+            assetLifespan,
+            unitOfMeasurement
         );
         setSolution(calc.solve());
     }

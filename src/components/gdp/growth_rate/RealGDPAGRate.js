@@ -9,7 +9,7 @@ import CalcBtn from '../../CalcBtn';
 import SolutionName from '../../SolutionName';
 import SolutionDisplay from '../../SolutionDisplay';
 
-const RealGDPAGRate = () => {
+const RealGDPAGRate = ({unitOfMeasurement}) => {
     const [gdpPreviousYear, setGDPPreviousYear] = useState(0);
     const [gdpCurrentYear, setGDPCurrentYear] = useState(0);
     const [solution, setSolution] = useState(0);
@@ -31,7 +31,8 @@ const RealGDPAGRate = () => {
     const calculateHandler = () => {
         const calc = new RealGDPAnnualGrowthRateFormula(
             gdpPreviousYear,
-            gdpCurrentYear
+            gdpCurrentYear,
+            unitOfMeasurement
         );
         setSolution(calc.solve());
     };

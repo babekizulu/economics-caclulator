@@ -9,7 +9,7 @@ import CalcBtn from '../CalcBtn';
 import SolutionDisplay from '../SolutionDisplay';
 import SolutionName from "../SolutionName";
 
-const DDBDepreciation = () => {
+const DDBDepreciation = ({unitOfMeasurement}) => {
     const [startingBookValue, setStartingBookValue] = useState(0);
     const [assetLifespan, setAssetLifespan] = useState(0);
     const [solution, setSolution] = useState(0);
@@ -31,7 +31,8 @@ const DDBDepreciation = () => {
     const calculateHandler = () => {
         const calc = new DoubleDecliningBalanceDepreciationFormula(
             startingBookValue,
-            assetLifespan
+            assetLifespan,
+            unitOfMeasurement
         );
         setSolution(calc.solve());
     }

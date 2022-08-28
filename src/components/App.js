@@ -1,7 +1,9 @@
 /*
 * @Author: Lwandle Babekizulu Dlamini
 * @Desc: Main App file for Econmics Calculator
-* @TODO: Add clear button to all calculators
+* @TODO: 
+    - Add clear button to all calculators
+    - Add more currency symbols to "currency" array
 * @Date: 2022/08/28
 */
 //libraries
@@ -43,6 +45,8 @@ import GovDebtGDPRatio from './ratios/GovDebtGDPRatio';
 
 
 const App = () => {
+    const currency = ['R'];
+    const percentage = '%';
     return (
         <div className="app-container">
             <Header/>
@@ -53,7 +57,7 @@ const App = () => {
                 <GDP/>
             </Route>
             <Route path='/inflation-rate'>
-                <InflationRate/>
+                <InflationRate unitOfMeasurement={percentage}/>
             </Route>
             <Route path='/interest'>
                 <Interest/>
@@ -62,37 +66,37 @@ const App = () => {
                 <Depreciation/>
             </Route>
             <Route path='/balance-of-trade'>
-                <BalanceOfTrade/>
+                <BalanceOfTrade unitOfMeasurement={currency[0]}/>
             </Route>
             <Route path='/ratios'>
                 <Ratios/>
             </Route>
             <Route path='/unemployment-rate'>
-                <UnemploymentRate/>
+                <UnemploymentRate unitOfMeasurement={percentage}/>
             </Route>
             <Route path='/current-account'>
-                <CurrentAcc/>
+                <CurrentAcc unitOfMeasurement={currency[0]}/>
             </Route>
             <Route path='/net-foreign-factor-income'>
-                <NetForeignFactorIncome/>
+                <NetForeignFactorIncome unitOfMeasurement={currency[0]}/>
             </Route>
             <Route path='/depreciation/double-declining-balance'>
-                <DDBDepreciation/>
+                <DDBDepreciation unitOfMeasurement={currency[0]}/>
             </Route>
             <Route path='/depreciation/straight-line'>
-                <SLDepreciation/>
+                <SLDepreciation unitOfMeasurement={currency[0]}/>
             </Route>
             <Route path='/depreciation/sum-of-the-years'>
-                <SYDDepreciation/>
+                <SYDDepreciation unitOfMeasurement={currency[0]}/>
             </Route>
             <Route path='/depreciation/units-of-production'>
-                <UPDepreciation/>
+                <UPDepreciation unitOfMeasurement={currency[0]}/>
             </Route>
             <Route path='/gdp/expenditure-approach'>
-                <GDPExpApproach/>
+                <GDPExpApproach unitOfMeasurement={currency[0]}/>
             </Route>
             <Route path='/gdp/income-approach'>
-                <GDPIncomeApproach/>
+                <GDPIncomeApproach unitOfMeasurement={currency[0]}/>
             </Route>
             <Route path='/gdp/deflator'>
                 <GDPDeflator/>
@@ -101,28 +105,28 @@ const App = () => {
                 <GDPGrowthRate/>
             </Route>
             <Route path='/gdp/net-exports'>
-                <NetExports/>
+                <NetExports unitOfMeasurement={currency[0]}/>
             </Route>
             <Route path='/gdp/real-gdp'>
-                <RealGDP/>
+                <RealGDP unitOfMeasurement={currency[0]}/>
             </Route>
             <Route path='/gdp/growth-rate/real-annual'>
-                <RealGDPAGRate/>  
+                <RealGDPAGRate unitOfMeasurement={percentage}/>  
             </Route>
             <Route path='/gdp/growth-rate/real-quarterly'>
-                <RealGDPQGRate/>
+                <RealGDPQGRate unitOfMeasurement={percentage}/>
             </Route>
             <Route path='/interest/interest-rate'>
-                <InterestRate/>
+                <InterestRate unitOfMeasurement={percentage}/>
             </Route>
             <Route path='/interest/compound-interest-rate'>
-                <CompoundInterestRate/>
+                <CompoundInterestRate unitOfMeasurement={percentage}/>
             </Route>
             <Route path='/ratios/current-account-to-gdp'>
-                <CurrentAccGDPRatio/>
+                <CurrentAccGDPRatio unitOfMeasurement={percentage}/>
             </Route>
             <Route path='/ratios/government-debt-to-gdp'>
-                <GovDebtGDPRatio/>
+                <GovDebtGDPRatio unitOfMeasurement={percentage}/>
             </Route>
         </div>
     );

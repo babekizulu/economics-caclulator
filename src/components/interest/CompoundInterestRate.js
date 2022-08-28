@@ -9,7 +9,7 @@ import CalcBtn from "../CalcBtn";
 import SolutionName from "../SolutionName";
 import SolutionDisplay from "../SolutionDisplay";
 
-const CompoundInterestRate = () => {
+const CompoundInterestRate = ({unitOfMeasurement}) => {
     const [principalAmount, setPrincipalAmount] = useState(0);
     const [rateOfInterest, setRateOfInterest] = useState(0);
     const [nTimesCompounded, setNTimesCompounded] = useState(0);
@@ -43,7 +43,8 @@ const CompoundInterestRate = () => {
             principalAmount,
             rateOfInterest,
             nTimesCompounded,
-            timePeriod
+            timePeriod,
+            unitOfMeasurement
         );
         setSolution(calc.solve());
     };
