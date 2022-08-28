@@ -1,14 +1,15 @@
 //libraries
 import React from "react";
 //component
-import InterestRate from "./InterestRate";
-import CompoundInterestRate from './CompoundInterestRate';
 import Link from '../Link';
-import Route from '../Route';
+import CalcName from "../CalcName";
+import BackBtn from "../BackBtn";
 
 const Interest = () => {
     return (
         <div className="interest-calculators-container">
+            <CalcName calculatorName='Interest Calculator Set'/>
+            <BackBtn prevDir='/'/>
             <Link 
             href='/interest/interest-rate'
             className='interest-rate-calculator icon'
@@ -21,12 +22,6 @@ const Interest = () => {
             >
                 Compound Interest Rate Calculator
             </Link>
-            <Route path='/interest/interest-rate'>
-                <InterestRate/>
-            </Route>
-            <Route path='/interest/compound-interest-rate'>
-                <CompoundInterestRate/>
-            </Route>
         </div>
     );
 };

@@ -28,6 +28,9 @@ import NetExports from './gdp/NetExports';
 import RealGDP from './gdp/RealGDP';
 import RealGDPQGRate from './gdp/growth_rate/RealGDPQGRate';
 import RealGDPAGRate from "./gdp/growth_rate/RealGDPAGRate";
+//interest calcs
+import InterestRate from './interest/InterestRate';
+import CompoundInterestRate from './interest/CompoundInterestRate';
 
 
 const App = () => {
@@ -99,6 +102,12 @@ const App = () => {
             </Route>
             <Route path='/gdp/growth-rate/real-quarterly'>
                 <RealGDPQGRate/>
+            </Route>
+            <Route path='/interest/interest-rate'>
+                <InterestRate/>
+            </Route>
+            <Route path='/interest/compound-interest-rate'>
+                <CompoundInterestRate/>
             </Route>
         </div>
     );
