@@ -1,6 +1,7 @@
 //libraries
 import {React, useState} from "react";
 import {GDPIncomeApproachFormula} from '../../libs/Formulae';
+import {currency} from '../../libs/UnitsOfMeasurement';
 //components
 import CalcName from '../CalcName';
 import BackBtn from '../BackBtn';
@@ -17,10 +18,10 @@ const GDPIncomeApproach = ({unitOfMeasurement}) => {
     const [solution, setSolution] = useState(0);
     //calculator name, variable names & solution name
     const calcName = 'GDP Income Approach Calculator';
-    const vname1 = 'Total National Income';
-    const vname2 = 'Sales Taxes';
-    const vname3 = 'Depreciation';
-    const vname4 = 'Net Foreign Factor Income';
+    const vname1 = `Total National Income (${currency.rands})`;
+    const vname2 = `Sales Taxes (${currency.rands})`;
+    const vname3 = `Depreciation (${currency.rands})`;
+    const vname4 = `Net Foreign Factor Income (${currency.rands})`;
     const solName = 'GDP';
 
     const onChangeHandler = (variableName, value) => {

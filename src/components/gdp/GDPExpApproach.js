@@ -1,6 +1,7 @@
 //libraries
 import {React, useState} from "react";
 import {GDPExpApproachFormula} from '../../libs/Formulae';
+import {currency} from '../../libs/UnitsOfMeasurement';
 //components
 import CalcName from '../CalcName';
 import BackBtn from "../BackBtn";
@@ -17,10 +18,10 @@ const GDPExpApproach = ({unitOfMeasurement}) => {
     const [solution, setSolution] = useState(0);
     //calculator name, variable names, solution name 
     const calcName = 'GDP Expenditure Approach Calculator';
-    const vname1 = 'Consumption';
-    const vname2 = 'Investment';
-    const vname3 = 'Government Expenditure';
-    const vname4 = 'Net Exports';
+    const vname1 = `Consumption (${currency.rands})`;
+    const vname2 = `Investment (${currency.rands})`;
+    const vname3 = `Government Expenditure (${currency.rands})`;
+    const vname4 = `Net Exports (${currency.rands})`;
     const solName = 'GDP';
 
     const onChangeHandler = (variableName, value) => {

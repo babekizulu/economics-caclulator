@@ -1,6 +1,7 @@
 //libraries
 import {React, useState} from "react";
 import {RealGDPFormula} from '../../libs/Formulae';
+import {currency} from '../../libs/UnitsOfMeasurement';
 //components
 import CalcName from '../CalcName';
 import BackBtn from '../BackBtn';
@@ -15,7 +16,7 @@ const RealGDP = ({unitOfMeasurement}) => {
     const [solution, setSolution] = useState(0);
     //calculator name, variable names & solution name 
     const calcName = 'Real GDP Calculator';
-    const vname1 = 'Nominal GDP';
+    const vname1 = `Nominal GDP (${currency.rands})`;
     const vname2 = 'GDP Deflator';
     const solName = 'Real GDP';
 

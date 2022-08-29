@@ -8,7 +8,8 @@
     - Add a "currency" option to all constructors, to decide what currency 
       symbol to display to users
     - Addition Formulae to add:
-        - Simple Interest Formula
+        - Real Interest Rate
+        - Nominal Interest Rate
 */
 
 //Nominal Gross Domestic Product using the Expenditure Approach
@@ -370,13 +371,13 @@ class InflationRateFormula {
 };
 
 //Simple Interest Rate
-class InterestRateFormula {
-    constructor(simpleInterest, principalAmount, timePeriod, unitOfMeasurement) {
+class SimpleInterestRateFormula {
+    constructor(interestRate, principalAmount, timePeriod, unitOfMeasurement) {
         /*@Desc: 
         * - Receive values passed into new Class instance
         * - Parse values into integers to be used in formula
         */
-        this.simpleInterest = parseFloat(simpleInterest);
+        this.interestRate = parseFloat(interestRate);
         this.principalAmount = parseFloat(principalAmount);
         this.timePeriod = parseFloat(timePeriod);
         this.unitOfMeasurement = unitOfMeasurement;
@@ -385,18 +386,18 @@ class InterestRateFormula {
     solve() {
         //@Desc: Store variables to use in formula
         //@variables: simple interest, principal amount, time period
-        const si = this.simpleInterest;
+        const r = this.interestRate;
         const p = this.principalAmount;
         const t = this.timePeriod;
         //unit of measurement
         const UM = this.unitOfMeasurement;
         //solve using interest rate formula
-        const interestRate = ((si * 100)/(p * t)).toFixed(2);
+        const interestRate = ((p*r*t)/100).toFixed(2);
         //Check if the answer is a number
         if (isNaN(interestRate)) {
             return 'Sorry, this operation is invalid!';
         } else {
-            return `${interestRate}${UM}`;
+            return `${UM}${interestRate}`;
         };
     };
 };
@@ -675,7 +676,7 @@ export {
     GDPDeflatorFormula, 
     RealGDPFormula, 
     InflationRateFormula, 
-    InterestRateFormula, 
+    SimpleInterestRateFormula, 
     CompoundInterestRateFormula,
     UnemploymentRateFormula,
     NetExportsFormula,

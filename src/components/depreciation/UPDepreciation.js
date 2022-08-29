@@ -1,6 +1,7 @@
 //libraries
 import {React, useState} from 'react';
 import {UnitsOfProductionDepreciationFormula} from '../../libs/Formulae';
+import {currency, misc} from '../../libs/UnitsOfMeasurement';
 //components
 import CalcName from '../CalcName';
 import BackBtn from '../BackBtn';
@@ -18,11 +19,11 @@ const UPDepreciation = ({unitOfMeasurement}) => {
 
     //calculator name, variable names & solution name
     const calcName = 'Units of Production Depreciation Calculator';
-    const vname1 = 'Number of Units Produced';
-    const vname2 = 'Lifespan in Units';
-    const vname3 = 'Cost';
-    const vname4 = 'Salvage Value';
-    const solName = 'Depreciation Expense';
+    const vname1 = `Number of Units Produced (${misc.units})`;
+    const vname2 = `Lifespan in Units (${misc.units})`;
+    const vname3 = `Cost (${currency.rands})`;
+    const vname4 = `Salvage Value (${currency.rands})`;
+    const solName = `Depreciation Expense`;
 
     const onChangeHandler = (variableName, value) => {
         if (variableName === vname1) {

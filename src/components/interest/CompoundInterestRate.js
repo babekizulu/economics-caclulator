@@ -1,6 +1,7 @@
 //libraries
 import {React, useState} from "react";
 import {CompoundInterestRateFormula} from '../../libs/Formulae';
+import {symbols, currency, timePeriods} from '../../libs/UnitsOfMeasurement';
 //components
 import CalcName from '../CalcName';
 import BackBtn from "../BackBtn";
@@ -17,10 +18,10 @@ const CompoundInterestRate = ({unitOfMeasurement}) => {
     const [solution, setSolution] = useState(0);
     //calculator name, variable names & solution name
     const calcName = 'Compound Interest Rate Calculator';
-    const vname1 = 'Principal Amount';
-    const vname2 = 'Rate of Interest';
-    const vname3 = 'Number of Times Compounded';
-    const vname4 = 'Time Period';
+    const vname1 = `Principal Amount (${currency.rands})`;
+    const vname2 = `Rate of Interest (${symbols.percent})`;
+    const vname3 = `Number of Times Compounded (${symbols.n})`;
+    const vname4 = `Time Period (${timePeriods.years})`;
     const solName = 'Compound Interest';
 
     const onChangeHandler = (variableName, value) => {

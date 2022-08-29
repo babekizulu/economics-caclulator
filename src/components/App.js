@@ -8,6 +8,7 @@
 */
 //libraries
 import React from "react";
+import UnitsOfMeasurement from '../libs/UnitsOfMeasurement';
 //components
 import Header from './Header';
 import Route from './Route';
@@ -37,7 +38,7 @@ import RealGDP from './gdp/RealGDP';
 import RealGDPQGRate from './gdp/growth_rate/RealGDPQGRate';
 import RealGDPAGRate from "./gdp/growth_rate/RealGDPAGRate";
 //interest calcs
-import InterestRate from './interest/InterestRate';
+import SimpleInterestRate from './interest/SimpleInterestRate';
 import CompoundInterestRate from './interest/CompoundInterestRate';
 //ratio calcs 
 import CurrentAccGDPRatio from './ratios/CurrentAccGDPRatio';
@@ -45,8 +46,10 @@ import GovDebtGDPRatio from './ratios/GovDebtGDPRatio';
 
 
 const App = () => {
-    const currency = ['R'];
-    const percentage = '%';
+    const UOM = UnitsOfMeasurement;
+    const {symbols, currency} = UOM;
+    const {percent} = symbols;
+    const {rands} = currency;
     return (
         <div className="app-container">
             <Header/>
@@ -57,7 +60,7 @@ const App = () => {
                 <GDP/>
             </Route>
             <Route path='/inflation-rate'>
-                <InflationRate unitOfMeasurement={percentage}/>
+                <InflationRate unitOfMeasurement={percent}/>
             </Route>
             <Route path='/interest'>
                 <Interest/>
@@ -66,37 +69,37 @@ const App = () => {
                 <Depreciation/>
             </Route>
             <Route path='/balance-of-trade'>
-                <BalanceOfTrade unitOfMeasurement={currency[0]}/>
+                <BalanceOfTrade unitOfMeasurement={rands}/>
             </Route>
             <Route path='/ratios'>
                 <Ratios/>
             </Route>
             <Route path='/unemployment-rate'>
-                <UnemploymentRate unitOfMeasurement={percentage}/>
+                <UnemploymentRate unitOfMeasurement={percent}/>
             </Route>
             <Route path='/current-account'>
-                <CurrentAcc unitOfMeasurement={currency[0]}/>
+                <CurrentAcc unitOfMeasurement={rands}/>
             </Route>
             <Route path='/net-foreign-factor-income'>
-                <NetForeignFactorIncome unitOfMeasurement={currency[0]}/>
+                <NetForeignFactorIncome unitOfMeasurement={rands}/>
             </Route>
             <Route path='/depreciation/double-declining-balance'>
-                <DDBDepreciation unitOfMeasurement={currency[0]}/>
+                <DDBDepreciation unitOfMeasurement={rands}/>
             </Route>
             <Route path='/depreciation/straight-line'>
-                <SLDepreciation unitOfMeasurement={currency[0]}/>
+                <SLDepreciation unitOfMeasurement={rands}/>
             </Route>
             <Route path='/depreciation/sum-of-the-years'>
-                <SYDDepreciation unitOfMeasurement={currency[0]}/>
+                <SYDDepreciation unitOfMeasurement={rands}/>
             </Route>
             <Route path='/depreciation/units-of-production'>
-                <UPDepreciation unitOfMeasurement={currency[0]}/>
+                <UPDepreciation unitOfMeasurement={rands}/>
             </Route>
             <Route path='/gdp/expenditure-approach'>
-                <GDPExpApproach unitOfMeasurement={currency[0]}/>
+                <GDPExpApproach unitOfMeasurement={rands}/>
             </Route>
             <Route path='/gdp/income-approach'>
-                <GDPIncomeApproach unitOfMeasurement={currency[0]}/>
+                <GDPIncomeApproach unitOfMeasurement={rands}/>
             </Route>
             <Route path='/gdp/deflator'>
                 <GDPDeflator/>
@@ -105,28 +108,28 @@ const App = () => {
                 <GDPGrowthRate/>
             </Route>
             <Route path='/gdp/net-exports'>
-                <NetExports unitOfMeasurement={currency[0]}/>
+                <NetExports unitOfMeasurement={rands}/>
             </Route>
             <Route path='/gdp/real-gdp'>
-                <RealGDP unitOfMeasurement={currency[0]}/>
+                <RealGDP unitOfMeasurement={rands}/>
             </Route>
             <Route path='/gdp/growth-rate/real-annual'>
-                <RealGDPAGRate unitOfMeasurement={percentage}/>  
+                <RealGDPAGRate unitOfMeasurement={percent}/>  
             </Route>
             <Route path='/gdp/growth-rate/real-quarterly'>
-                <RealGDPQGRate unitOfMeasurement={percentage}/>
+                <RealGDPQGRate unitOfMeasurement={percent}/>
             </Route>
-            <Route path='/interest/interest-rate'>
-                <InterestRate unitOfMeasurement={percentage}/>
+            <Route path='/interest/simple-interest-rate'>
+                <SimpleInterestRate unitOfMeasurement={rands}/>
             </Route>
             <Route path='/interest/compound-interest-rate'>
-                <CompoundInterestRate unitOfMeasurement={percentage}/>
+                <CompoundInterestRate unitOfMeasurement={rands}/>
             </Route>
             <Route path='/ratios/current-account-to-gdp'>
-                <CurrentAccGDPRatio unitOfMeasurement={percentage}/>
+                <CurrentAccGDPRatio unitOfMeasurement={percent}/>
             </Route>
             <Route path='/ratios/government-debt-to-gdp'>
-                <GovDebtGDPRatio unitOfMeasurement={percentage}/>
+                <GovDebtGDPRatio unitOfMeasurement={percent}/>
             </Route>
         </div>
     );

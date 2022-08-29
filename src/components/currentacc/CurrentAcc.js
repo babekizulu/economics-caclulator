@@ -1,6 +1,7 @@
 //libraries
 import {React, useState} from "react";
-import {CurrentAccountFormula} from '../../libs/Formulae'
+import {CurrentAccountFormula} from '../../libs/Formulae';
+import {currency} from '../../libs/UnitsOfMeasurement';
 //components
 import CalcName from '../CalcName';
 import BackBtn from '../BackBtn';
@@ -18,10 +19,10 @@ const CurrentAcc = ({unitOfMeasurement}) => {
     const [solution, setSolution] = useState(0);
     //calc variable names
     const calcName = 'Current Account Calculator'
-    const vname1 = 'Exports of Goods & Services';
-    const vname2 = 'Imports of Goods & Services';
-    const vname3 = 'Net Earnings Abroad';
-    const vname4 = 'Net Transfer Payments';
+    const vname1 = `Exports of Goods & Services (${currency.rands})`;
+    const vname2 = `Imports of Goods & Services (${currency.rands})`;
+    const vname3 = `Net Earnings Abroad (${currency.rands})`;
+    const vname4 = `Net Transfer Payments (${currency.rands})`;
     const solname = 'Current Account';
     const onChangeHandler = (variableName, value) => {
         if(variableName === vname1) {

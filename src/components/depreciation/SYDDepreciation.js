@@ -1,6 +1,7 @@
 //libraries
 import {React, useState} from "react";
 import {SumOfYearsDigitsDepreciation} from '../../libs/Formulae';
+import {currency, timePeriods} from '../../libs/UnitsOfMeasurement';
 //components
 import CalcName from '../CalcName';
 import BackBtn from '../BackBtn';
@@ -18,10 +19,10 @@ const SYDDepreciation = ({unitOfMeasurement}) => {
 
     //calculator name, variable name & solution name 
     const calcName = 'Sum of the Years Digits Depreciation Calculator';
-    const vname1 = 'Remaining Life of Asset';
-    const vname2 = 'Sum of the Years';
-    const vname3 = 'Cost';
-    const vname4 = 'Salvage Value';
+    const vname1 = `Remaining Life of Asset (${timePeriods.years})`;
+    const vname2 = `Sum of the Years (${timePeriods.years})`;
+    const vname3 = `Cost (${currency.rands})`;
+    const vname4 = `Salvage Value (${currency.rands})`;
     const solname = 'Depreciation Expense';
 
     const onChangeHandler = (variableName, value) => {

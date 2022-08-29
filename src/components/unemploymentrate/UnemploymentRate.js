@@ -1,6 +1,7 @@
 //libraries
 import {React, useState} from "react";
 import {UnemploymentRateFormula} from '../../libs/Formulae';
+import {symbols} from '../../libs/UnitsOfMeasurement';
 //components
 import CalcName from "../CalcName";
 import BackBtn from "../BackBtn";
@@ -15,8 +16,8 @@ const UnemploymentRate = ({unitOfMeasurement}) => {
     const [solution, setSolution] = useState(0);
     //calculator name, variable names & solution name
     const calcName = 'Unemployment Rate Calculator';
-    const vname1 = 'Number of Unemployed People';
-    const vname2 = 'Labour Force';
+    const vname1 = `Number of Unemployed People (${symbols.n})`;
+    const vname2 = `Labour Force (${symbols.n})`;
     const solName = 'Unemployment Rate';
 
     const onChangeHandler = (variableName, value) => {

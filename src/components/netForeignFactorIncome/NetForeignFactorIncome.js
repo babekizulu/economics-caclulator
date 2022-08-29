@@ -1,6 +1,7 @@
 //libraries
 import {React, useState} from "react";
 import {NetForeignFactorIncomeFormula} from '../../libs/Formulae';
+import {currency} from '../../libs/UnitsOfMeasurement';
 //components
 import CalcName from '../CalcName';
 import BackBtn from '../BackBtn';
@@ -15,8 +16,8 @@ const NetForeignFactorIncome = ({unitOfMeasurement}) => {
     const [solution, setSolution] = useState(0);
     //calculator name, variable names & solution name
     const calcName = 'Net Foreign Factor Income';
-    const vname1 = 'GNP';
-    const vname2 = 'GDP';
+    const vname1 = `GNP (${currency.rands})`;
+    const vname2 = `GDP (${currency.rands})`;
     const solName = 'Net Foreign Factor Income';
     
     const onChangeHandler = (variableName, value) => {

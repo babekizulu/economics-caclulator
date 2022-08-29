@@ -1,6 +1,7 @@
 //libraries
 import {React, useState} from "react";
 import {DoubleDecliningBalanceDepreciationFormula} from '../../libs/Formulae';
+import {currency, timePeriods} from '../../libs/UnitsOfMeasurement';
 //components
 import BackBtn from "../BackBtn";
 import CalcName from '../CalcName';
@@ -15,8 +16,8 @@ const DDBDepreciation = ({unitOfMeasurement}) => {
     const [solution, setSolution] = useState(0);
     //calc name, variable names & solution name
     const calcName = 'Double Declining Balance Depreciation Calculator'
-    const vname1 = 'Starting Book Value';
-    const vname2 = 'Asset Lifespan';
+    const vname1 = `Starting Book Value (${currency.rands})`;
+    const vname2 = `Asset Lifespan (${timePeriods.years})`;
     const solname = 'Depreciation Expense';
 
     const onChangeHandler = (variableName, value) => {

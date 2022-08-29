@@ -1,6 +1,7 @@
 //libraries
 import {React, useState} from "react";
 import {InflationRateFormula} from '../../libs/Formulae';
+import {misc} from '../../libs/UnitsOfMeasurement';
 //components
 import CalcName from '../CalcName';
 import BackBtn from '../BackBtn';
@@ -15,8 +16,8 @@ const InflationRate = ({unitOfMeasurement}) => {
     const [solution, setSolution] = useState(0);
     //calculator name, variable names & solution name
     const calcName = 'Inflation Rate Calculator';
-    const vname1 = 'Past Consumer Price Index';
-    const vname2 = 'Current Consumer Price Index';
+    const vname1 = `Past Consumer Price Index (${misc.points})`;
+    const vname2 = `Current Consumer Price Index (${misc.points})`;
     const solName = 'Inflation Rate';
 
     const onChangeHandler = (variableName, value) => {

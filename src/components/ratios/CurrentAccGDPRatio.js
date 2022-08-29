@@ -1,6 +1,7 @@
 //libraries
 import {React, useState} from "react";
 import {CAGDPRatio} from '../../libs/Formulae';
+import {currency} from '../../libs/UnitsOfMeasurement';
 //components
 import CalcName from "../CalcName";
 import BackBtn from "../BackBtn";
@@ -15,8 +16,8 @@ const CurrentAccGDPRatio = ({unitOfMeasurement}) => {
     const [solution, setSolution] = useState(0);
     //calculator name, variable names & solution name 
     const calcName = 'Current Account to GDP Ratio Calculator';
-    const vname1 = 'Current Account';
-    const vname2 = 'GDP';
+    const vname1 = `Current Account (${currency.rands})`;
+    const vname2 = `GDP (${currency.rands})`;
     const solName = 'Current Account:GDP Ratio';
 
     const onChangeHandler = (variableName, value) => {

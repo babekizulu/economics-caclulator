@@ -1,6 +1,7 @@
 //libraries
 import {React, useState} from 'react';
-import {InterestRateFormula} from '../../libs/Formulae';
+import {SimpleInterestRateFormula} from '../../libs/Formulae';
+import {symbols, currency, timePeriods} from '../../libs/UnitsOfMeasurement';
 //components
 import CalcName from '../CalcName';
 import BackBtn from '../BackBtn';
@@ -9,21 +10,21 @@ import CalcBtn from '../CalcBtn';
 import SolutionName from '../SolutionName';
 import SolutionDisplay from '../SolutionDisplay';
 
-const InterestRate = ({unitOfMeasurement}) => {
-    const [simpleInterest, setSimpleInterest] = useState(0);
+const SimpleInterestRate = ({unitOfMeasurement}) => {
+    const [interestRate, setInterestRate] = useState(0);
     const [principalAmount, setPrincipalAmount] = useState(0);
     const [timePeriod, setTimePeriod] = useState(0);
     const [solution, setSolution] = useState(0);
     //calculator name, variable names & solution name
-    const calcName = 'Interest Rate Calculator';
-    const vname1 = 'Simple Interest';
-    const vname2 = 'Principal Amount';
-    const vname3 = 'Time Period';
+    const calcName = 'Simple Interest Rate Calculator';
+    const vname1 = `Interest Rate (${symbols.percent})`;
+    const vname2 = `Principal Amount (${currency.rands})`;
+    const vname3 = `Time Period (${timePeriods.years})`;
     const solName = 'Interest Rate';
 
     const onChangeHandler = (variableName, value) => {
         if (variableName === vname1) {
-            setSimpleInterest(value);
+            setInterestRate(value);
         }
         else if (variableName === vname2) {
             setPrincipalAmount(value);
@@ -34,8 +35,8 @@ const InterestRate = ({unitOfMeasurement}) => {
     };
 
     const calculateHandler = () => {
-        const calc = new InterestRateFormula(
-            simpleInterest,
+        const calc = new SimpleInterestRateFormula(
+            interestRate,
             principalAmount,
             timePeriod,
             unitOfMeasurement
@@ -49,7 +50,7 @@ const InterestRate = ({unitOfMeasurement}) => {
             <InputDisplay
             variableName={vname1}
             onChangeHandler={onChangeHandler}
-            inputState={simpleInterest}
+            inputState={interestRate}
             />
             <InputDisplay
             variableName={vname2}
@@ -68,4 +69,4 @@ const InterestRate = ({unitOfMeasurement}) => {
     );
 };
 
-export default InterestRate;
+export default SimpleInterestRate;

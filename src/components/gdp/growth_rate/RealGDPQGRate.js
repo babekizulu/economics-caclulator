@@ -1,6 +1,7 @@
 //libraries
 import {React, useState} from "react";
 import {RealGDPQuaterlyGrowthRateFormula} from '../../../libs/Formulae';
+import {currency} from '../../../libs/UnitsOfMeasurement';
 //components
 import CalcName from '../../CalcName';
 import BackBtn from '../../BackBtn';
@@ -15,8 +16,8 @@ const RealGDPQGRate = ({unitOfMeasurement}) => {
     const [solution, setSolution] = useState(0);
     //calculator name, variable names & solution name
     const calcName = 'Real GDP Quarterly Growth Rate Calculator';
-    const vname1 = 'GDP Quarter 1';
-    const vname2 = 'GDP Quarter 2';
+    const vname1 = `GDP Quarter 1 (${currency.rands})`;
+    const vname2 = `GDP Quarter 2 (${currency.rands})`;
     const solName = 'Growth';
 
     const onChangeHandler = (variableName, value) => {

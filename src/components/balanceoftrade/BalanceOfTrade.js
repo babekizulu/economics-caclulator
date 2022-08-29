@@ -1,6 +1,7 @@
 //libraries
 import {React, useState} from "react";
 import {BalanceOfTradeFormula} from '../../libs/Formulae';
+import {currency} from '../../UnitsOfMeasurement';
 //components
 import CalcName from "../CalcName";
 import BackBtn from "../BackBtn";
@@ -16,9 +17,9 @@ const BalanceOfTrade = ({unitOfMeasurement}) => {
 
     //calculator name, variable names & solution name
     const calcName = 'Balance of Trade Calculator';
-    const vname1 = 'Value of Exports';
-    const vname2 = 'Value of Imports';
-    const solname = 'Balance of Trade';
+    const vname1 = `Value of Exports (${currency.rands})`;
+    const vname2 = `Value of Imports (${currency.rands})`;
+    const solname = `Balance of Trade`;
 
     const onChangeHandler = (variableName, value) => {
         if (variableName === vname1) {

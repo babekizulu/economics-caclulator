@@ -11,10 +11,10 @@ const Interest = () => {
             <CalcName calculatorName='Interest Calculator Set'/>
             <BackBtn prevDir='/'/>
             <Link 
-            href='/interest/interest-rate'
-            className='interest-rate-calculator icon'
+            href='/interest/simple-interest-rate'
+            className='simple-interest-rate-calculator icon'
             >
-                Interest Rate Calculator
+                Simple Interest Rate Calculator
             </Link>
             <Link 
             href='/interest/compound-interest-rate'

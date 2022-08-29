@@ -1,6 +1,7 @@
 //libraries
 import {React, useState} from "react";
 import {GDGDPRatio} from '../../libs/Formulae';
+import {currency} from '../../libs/UnitsOfMeasurement';
 //components
 import CalcName from '../CalcName';
 import BackBtn from "../BackBtn";
@@ -15,8 +16,8 @@ const GovDebtGDPRatio = ({unitOfMeasurement}) => {
     const [solution, setSolution] = useState(0);
     //calculator name, variable names & solution name
     const calcName = 'Government Debt to GDP Ratio Calculator';
-    const vname1 = 'Government Debt';
-    const vname2 = 'GDP';
+    const vname1 = `Government Debt (${currency.rands})`;
+    const vname2 = `GDP (${currency.rands})`;
     const solName = 'Government Debt:GDP Ratio';
 
     const onChangeHandler = (variableName, value) => {

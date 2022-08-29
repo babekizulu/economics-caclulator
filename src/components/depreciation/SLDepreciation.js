@@ -1,6 +1,7 @@
 //libraries
 import {React, useState} from "react";
 import {StraightLineDepreciationFormula} from '../../libs/Formulae';
+import {currency, timePeriods} from '../../libs/UnitsOfMeasurement';
 //components
 import BackBtn from "../BackBtn";
 import CalcName from '../CalcName';
@@ -17,9 +18,9 @@ const SLDepreciation = ({unitOfMeasurement}) => {
 
     //calculator name, variable name, solution name
     const calcname = 'Straight Line Depreciation Calculator';
-    const vname1 = 'Cost';
-    const vname2 = 'Salvage Value';
-    const vname3 = 'Asset Lifespan';
+    const vname1 = `Cost (${currency.rands})`;
+    const vname2 = `Salvage Value (${currency.rands})`;
+    const vname3 = `Asset Lifespan (${timePeriods.years})`;
     const solname = 'Depreciation Expense';
 
     const onChangeHandler = (variableName, value) => {
