@@ -6,11 +6,18 @@ import {currency, timePeriods} from '../../libs/UnitsOfMeasurement';
 import BackBtn from "../BackBtn";
 import CalcName from '../CalcName';
 import InputDisplay from "../InputDisplay";
+import Keyboard from "../Keyboard";
 import CalcBtn from '../CalcBtn';
 import SolutionDisplay from '../SolutionDisplay';
 import SolutionName from "../SolutionName";
 
-const DDBDepreciation = ({unitOfMeasurement}) => {
+const DDBDepreciation = ({
+    unitOfMeasurement, 
+    focusHandler,
+    toggleKeyboard,
+    keyboardVisibility, 
+    activeInput
+}) => {
     const [startingBookValue, setStartingBookValue] = useState(0);
     const [assetLifespan, setAssetLifespan] = useState(0);
     const [solution, setSolution] = useState(0);
@@ -46,11 +53,18 @@ const DDBDepreciation = ({unitOfMeasurement}) => {
             variableName={vname1} 
             onChangeHandler={onChangeHandler} 
             inputState={startingBookValue}
+            focusHandler={focusHandler}
             />
             <InputDisplay 
             variableName={vname2} 
             onChangeHandler={onChangeHandler} 
             inputState={assetLifespan}
+            focusHandler={focusHandler}
+            />
+            <Keyboard
+             toggleKeyboard={toggleKeyboard} 
+             keyboardVisibility={keyboardVisibility}
+             activeInput={activeInput}
             />
             <CalcBtn calculateHandler={calculateHandler}/>
             <SolutionName solutionName={solname}/>

@@ -6,11 +6,18 @@ import {currency} from '../../../libs/UnitsOfMeasurement';
 import CalcName from '../../CalcName';
 import BackBtn from '../../BackBtn';
 import InputDisplay from "../../InputDisplay";
+import Keyboard from "../../Keyboard";
 import CalcBtn from '../../CalcBtn';
 import SolutionName from '../../SolutionName';
 import SolutionDisplay from "../../SolutionDisplay";
 
-const RealGDPQGRate = ({unitOfMeasurement}) => {
+const RealGDPQGRate = ({
+    unitOfMeasurement, 
+    focusHandler,
+    toggleKeyboard,
+    keyboardVisibility,
+    activeInput
+}) => {
     const [gdpQ1, setGDPQ1] = useState(0);
     const [gdpQ2, setGDPQ2] = useState(0);
     const [solution, setSolution] = useState(0);
@@ -45,11 +52,18 @@ const RealGDPQGRate = ({unitOfMeasurement}) => {
             variableName={vname1}
             onChangeHandler={onChangeHandler}
             inputState={gdpQ1}
+            focusHandler={focusHandler}
             />
             <InputDisplay
             variableName={vname2}
             onChangeHandler={onChangeHandler}
             inputState={gdpQ2}
+            focusHandler={focusHandler}
+            />
+            <Keyboard
+             toggleKeyboard={toggleKeyboard} 
+             keyboardVisibility={keyboardVisibility}
+             activeInput={activeInput}
             />
             <CalcBtn calculateHandler={calculateHandler}/>
             <SolutionName solutionName={solName}/>

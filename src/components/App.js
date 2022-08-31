@@ -7,8 +7,8 @@
 * @Date: 2022/08/28
 */
 //libraries
-import React from "react";
-import UnitsOfMeasurement from '../libs/UnitsOfMeasurement';
+import {React, useState} from "react";
+import {symbols, currency} from '../libs/UnitsOfMeasurement';
 //components
 import Header from './Header';
 import Route from './Route';
@@ -46,10 +46,24 @@ import GovDebtGDPRatio from './ratios/GovDebtGDPRatio';
 
 
 const App = () => {
-    const UOM = UnitsOfMeasurement;
-    const {symbols, currency} = UOM;
+    const [keyboardVisibility, setKeyboardVisibility] = useState(true);
+    const [activeInput, setActiveInput] = useState('');
     const {percent} = symbols;
     const {rands} = currency;
+
+    const focusHandler = e => {
+        setActiveInput(e.target);
+    };
+
+    const toggleKeyboard = () => {
+        if(keyboardVisibility) {
+            setKeyboardVisibility(false);
+        }
+        else if (!keyboardVisibility) {
+            setKeyboardVisibility(true);
+        };
+    };
+
     return (
         <div className="app-container">
             <Header/>
@@ -60,7 +74,13 @@ const App = () => {
                 <GDP/>
             </Route>
             <Route path='/inflation-rate'>
-                <InflationRate unitOfMeasurement={percent}/>
+                <InflationRate 
+                unitOfMeasurement={percent}
+                toggleKeyboard={toggleKeyboard} 
+                keyboardVisibility={keyboardVisibility}
+                activeInput={activeInput} 
+                focusHandler={focusHandler}
+                />
             </Route>
             <Route path='/interest'>
                 <Interest/>
@@ -69,67 +89,177 @@ const App = () => {
                 <Depreciation/>
             </Route>
             <Route path='/balance-of-trade'>
-                <BalanceOfTrade unitOfMeasurement={rands}/>
+                <BalanceOfTrade 
+                unitOfMeasurement={rands}
+                focusHandler={focusHandler}
+                />
             </Route>
             <Route path='/ratios'>
                 <Ratios/>
             </Route>
             <Route path='/unemployment-rate'>
-                <UnemploymentRate unitOfMeasurement={percent}/>
+                <UnemploymentRate 
+                unitOfMeasurement={percent}
+                toggleKeyboard={toggleKeyboard} 
+                keyboardVisibility={keyboardVisibility}
+                activeInput={activeInput}
+                focusHandler={focusHandler}
+                />
             </Route>
             <Route path='/current-account'>
-                <CurrentAcc unitOfMeasurement={rands}/>
+                <CurrentAcc 
+                unitOfMeasurement={rands}
+                toggleKeyboard={toggleKeyboard} 
+                keyboardVisibility={keyboardVisibility}
+                activeInput={activeInput}
+                focusHandler={focusHandler}
+                />
             </Route>
             <Route path='/net-foreign-factor-income'>
-                <NetForeignFactorIncome unitOfMeasurement={rands}/>
+                <NetForeignFactorIncome 
+                unitOfMeasurement={rands}
+                toggleKeyboard={toggleKeyboard} 
+                keyboardVisibility={keyboardVisibility}
+                activeInput={activeInput}
+                focusHandler={focusHandler}
+                />
             </Route>
             <Route path='/depreciation/double-declining-balance'>
-                <DDBDepreciation unitOfMeasurement={rands}/>
+                <DDBDepreciation 
+                unitOfMeasurement={rands}
+                toggleKeyboard={toggleKeyboard} 
+                keyboardVisibility={keyboardVisibility}
+                activeInput={activeInput}
+                focusHandler={focusHandler}
+                />
             </Route>
             <Route path='/depreciation/straight-line'>
-                <SLDepreciation unitOfMeasurement={rands}/>
+                <SLDepreciation 
+                unitOfMeasurement={rands}
+                toggleKeyboard={toggleKeyboard} 
+                keyboardVisibility={keyboardVisibility}
+                activeInput={activeInput}
+                focusHandler={focusHandler}
+                />
             </Route>
             <Route path='/depreciation/sum-of-the-years'>
-                <SYDDepreciation unitOfMeasurement={rands}/>
+                <SYDDepreciation 
+                unitOfMeasurement={rands}
+                toggleKeyboard={toggleKeyboard} 
+                keyboardVisibility={keyboardVisibility}
+                activeInput={activeInput}
+                focusHandler={focusHandler}
+                />
             </Route>
             <Route path='/depreciation/units-of-production'>
-                <UPDepreciation unitOfMeasurement={rands}/>
+                <UPDepreciation 
+                unitOfMeasurement={rands}
+                toggleKeyboard={toggleKeyboard} 
+                keyboardVisibility={keyboardVisibility}
+                activeInput={activeInput}
+                focusHandler={focusHandler}
+                />
             </Route>
             <Route path='/gdp/expenditure-approach'>
-                <GDPExpApproach unitOfMeasurement={rands}/>
+                <GDPExpApproach 
+                unitOfMeasurement={rands}
+                toggleKeyboard={toggleKeyboard} 
+                keyboardVisibility={keyboardVisibility}
+                activeInput={activeInput}
+                focusHandler={focusHandler}
+                />
             </Route>
             <Route path='/gdp/income-approach'>
-                <GDPIncomeApproach unitOfMeasurement={rands}/>
+                <GDPIncomeApproach 
+                unitOfMeasurement={rands}
+                toggleKeyboard={toggleKeyboard} 
+                keyboardVisibility={keyboardVisibility}
+                activeInput={activeInput}
+                focusHandler={focusHandler}
+                />
             </Route>
             <Route path='/gdp/deflator'>
-                <GDPDeflator/>
+                <GDPDeflator
+                 toggleKeyboard={toggleKeyboard} 
+                 keyboardVisibility={keyboardVisibility}
+                 activeInput={activeInput}
+                 focusHandler={focusHandler}
+                />
             </Route>
             <Route path='/gdp/growth-rate'>
                 <GDPGrowthRate/>
             </Route>
             <Route path='/gdp/net-exports'>
-                <NetExports unitOfMeasurement={rands}/>
+                <NetExports 
+                unitOfMeasurement={rands}
+                toggleKeyboard={toggleKeyboard} 
+                keyboardVisibility={keyboardVisibility}
+                activeInput={activeInput}
+                focusHandler={focusHandler}
+                />
             </Route>
             <Route path='/gdp/real-gdp'>
-                <RealGDP unitOfMeasurement={rands}/>
+                <RealGDP 
+                unitOfMeasurement={rands}
+                toggleKeyboard={toggleKeyboard} 
+                keyboardVisibility={keyboardVisibility}
+                activeInput={activeInput}
+                focusHandler={focusHandler}
+                />
             </Route>
             <Route path='/gdp/growth-rate/real-annual'>
-                <RealGDPAGRate unitOfMeasurement={percent}/>  
+                <RealGDPAGRate 
+                unitOfMeasurement={percent}
+                toggleKeyboard={toggleKeyboard} 
+                keyboardVisibility={keyboardVisibility}
+                activeInput={activeInput}
+                focusHandler={focusHandler}
+                />  
             </Route>
             <Route path='/gdp/growth-rate/real-quarterly'>
-                <RealGDPQGRate unitOfMeasurement={percent}/>
+                <RealGDPQGRate 
+                unitOfMeasurement={percent}
+                toggleKeyboard={toggleKeyboard} 
+                keyboardVisibility={keyboardVisibility}
+                activeInput={activeInput}
+                focusHandler={focusHandler}
+                />
             </Route>
             <Route path='/interest/simple-interest-rate'>
-                <SimpleInterestRate unitOfMeasurement={rands}/>
+                <SimpleInterestRate 
+                unitOfMeasurement={rands}
+                toggleKeyboard={toggleKeyboard} 
+                keyboardVisibility={keyboardVisibility}
+                activeInput={activeInput}
+                focusHandler={focusHandler}
+                />
             </Route>
             <Route path='/interest/compound-interest-rate'>
-                <CompoundInterestRate unitOfMeasurement={rands}/>
+                <CompoundInterestRate 
+                unitOfMeasurement={rands}
+                toggleKeyboard={toggleKeyboard} 
+                keyboardVisibility={keyboardVisibility}
+                activeInput={activeInput}
+                focusHandler={focusHandler}
+                />
             </Route>
             <Route path='/ratios/current-account-to-gdp'>
-                <CurrentAccGDPRatio unitOfMeasurement={percent}/>
+                <CurrentAccGDPRatio 
+                unitOfMeasurement={percent}
+                toggleKeyboard={toggleKeyboard} 
+                keyboardVisibility={keyboardVisibility}
+                activeInput={activeInput}
+                focusHandler={focusHandler}
+                />
             </Route>
             <Route path='/ratios/government-debt-to-gdp'>
-                <GovDebtGDPRatio unitOfMeasurement={percent}/>
+                <GovDebtGDPRatio 
+                unitOfMeasurement={percent}
+                toggleKeyboard={toggleKeyboard} 
+                keyboardVisibility={keyboardVisibility}
+                activeInput={activeInput}
+                focusHandler={focusHandler}
+                />
             </Route>
         </div>
     );

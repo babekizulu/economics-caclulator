@@ -6,11 +6,18 @@ import {symbols, currency, timePeriods} from '../../libs/UnitsOfMeasurement';
 import CalcName from '../CalcName';
 import BackBtn from '../BackBtn';
 import InputDisplay from '../InputDisplay';
+import Keyboard from '../Keyboard';
 import CalcBtn from '../CalcBtn';
 import SolutionName from '../SolutionName';
 import SolutionDisplay from '../SolutionDisplay';
 
-const SimpleInterestRate = ({unitOfMeasurement}) => {
+const SimpleInterestRate = ({
+    unitOfMeasurement, 
+    focusHandler,
+    toggleKeyboard,
+    keyboardVisibility,
+    activeInput
+}) => {
     const [interestRate, setInterestRate] = useState(0);
     const [principalAmount, setPrincipalAmount] = useState(0);
     const [timePeriod, setTimePeriod] = useState(0);
@@ -51,16 +58,24 @@ const SimpleInterestRate = ({unitOfMeasurement}) => {
             variableName={vname1}
             onChangeHandler={onChangeHandler}
             inputState={interestRate}
+            focusHandler={focusHandler}
             />
             <InputDisplay
             variableName={vname2}
             onChangeHandler={onChangeHandler}
             inputState={principalAmount}
+            focusHandler={focusHandler}
             />
             <InputDisplay
             variableName={vname3}
             onChangeHandler={onChangeHandler}
             inputState={timePeriod}
+            focusHandler={focusHandler}
+            />
+            <Keyboard
+             toggleKeyboard={toggleKeyboard} 
+             keyboardVisibility={keyboardVisibility}
+             activeInput={activeInput}
             />
             <CalcBtn calculateHandler={calculateHandler}/>
             <SolutionName solutionName={solName}/>

@@ -6,11 +6,17 @@ import {currency} from '../../libs/UnitsOfMeasurement';
 import CalcName from '../CalcName';
 import BackBtn from '../BackBtn';
 import InputDisplay from '../InputDisplay';
+import Keyboard from '../Keyboard';
 import CalcBtn from '../CalcBtn';
 import SolutionName from '../SolutionName';
 import SolutionDisplay from '../SolutionDisplay';
 
-const GDPDeflator = () => {
+const GDPDeflator = ({
+    focusHandler,
+    toggleKeyboard,
+    keyboardVisibility,
+    activeInput
+}) => {
     const [nominalGDP, setNominalGDP] = useState(0);
     const [realGDP, setRealGDP] = useState(0);
     const [solution, setSolution] = useState(0);
@@ -44,11 +50,18 @@ const GDPDeflator = () => {
             variableName={vname1}
             onChangeHandler={onChangeHandler}
             inputState={nominalGDP}
+            focusHandler={focusHandler}
             />
             <InputDisplay
             variableName={vname2}
             onChangeHandler={onChangeHandler}
             inputState={realGDP}
+            focusHandler={focusHandler}
+            />
+            <Keyboard
+             toggleKeyboard={toggleKeyboard} 
+             keyboardVisibility={keyboardVisibility}
+             activeInput={activeInput}
             />
             <CalcBtn calculateHandler={calculateHandler}/>
             <SolutionName solutionName={solName}/>

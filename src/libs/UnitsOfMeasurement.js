@@ -26,4 +26,11 @@ const UnitsOfMeasurement = {
     }
 };
 
-export default UnitsOfMeasurement;
+const {symbols, currency, timePeriods, misc} = UnitsOfMeasurement;
+
+export {
+    symbols, 
+    currency, 
+    timePeriods,
+    misc
+};

@@ -6,11 +6,18 @@ import {currency, timePeriods} from '../../libs/UnitsOfMeasurement';
 import CalcName from '../CalcName';
 import BackBtn from '../BackBtn';
 import InputDisplay from "../InputDisplay";
+import Keyboard from "../Keyboard";
 import CalcBtn from '../CalcBtn';
 import SolutionName from '../SolutionName';
 import SolutionDisplay from '../SolutionDisplay';
 
-const SYDDepreciation = ({unitOfMeasurement}) => {
+const SYDDepreciation = ({
+    unitOfMeasurement, 
+    focusHandler,
+    toggleKeyboard,
+    keyboardVisibility,
+    activeInput
+}) => {
     const [remainingLife, setRemainingLife] = useState(0);
     const [sumOfYearsDigits, setSumOfYearsDigits] = useState(0);
     const [cost, setCost] = useState(0);
@@ -58,21 +65,30 @@ const SYDDepreciation = ({unitOfMeasurement}) => {
             variableName={vname1}
             onChangeHandler={onChangeHandler}
             inputState={remainingLife}
+            focusHandler={focusHandler}
             />
             <InputDisplay
             variableName={vname2}
             onChangeHandler={onChangeHandler}
             inputState={sumOfYearsDigits}
+            focusHandler={focusHandler}
             />
             <InputDisplay
             variableName={vname3}
             onChangeHandler={onChangeHandler}
             inputState={cost}
+            focusHandler={focusHandler}
             />
             <InputDisplay
             variableName={vname4}
             onChangeHandler={onChangeHandler}
             inputState={salvageValue}
+            focusHandler={focusHandler}
+            />
+            <Keyboard
+             toggleKeyboard={toggleKeyboard} 
+             keyboardVisibility={keyboardVisibility}
+             activeInput={activeInput}
             />
             <CalcBtn calculateHandler={calculateHandler}/>
             <SolutionName solutionName={solname}/>

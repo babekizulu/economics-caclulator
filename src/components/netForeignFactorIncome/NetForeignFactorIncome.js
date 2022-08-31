@@ -6,11 +6,18 @@ import {currency} from '../../libs/UnitsOfMeasurement';
 import CalcName from '../CalcName';
 import BackBtn from '../BackBtn';
 import InputDisplay from "../InputDisplay";
+import Keyboard from "../Keyboard";
 import CalcBtn from "../CalcBtn";
 import SolutionName from "../SolutionName";
 import SolutionDisplay from "../SolutionDisplay";
 
-const NetForeignFactorIncome = ({unitOfMeasurement}) => {
+const NetForeignFactorIncome = ({
+    unitOfMeasurement, 
+    focusHandler,
+    toggleKeyboard,
+    keyboardVisibility,
+    activeInput
+}) => {
     const [gnp, setGNP] = useState(0);
     const [gdp, setGDP] = useState(0);
     const [solution, setSolution] = useState(0);
@@ -46,11 +53,18 @@ const NetForeignFactorIncome = ({unitOfMeasurement}) => {
             variableName={vname1}
             onChangeHandler={onChangeHandler}
             inputState={gnp}
+            focusHandler={focusHandler}
             />
             <InputDisplay
             variableName={vname2}
             onChangeHandler={onChangeHandler}
             inputState={gdp}
+            focusHandler={focusHandler}
+            />
+            <Keyboard
+             toggleKeyboard={toggleKeyboard} 
+             keyboardVisibility={keyboardVisibility}
+             activeInput={activeInput}
             />
             <CalcBtn calculateHandler={calculateHandler}/>
             <SolutionName solutionName={solName}/>

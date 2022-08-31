@@ -1,16 +1,18 @@
 //libraries
 import {React, useState} from "react";
 import {BalanceOfTradeFormula} from '../../libs/Formulae';
-import {currency} from '../../UnitsOfMeasurement';
+import { currency } from "../../libs/UnitsOfMeasurement";
 //components
 import CalcName from "../CalcName";
 import BackBtn from "../BackBtn";
 import InputDisplay from "../InputDisplay";
+import Keyboard from "../Keyboard";
 import CalcBtn from "../CalcBtn";
 import SolutionName from "../SolutionName";
 import SolutionDisplay from "../SolutionDisplay";
 
-const BalanceOfTrade = ({unitOfMeasurement}) => {
+
+const BalanceOfTrade = ({unitOfMeasurement, toggleKeyboard, keyboardVisibility, activeInput, focusHandler}) => {
     const [exportsValue, setExportsValue] = useState(0);
     const [importsValue, setImportsValue] = useState(0);
     const [solution, setSolution] = useState(0);
@@ -43,11 +45,18 @@ const BalanceOfTrade = ({unitOfMeasurement}) => {
             variableName={vname1}
             onChangeHandler={onChangeHandler}
             inputState={exportsValue}
+            focusHandler={focusHandler}
             />
             <InputDisplay
             variableName={vname2}
             onChangeHandler={onChangeHandler}
             inputState={importsValue}
+            focusHandler={focusHandler}
+            />
+            <Keyboard
+             toggleKeyboard={toggleKeyboard} 
+             keyboardVisibility={keyboardVisibility}
+             activeInput={activeInput}
             />
             <CalcBtn calculateHandler={calculateHandler}/>
             <SolutionName/>

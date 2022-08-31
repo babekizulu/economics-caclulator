@@ -6,11 +6,18 @@ import {misc} from '../../libs/UnitsOfMeasurement';
 import CalcName from '../CalcName';
 import BackBtn from '../BackBtn';
 import InputDisplay from "../InputDisplay";
+import Keyboard from "../Keyboard";
 import CalcBtn from '../CalcBtn';
 import SolutionName from '../SolutionName';
 import SolutionDisplay from '../SolutionDisplay';
 
-const InflationRate = ({unitOfMeasurement}) => {
+const InflationRate = ({
+    unitOfMeasurement, 
+    focusHandler,
+    toggleKeyboard,
+    keyboardVisibility,
+    activeInput
+}) => {
     const [pastConsumerPriceIndex, setPastConsumerPriceIndex] = useState(0);
     const [currentConsumerPriceIndex, setCurrentConsumerPriceIndex] = useState(0);
     const [solution, setSolution] = useState(0);
@@ -44,11 +51,18 @@ const InflationRate = ({unitOfMeasurement}) => {
             variableName={vname1}
             onChangeHandler={onChangeHandler}
             inputState={pastConsumerPriceIndex}
+            focusHandler={focusHandler}
             />
             <InputDisplay
             variableName={vname2}
             onChangeHandler={onChangeHandler}
             inputState={currentConsumerPriceIndex}
+            focusHandler={focusHandler}
+            />
+            <Keyboard
+             toggleKeyboard={toggleKeyboard} 
+             keyboardVisibility={keyboardVisibility}
+             activeInput={activeInput}
             />
             <CalcBtn calculateHandler={calculateHandler}/>
             <SolutionName solutionName={solName}/>

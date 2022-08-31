@@ -6,11 +6,18 @@ import {currency} from '../../libs/UnitsOfMeasurement';
 import CalcName from '../CalcName';
 import BackBtn from '../BackBtn';
 import InputDisplay from "../InputDisplay";
+import Keyboard from "../Keyboard";
 import CalcBtn from '../CalcBtn';
 import SolutionName from '../SolutionName';
 import SolutionDisplay from '../SolutionDisplay';
 
-const GDPIncomeApproach = ({unitOfMeasurement}) => {
+const GDPIncomeApproach = ({
+    unitOfMeasurement, 
+    focusHandler,
+    toggleKeyboard,
+    keyboardVisibility,
+    activeInput
+}) => {
     const [totalNationalIncome, setTotalNationalIncome] = useState(0);
     const [salesTaxes, setSalesTaxes] = useState(0);
     const [depreciation, setDepreciation] = useState(0);
@@ -57,21 +64,30 @@ const GDPIncomeApproach = ({unitOfMeasurement}) => {
             variableName={vname1}
             onChangeHandler={onChangeHandler}
             inputState={totalNationalIncome}
+            focusHandler={focusHandler}
             />
             <InputDisplay
             variableName={vname2}
             onChangeHandler={onChangeHandler}
             inputState={salesTaxes}
+            focusHandler={focusHandler}
             />
             <InputDisplay
             variableName={vname3}
             onChangeHandler={onChangeHandler}
             inputState={depreciation}
+            focusHandler={focusHandler}
             />
             <InputDisplay
             variableName={vname4}
             onChangeHandler={onChangeHandler}
             inputState={netForeignFactorIncome}
+            focusHandler={focusHandler}
+            />
+            <Keyboard
+             toggleKeyboard={toggleKeyboard} 
+             keyboardVisibility={keyboardVisibility}
+             activeInput={activeInput}
             />
             <CalcBtn calculateHandler={calculateHandler}/>
             <SolutionName solutionName={solName}/>
