@@ -1,0 +1,34 @@
+@import 'utils';
+*::before,
+*::after,
+* {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.app-container {
+    @include grid1;
+    @include wh100;
+}
+
+@import 'Header';
+@import 'Explorer';
+@import 'CalcContainer';
+@import 'CalcName';
+@import 'BackBtn';
+@import 'InputDisplay';
+@import 'ToggleBtn';
+@import 'Keyboard';
+@import 'CalcBtn';
+@import 'ClearBtn';
+@import 'SolutionName';
+@import 'SolutionDisplay';

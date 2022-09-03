@@ -1,0 +1,15 @@
+@import 'utils';
+.input-display-container {
+    @include grid1;
+}
+
+.input-label {
+    @include centerFlex;
+}
+
+.calc-input {
+    @include centerFlex;
+    width: 100%;
+    margin: auto;
+    padding: 8px 20px;
+}

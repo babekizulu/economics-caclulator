@@ -1,0 +1,32 @@
+@import 'utils';
+.keyboard-grid {
+    @include grid3;
+    width: 18.75em;
+    justify-content: center;
+    margin: auto;
+    gap: 0;
+}
+
+.keyboard-btn {
+    width: 4.25em;
+    height: 4.25em;
+    border: 1px solid $light;
+    margin: 2px;
+    background: none;
+    font-size: 1.4rem;
+    color: $light;
+    cursor: pointer;
+    transition: $eio;
+    &:hover {
+        color: $dark;
+        background: $light-alpha;
+        border: 1px solid $light-active;
+        transition: $eio;
+    }
+    &:active {
+        color: $dark;
+        background: $light-alpha;
+        border: 1px solid $light-active;
+        transition: $eio;
+    }
+}

@@ -1,0 +1,16 @@
+@import 'utils';
+.toggle-btn-container {
+    .toggle-btn {
+        padding: 8px 10px;
+        margin: 1.25em;
+        border: none;
+        color: #fff;
+        background: $dark;
+        cursor: pointer;
+        transition: $eio;
+        &:hover {
+            background: $dark-active;
+            transition: $eio;
+        }
+    }
+}

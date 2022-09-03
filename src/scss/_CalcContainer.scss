@@ -1,0 +1,9 @@
+@import 'utils';
+.calc-container {
+    @include grid1;
+    position: relative;
+    top: 60px;
+    z-index: 1;
+    width: 31.25em;
+    margin: auto;
+}

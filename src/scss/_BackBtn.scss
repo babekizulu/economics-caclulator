@@ -1,0 +1,17 @@
+@import 'utils';
+.back-btn-container {
+    text-decoration: none;
+    margin: 1.25em auto 1.25em 1.25em;
+    padding: 5px 21px;
+    background: $dark;
+    color: #fff;
+    transition: $eio;
+    &:hover {
+        background: $dark-active;
+        transition: $eio;
+    }
+}
+
+.back-btn {
+    font-size: 1rem;
+}

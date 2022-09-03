@@ -1,0 +1,36 @@
+//mixins
+@mixin grid1 {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+@mixin grid2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+@mixin grid3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+@mixin centerFlex {
+    display: flex;
+    justify-content: center;
+}
+
+@mixin wh100 {
+    width: 100%;
+    height: 100%;
+}
+
+//color
+$light: #d3d3d3;
+$light-active: #a1a1a1;
+$light-alpha: #a1a1a134;
+$dark: #131313;
+$dark-active: #474747;
+//transitions
+$e: all 0.2s ease;
+$ei: all 0.2s ease-in;
+$eio: all 0.2s ease-in-out;
