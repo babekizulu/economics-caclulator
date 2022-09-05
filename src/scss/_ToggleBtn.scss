@@ -5,10 +5,15 @@
         margin: 1.25em;
         border: none;
         color: #fff;
+        font-family: $rob;
         background: $dark;
         cursor: pointer;
         transition: $eio;
         &:hover {
+            background: $dark-active;
+            transition: $eio;
+        }
+        &:active {
             background: $dark-active;
             transition: $eio;
         }

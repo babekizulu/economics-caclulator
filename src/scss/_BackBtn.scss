@@ -10,8 +10,13 @@
         background: $dark-active;
         transition: $eio;
     }
+    &:active {
+        background: $dark-active;
+        transition: $eio;
+    }
 }
 
 .back-btn {
+    font-family: $rob;
     font-size: 1rem;
 }

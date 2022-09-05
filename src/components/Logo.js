@@ -2,15 +2,12 @@
 import React from 'react';
 //components
 import Link from './Link';
-
+//icons
+import FormuliiiLogo from '../icons/formuliii_logo.png';
 const Logo = () => {
     return (
         <Link href='/' className="logo-container">
-            <header className="logo">
-                <h1>
-                    FORMULiii
-                </h1>
-            </header>
+            <img src={FormuliiiLogo} alt='Formuliii Logo' className='logo'/>
         </Link>
     );
 };

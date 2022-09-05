@@ -5,6 +5,7 @@
 
 .input-label {
     @include centerFlex;
+    font-family: $rob;
 }
 
 .calc-input {
@@ -12,4 +13,6 @@
     width: 100%;
     margin: auto;
     padding: 8px 20px;
+    font-family: $rob;
+    font-size: 1.4rem;
 }

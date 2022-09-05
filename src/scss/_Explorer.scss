@@ -1,33 +1,45 @@
 @import 'utils';
 .explorer-container {
     @include grid3;
-    margin: 1.25em;
+    margin: auto;
     position: relative;
-    top: 60px;
+    top: 3.75rem;
+    width: 50rem;
 }
 
 .calc-set {
     @include grid1;
     position: relative;
-    top: 60px;
+    top: 3.75rem;
+    width: 50rem;
 }
 
 .calc-set-grid {
     @include grid3;
-    margin: 1.25em;
+    margin: 1.25rem;
 }
 
 .menu-icon {
     @include centerFlex;
+    width: 15rem;
+    height: 15rem;
     text-decoration: none;
     color: $light;
-    font-size: 2rem;
-    border: 2px solid $light-active;
+    font-family: $rob;
+    font-size: 1.5rem;
+    font-weight: 500;
+    border: 2px solid $light;
     border-radius: 0;
-    padding: 20px;
-    margin: 10px;
+    padding: 1.25rem;
+    margin: 0.625rem;
     transition: $eio;
     &:hover {
+        color: $dark;
+        border: 2px solid $dark;
+        border-radius: 8px;
+        transition: $eio;
+    }
+    &:active {
         color: $dark;
         border: 2px solid $dark;
         border-radius: 8px;

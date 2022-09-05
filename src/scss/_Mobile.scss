@@ -1,0 +1,123 @@
+@media screen and (max-width: 414px) {
+    .explorer-container {
+        width: 22rem;
+        height: 100%;
+    }
+    .calc-set {
+        width: 22rem;
+        height: 100%;
+    }
+    .menu-icon {
+        width: 6rem;
+        height: 6rem;
+        font-size: 0.8rem;
+    }
+    .calc-container {
+        width: 22rem;
+    }
+    .solution-display {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .calc-container {
+        width: 20rem;
+    }
+    .solution-display {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .explorer-container {
+        width: 20rem;
+        height: 100%;
+    }
+    .calc-set {
+        width: 20rem;
+        height: 100%;
+    }
+    .menu-icon {
+        width: 5.5rem;
+        height: 5.5rem;
+        font-size: 0.7rem;
+    }
+    .calc-container {
+        width: 20rem;
+    }
+    .calc-name-container {
+        margin: 10px;
+        font-size: 1.2rem;
+    }
+    .solution-display {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .calc-container {
+        width: 19rem;
+    }
+    .calc-name-container {
+        margin: 10px;
+        font-size: 0.9rem;
+    }
+    .solution-display {
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 280px) {
+    .explorer-container {
+        @include grid1;
+        width: 14.375rem;
+        height: 100%;
+    }
+    .calc-set {
+        width: 14.375rem;
+        height: 100%;
+    }
+    .calc-set-grid {
+        @include grid1;
+    }
+    .menu-icon {
+        width: 6rem;
+        height: 6rem;
+        font-size: 0.8rem;
+    }
+    .calc-container {
+        width: 12rem;
+    }
+    .input-display-container {
+        width: 12rem;
+        margin: auto;
+    }
+    .calc-name-container {
+        margin: 20px;
+        font-size: 0.8rem;
+        margin: auto;
+    }
+    .solve-btn {
+        font-size: 0.8rem;
+        max-width: 12rem;
+    }
+    .clear-btn {
+        font-size: 0.8rem;
+        max-width: 12rem;
+    }
+    .solution-name-container {
+        @include centerFlex;
+        width: 12rem;
+        margin: auto;
+    }
+    .solution-name {
+        font-size: 1.2rem;
+    }
+    .solution-display {
+        @include centerFlex;
+        font-size: 0.8rem;
+        width: 12rem;
+        margin: auto;
+    }
+}
