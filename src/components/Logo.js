@@ -8,7 +8,7 @@ const Logo = () => {
         <Link href='/' className="logo-container">
             <header className="logo">
                 <h1>
-                    Economics Calculator
+                    FORMULiii
                 </h1>
             </header>
         </Link>

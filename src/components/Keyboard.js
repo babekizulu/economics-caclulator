@@ -2,30 +2,31 @@ import React from 'react';
 //components
 import ToggleBtn from './ToggleBtn';
 
-const Keyboard = ({keyboardVisibility, toggleKeyboard, activeInput}) => {
+const Keyboard = ({
+    keyboardVisibility, 
+    toggleKeyboard, 
+    onKeyType,
+    targetInputField
+}) => {
     const keyNumsArr = [1, 2, 3, 4, 5, 6, 7, 9, 0];
-
-    const keyboardTypingHandler = (kn) => {
-        activeInput.innerText += kn;
-    }
 
     const renderedKeyNums = keyNumsArr.map(kn => {
         return (
-            <div 
+            <button 
             key={kn}
-            className='key-num-container' 
-            onClick={() => keyboardTypingHandler(kn)}
+            className='keyboard-btn'
+            onClick={() => onKeyType(targetInputField, kn)}
             >
-                <h3>
-                    {kn}
-                </h3>
-            </div>
+                {kn}
+            </button>
         );
     });
     return (
-        <div className='keyboard-grid'>
+        <div className="keyboard-container">
             <ToggleBtn componentName='Keyboard' toggleFunc={toggleKeyboard}/>
-            {renderedKeyNums}
+            <div className='keyboard-grid'>
+                {keyboardVisibility ? renderedKeyNums : ''}
+            </div>
         </div>
     );
 };

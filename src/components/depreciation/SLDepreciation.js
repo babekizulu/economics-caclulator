@@ -8,19 +8,18 @@ import CalcName from '../CalcName';
 import InputDisplay from "../InputDisplay";
 import Keyboard from "../Keyboard";
 import CalcBtn from '../CalcBtn';
+import ClearBtn from '../ClearBtn';
 import SolutionName from '../SolutionName';
 import SolutionDisplay from '../SolutionDisplay';
 
 const SLDepreciation = ({
-    unitOfMeasurement, 
-    focusHandler,
+    unitOfMeasurement,
     toggleKeyboard,
-    keyboardVisibility,
-    activeInput
+    keyboardVisibility
 }) => {
-    const [cost, setCost] = useState(0);
-    const [salvageValue, setSalvageValue] = useState(0);
-    const [assetLifespan, setAssetLifespan] = useState(0);
+    const [cost, setCost] = useState('');
+    const [salvageValue, setSalvageValue] = useState('');
+    const [assetLifespan, setAssetLifespan] = useState('');
     const [solution, setSolution] = useState(0);
 
     //calculator name, variable name, solution name
@@ -50,35 +49,66 @@ const SLDepreciation = ({
             unitOfMeasurement
         );
         setSolution(calc.solve());
-    }
+    };
+
+    const onClearHandler = () => {
+        setCost('');
+        setSalvageValue('');
+        setAssetLifespan('');
+        setSolution(0);
+    };
+
+    const onKeyType = (targetInputField, keyNum) => {
+        if(targetInputField === vname1) {
+            setCost(prevCost => prevCost += keyNum);
+        }
+        else if (targetInputField === vname2) {
+            setSalvageValue(prevSalvageValue => prevSalvageValue += keyNum);
+        }
+        else if (targetInputField === vname3) {
+            setAssetLifespan(prevAssetLifespan => prevAssetLifespan += keyNum);
+        };
+    };
+    
     return (
-        <div className="sl-dep-calculator-container">
+        <div className="calc-container">
             <CalcName calculatorName={calcname}/>
             <BackBtn prevDir='/depreciation'/>
             <InputDisplay 
             variableName={vname1} 
             onChangeHandler={onChangeHandler} 
             inputState={cost}
-            focusHandler={focusHandler}
+            />
+            <Keyboard
+             toggleKeyboard={toggleKeyboard} 
+             keyboardVisibility={keyboardVisibility}
+             targetInputField={vname1}
+             onKeyType={onKeyType}
             />
             <InputDisplay 
             variableName={vname2} 
             onChangeHandler={onChangeHandler} 
             inputState={salvageValue}
-            focusHandler={focusHandler}
+            />
+            <Keyboard
+             toggleKeyboard={toggleKeyboard} 
+             keyboardVisibility={keyboardVisibility}
+             targetInputField={vname2}
+             onKeyType={onKeyType}
             />
             <InputDisplay 
             variableName={vname3} 
             onChangeHandler={onChangeHandler} 
             inputState={assetLifespan}
-            focusHandler={focusHandler}
             />
             <Keyboard
              toggleKeyboard={toggleKeyboard} 
              keyboardVisibility={keyboardVisibility}
-             activeInput={activeInput}
+             targetInputField={vname3}
+             onKeyType={onKeyType}
             />
             <CalcBtn calculateHandler={calculateHandler}/>
+            <ClearBtn onClearHandler={onClearHandler}/>
             <SolutionName solutionName={solname}/>
             <SolutionDisplay solution={solution}/>
         </div>

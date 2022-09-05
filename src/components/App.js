@@ -43,23 +43,20 @@ import CompoundInterestRate from './interest/CompoundInterestRate';
 //ratio calcs 
 import CurrentAccGDPRatio from './ratios/CurrentAccGDPRatio';
 import GovDebtGDPRatio from './ratios/GovDebtGDPRatio';
+//styling
+import '../scss/App.scss';
 
 
 const App = () => {
-    const [keyboardVisibility, setKeyboardVisibility] = useState(true);
-    const [activeInput, setActiveInput] = useState('');
+    const [keyboardVisibility, setKeyboardVisibility] = useState(false);
     const {percent} = symbols;
     const {rands} = currency;
 
-    const focusHandler = e => {
-        setActiveInput(e.target);
-    };
-
     const toggleKeyboard = () => {
-        if(keyboardVisibility) {
+        if (keyboardVisibility === true) {
             setKeyboardVisibility(false);
         }
-        else if (!keyboardVisibility) {
+        else if (keyboardVisibility === false) {
             setKeyboardVisibility(true);
         };
     };
@@ -78,8 +75,6 @@ const App = () => {
                 unitOfMeasurement={percent}
                 toggleKeyboard={toggleKeyboard} 
                 keyboardVisibility={keyboardVisibility}
-                activeInput={activeInput} 
-                focusHandler={focusHandler}
                 />
             </Route>
             <Route path='/interest'>
@@ -91,7 +86,8 @@ const App = () => {
             <Route path='/balance-of-trade'>
                 <BalanceOfTrade 
                 unitOfMeasurement={rands}
-                focusHandler={focusHandler}
+                toggleKeyboard={toggleKeyboard} 
+                keyboardVisibility={keyboardVisibility}
                 />
             </Route>
             <Route path='/ratios'>
@@ -102,8 +98,6 @@ const App = () => {
                 unitOfMeasurement={percent}
                 toggleKeyboard={toggleKeyboard} 
                 keyboardVisibility={keyboardVisibility}
-                activeInput={activeInput}
-                focusHandler={focusHandler}
                 />
             </Route>
             <Route path='/current-account'>
@@ -111,8 +105,6 @@ const App = () => {
                 unitOfMeasurement={rands}
                 toggleKeyboard={toggleKeyboard} 
                 keyboardVisibility={keyboardVisibility}
-                activeInput={activeInput}
-                focusHandler={focusHandler}
                 />
             </Route>
             <Route path='/net-foreign-factor-income'>
@@ -120,8 +112,6 @@ const App = () => {
                 unitOfMeasurement={rands}
                 toggleKeyboard={toggleKeyboard} 
                 keyboardVisibility={keyboardVisibility}
-                activeInput={activeInput}
-                focusHandler={focusHandler}
                 />
             </Route>
             <Route path='/depreciation/double-declining-balance'>
@@ -129,8 +119,6 @@ const App = () => {
                 unitOfMeasurement={rands}
                 toggleKeyboard={toggleKeyboard} 
                 keyboardVisibility={keyboardVisibility}
-                activeInput={activeInput}
-                focusHandler={focusHandler}
                 />
             </Route>
             <Route path='/depreciation/straight-line'>
@@ -138,8 +126,6 @@ const App = () => {
                 unitOfMeasurement={rands}
                 toggleKeyboard={toggleKeyboard} 
                 keyboardVisibility={keyboardVisibility}
-                activeInput={activeInput}
-                focusHandler={focusHandler}
                 />
             </Route>
             <Route path='/depreciation/sum-of-the-years'>
@@ -147,8 +133,6 @@ const App = () => {
                 unitOfMeasurement={rands}
                 toggleKeyboard={toggleKeyboard} 
                 keyboardVisibility={keyboardVisibility}
-                activeInput={activeInput}
-                focusHandler={focusHandler}
                 />
             </Route>
             <Route path='/depreciation/units-of-production'>
@@ -156,8 +140,6 @@ const App = () => {
                 unitOfMeasurement={rands}
                 toggleKeyboard={toggleKeyboard} 
                 keyboardVisibility={keyboardVisibility}
-                activeInput={activeInput}
-                focusHandler={focusHandler}
                 />
             </Route>
             <Route path='/gdp/expenditure-approach'>
@@ -165,8 +147,6 @@ const App = () => {
                 unitOfMeasurement={rands}
                 toggleKeyboard={toggleKeyboard} 
                 keyboardVisibility={keyboardVisibility}
-                activeInput={activeInput}
-                focusHandler={focusHandler}
                 />
             </Route>
             <Route path='/gdp/income-approach'>
@@ -174,16 +154,12 @@ const App = () => {
                 unitOfMeasurement={rands}
                 toggleKeyboard={toggleKeyboard} 
                 keyboardVisibility={keyboardVisibility}
-                activeInput={activeInput}
-                focusHandler={focusHandler}
                 />
             </Route>
             <Route path='/gdp/deflator'>
                 <GDPDeflator
                  toggleKeyboard={toggleKeyboard} 
                  keyboardVisibility={keyboardVisibility}
-                 activeInput={activeInput}
-                 focusHandler={focusHandler}
                 />
             </Route>
             <Route path='/gdp/growth-rate'>
@@ -194,8 +170,6 @@ const App = () => {
                 unitOfMeasurement={rands}
                 toggleKeyboard={toggleKeyboard} 
                 keyboardVisibility={keyboardVisibility}
-                activeInput={activeInput}
-                focusHandler={focusHandler}
                 />
             </Route>
             <Route path='/gdp/real-gdp'>
@@ -203,8 +177,6 @@ const App = () => {
                 unitOfMeasurement={rands}
                 toggleKeyboard={toggleKeyboard} 
                 keyboardVisibility={keyboardVisibility}
-                activeInput={activeInput}
-                focusHandler={focusHandler}
                 />
             </Route>
             <Route path='/gdp/growth-rate/real-annual'>
@@ -212,8 +184,6 @@ const App = () => {
                 unitOfMeasurement={percent}
                 toggleKeyboard={toggleKeyboard} 
                 keyboardVisibility={keyboardVisibility}
-                activeInput={activeInput}
-                focusHandler={focusHandler}
                 />  
             </Route>
             <Route path='/gdp/growth-rate/real-quarterly'>
@@ -221,8 +191,6 @@ const App = () => {
                 unitOfMeasurement={percent}
                 toggleKeyboard={toggleKeyboard} 
                 keyboardVisibility={keyboardVisibility}
-                activeInput={activeInput}
-                focusHandler={focusHandler}
                 />
             </Route>
             <Route path='/interest/simple-interest-rate'>
@@ -230,8 +198,6 @@ const App = () => {
                 unitOfMeasurement={rands}
                 toggleKeyboard={toggleKeyboard} 
                 keyboardVisibility={keyboardVisibility}
-                activeInput={activeInput}
-                focusHandler={focusHandler}
                 />
             </Route>
             <Route path='/interest/compound-interest-rate'>
@@ -239,8 +205,6 @@ const App = () => {
                 unitOfMeasurement={rands}
                 toggleKeyboard={toggleKeyboard} 
                 keyboardVisibility={keyboardVisibility}
-                activeInput={activeInput}
-                focusHandler={focusHandler}
                 />
             </Route>
             <Route path='/ratios/current-account-to-gdp'>
@@ -248,8 +212,6 @@ const App = () => {
                 unitOfMeasurement={percent}
                 toggleKeyboard={toggleKeyboard} 
                 keyboardVisibility={keyboardVisibility}
-                activeInput={activeInput}
-                focusHandler={focusHandler}
                 />
             </Route>
             <Route path='/ratios/government-debt-to-gdp'>
@@ -257,8 +219,6 @@ const App = () => {
                 unitOfMeasurement={percent}
                 toggleKeyboard={toggleKeyboard} 
                 keyboardVisibility={keyboardVisibility}
-                activeInput={activeInput}
-                focusHandler={focusHandler}
                 />
             </Route>
         </div>

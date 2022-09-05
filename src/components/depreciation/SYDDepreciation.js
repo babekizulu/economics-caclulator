@@ -8,20 +8,19 @@ import BackBtn from '../BackBtn';
 import InputDisplay from "../InputDisplay";
 import Keyboard from "../Keyboard";
 import CalcBtn from '../CalcBtn';
+import ClearBtn from '../ClearBtn';
 import SolutionName from '../SolutionName';
 import SolutionDisplay from '../SolutionDisplay';
 
 const SYDDepreciation = ({
-    unitOfMeasurement, 
-    focusHandler,
+    unitOfMeasurement,
     toggleKeyboard,
-    keyboardVisibility,
-    activeInput
+    keyboardVisibility
 }) => {
-    const [remainingLife, setRemainingLife] = useState(0);
-    const [sumOfYearsDigits, setSumOfYearsDigits] = useState(0);
-    const [cost, setCost] = useState(0);
-    const [salvageValue, setSalvageValue] = useState(0);
+    const [remainingLife, setRemainingLife] = useState('');
+    const [sumOfYearsDigits, setSumOfYearsDigits] = useState('');
+    const [cost, setCost] = useState('');
+    const [salvageValue, setSalvageValue] = useState('');
     const [solution, setSolution] = useState(0);
 
     //calculator name, variable name & solution name 
@@ -57,40 +56,80 @@ const SYDDepreciation = ({
         );
         setSolution(calc.solve());
     }
+
+    const onClearHandler = () => {
+        setRemainingLife('');
+        setSumOfYearsDigits('');
+        setCost('');
+        setSalvageValue('');
+        setSolution(0);
+    }
+
+    const onKeyType = (targetInputField, keyNum) => {
+        if (targetInputField === vname1) {
+            setRemainingLife(prevRemainingLife => prevRemainingLife += keyNum);
+        }
+        else if (targetInputField === vname2) {
+            setSumOfYearsDigits(prevSumOfYearsDigits => prevSumOfYearsDigits += keyNum);
+        }
+        else if (targetInputField === vname3) {
+            setCost(prevCost => prevCost += keyNum);
+        }
+        else if (targetInputField === vname4) {
+            setSalvageValue(prevSalvageValue => prevSalvageValue += keyNum);
+        };
+    };
+
     return (
-        <div className="calculator">
+        <div className="calc-container">
             <CalcName calculatorName={calcName}/>
             <BackBtn prevDir='/depreciation'/>
             <InputDisplay
             variableName={vname1}
             onChangeHandler={onChangeHandler}
             inputState={remainingLife}
-            focusHandler={focusHandler}
+            />
+            <Keyboard
+             toggleKeyboard={toggleKeyboard} 
+             keyboardVisibility={keyboardVisibility}
+             targetInputField={vname1}
+             onKeyType={onKeyType}
             />
             <InputDisplay
             variableName={vname2}
             onChangeHandler={onChangeHandler}
             inputState={sumOfYearsDigits}
-            focusHandler={focusHandler}
+            />
+            <Keyboard
+             toggleKeyboard={toggleKeyboard} 
+             keyboardVisibility={keyboardVisibility}
+             targetInputField={vname2}
+             onKeyType={onKeyType}
             />
             <InputDisplay
             variableName={vname3}
             onChangeHandler={onChangeHandler}
             inputState={cost}
-            focusHandler={focusHandler}
+            />
+            <Keyboard
+             toggleKeyboard={toggleKeyboard} 
+             keyboardVisibility={keyboardVisibility}
+             targetInputField={vname3}
+             onKeyType={onKeyType}
             />
             <InputDisplay
             variableName={vname4}
             onChangeHandler={onChangeHandler}
             inputState={salvageValue}
-            focusHandler={focusHandler}
             />
             <Keyboard
              toggleKeyboard={toggleKeyboard} 
              keyboardVisibility={keyboardVisibility}
-             activeInput={activeInput}
+             targetInputField={vname4}
+             onKeyType={onKeyType}
             />
             <CalcBtn calculateHandler={calculateHandler}/>
+            <ClearBtn onClearHandler={onClearHandler}/>
             <SolutionName solutionName={solname}/>
             <SolutionDisplay solution={solution}/>
         </div>

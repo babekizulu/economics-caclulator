@@ -1,4 +1,9 @@
 @import 'utils';
+.keyboard-container {
+    @include centerFlex;
+    flex-direction: column;
+}
+
 .keyboard-grid {
     @include grid3;
     width: 18.75em;

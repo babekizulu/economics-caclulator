@@ -8,18 +8,17 @@ import BackBtn from '../BackBtn';
 import InputDisplay from "../InputDisplay";
 import Keyboard from "../Keyboard";
 import CalcBtn from '../CalcBtn';
+import ClearBtn from "../ClearBtn";
 import SolutionName from '../SolutionName';
 import SolutionDisplay from '../SolutionDisplay';
 
 const RealGDP = ({
-    unitOfMeasurement, 
-    focusHandler,
+    unitOfMeasurement,
     toggleKeyboard,
-    keyboardVisibility,
-    activeInput
+    keyboardVisibility
 }) => {
-    const [nominalGDP, setNominalGDP] = useState(0);
-    const [gdpDeflator, setGDPDeflator] = useState(0);
+    const [nominalGDP, setNominalGDP] = useState('');
+    const [gdpDeflator, setGDPDeflator] = useState('');
     const [solution, setSolution] = useState(0);
     //calculator name, variable names & solution name 
     const calcName = 'Real GDP Calculator';
@@ -43,28 +42,50 @@ const RealGDP = ({
         );
         setSolution(calc.solve());
     };
+
+    const onClearHandler = () => {
+        setNominalGDP('');
+        setGDPDeflator('');
+        setSolution(0);
+    };
+
+    const onKeyType = (targetInputField, keyNum) => {
+        if (targetInputField === vname1) {
+            setNominalGDP(prevNominalGDP => prevNominalGDP += keyNum);
+        }
+        else if (targetInputField === vname2) {
+            setGDPDeflator(prevGDPDeflator => prevGDPDeflator += keyNum);
+        };
+    };
+
     return (
-        <div className="calculator">
+        <div className="calc-container">
             <CalcName calculatorName={calcName}/>
             <BackBtn prevDir='/gdp'/>
             <InputDisplay
             variableName={vname1}
             onChangeHandler={onChangeHandler}
             inputState={nominalGDP}
-            focusHandler={focusHandler}
+            />
+            <Keyboard
+            toggleKeyboard={toggleKeyboard} 
+            keyboardVisibility={keyboardVisibility}
+            targetInputField={vname1}
+            onKeyType={onKeyType}
             />
             <InputDisplay
             variableName={vname2}
             onChangeHandler={onChangeHandler}
             inputState={gdpDeflator}
-            focusHandler={focusHandler}
             />
             <Keyboard
-             toggleKeyboard={toggleKeyboard} 
-             keyboardVisibility={keyboardVisibility}
-             activeInput={activeInput}
+            toggleKeyboard={toggleKeyboard} 
+            keyboardVisibility={keyboardVisibility}
+            targetInputField={vname2}
+            onKeyType={onKeyType}
             />
             <CalcBtn calculateHandler={calculateHandler}/>
+            <ClearBtn onClearHandler={onClearHandler}/>
             <SolutionName solutionName={solName}/>
             <SolutionDisplay solution={solution}/>
         </div>

@@ -4,16 +4,18 @@
 //libraries
 import {React} from "react";
 
-const InputDisplay = ({variableName, onChangeHandler, inputState, focusHandler}) => {
-    
+const InputDisplay = ({variableName, onChangeHandler, inputState}) => { 
    return (
     <div className="input-display-container">
-        <label htmlFor="">{variableName}</label>
+        <label className="input-label">
+            <h3>
+                {variableName}
+            </h3>
+        </label>
         <input
         type="number" 
-        className="calculator-input"
+        className="calc-input"
         onChange={(e) => onChangeHandler(variableName, e.target.value)}
-        onFocus={() => focusHandler()}
         value={inputState}
         />
     </div>

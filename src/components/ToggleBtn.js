@@ -4,7 +4,9 @@ const ToggleBtn = ({componentName, toggleFunc}) => {
     return (
         <div className='toggle-btn-container'>
             <button className='toggle-btn' onClick={() => toggleFunc()}>
-                Toggle {componentName}
+                <header>
+                    <h3>Hide/Show {componentName}</h3>
+                </header>
             </button>
         </div>
     );

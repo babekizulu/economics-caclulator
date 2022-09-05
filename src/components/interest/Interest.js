@@ -7,21 +7,23 @@ import BackBtn from "../BackBtn";
 
 const Interest = () => {
     return (
-        <div className="interest-calculators-container">
+        <div className="calc-set">
             <CalcName calculatorName='Interest Calculator Set'/>
             <BackBtn prevDir='/'/>
-            <Link 
-            href='/interest/simple-interest-rate'
-            className='simple-interest-rate-calculator icon'
-            >
-                Simple Interest Rate Calculator
-            </Link>
-            <Link 
-            href='/interest/compound-interest-rate'
-            className='compound-interest-rate-calculator icon'
-            >
-                Compound Interest Rate Calculator
-            </Link>
+            <div className="calc-set-grid">
+                <Link 
+                href='/interest/simple-interest-rate'
+                className='simple-interest-rate-icon menu-icon'
+                >
+                    Simple Interest Rate Calculator
+                </Link>
+                <Link 
+                href='/interest/compound-interest-rate'
+                className='compound-interest-rate-icon menu-icon'
+                >
+                    Compound Interest Rate Calculator
+                </Link>
+            </div>
         </div>
     );
 };

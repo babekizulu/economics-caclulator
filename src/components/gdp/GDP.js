@@ -9,45 +9,47 @@ import BackBtn from '../BackBtn';
 const GDP = () => {
     const calcName = 'Gross Domestic Product Calculator Set';
     return (
-        <div className="gdp-calculator-container">
+        <div className="calc-set">
             <CalcName calculatorName={calcName}/>
             <BackBtn prevDir='/'/>
-            <Link 
-            href='/gdp/expenditure-approach'
-            className='expenditure-approach-calculator icon'
-            >
-                GDP Expenditure Approach Calculator
-            </Link>
-            <Link 
-            href='/gdp/income-approach'
-            className='income-approach-calculator icon'
-            >
-                GDP Income Approach Calculator
-            </Link>
-            <Link 
-            href='/gdp/deflator'
-            className='deflator-calculator icon'
-            >
-                GDP Deflator Calculator
-            </Link>
-            <Link 
-            href='/gdp/growth-rate'
-            className='growth-rate-calculator icon'
-            >
-                GDP Growth Rate Calculator
-            </Link>
-            <Link 
-            href='/gdp/net-exports'
-            className='net-exports-calculator icon'
-            >
-                Net Exports Calculator
-            </Link>
-            <Link 
-            href='/gdp/real-gdp'
-            className='rgdp-calculator icon'
-            >
-                Real GDP Calculator
-            </Link>
+            <div className="calc-set-grid">
+                <Link 
+                href='/gdp/expenditure-approach'
+                className='expenditure-approach-icon menu-icon'
+                >
+                    GDP Expenditure Approach Calculator
+                </Link>
+                <Link 
+                href='/gdp/income-approach'
+                className='income-approach-icon menu-icon'
+                >
+                    GDP Income Approach Calculator
+                </Link>
+                <Link 
+                href='/gdp/deflator'
+                className='deflator-icon menu-icon'
+                >
+                    GDP Deflator Calculator
+                </Link>
+                <Link 
+                href='/gdp/growth-rate'
+                className='growth-rate-icon menu-icon'
+                >
+                    GDP Growth Rate Calculator
+                </Link>
+                <Link 
+                href='/gdp/net-exports'
+                className='net-exports-icon menu-icon'
+                >
+                    Net Exports Calculator
+                </Link>
+                <Link 
+                href='/gdp/real-gdp'
+                className='rgdp-icon menu-icon'
+                >
+                    Real GDP Calculator
+                </Link>
+            </div>
         </div>
     );
 };

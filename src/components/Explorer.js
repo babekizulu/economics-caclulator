@@ -6,33 +6,33 @@ import Link from './Link';
 const Explorer = () => {
     return (
         <div className='explorer-container'>
-            <Link href='/gdp' className='gdp-calculator icon'>
+            <Link href='/gdp' className='gdp-icon menu-icon'>
                 GDP Calculator
             </Link>
-            <Link href='/inflation-rate' className='inflation-rate-calculator icon'>
+            <Link href='/inflation-rate' className='inflation-rate-icon menu-icon'>
                 Inflation Rate Calculator
             </Link>
-            <Link href='/interest' className='interest-calculator icon'>
+            <Link href='/interest' className='interest-icon menu-icon'>
                 Interest Calculator
             </Link>
-            <Link href='/depreciation' className='depreciation-calculator icon'>
+            <Link href='/depreciation' className='depreciation-icon menu-icon'>
                 Depreciation Calculator
             </Link>
-            <Link href='/balance-of-trade' className='balance-of-trade-calculator icon'>
+            <Link href='/balance-of-trade' className='balance-of-trade-icon menu-icon'>
                 Balance of Trade Calculator
             </Link>
-            <Link href='/ratios' className='ratio-calculator icon'>
+            <Link href='/ratios' className='ratio-icon menu-icon'>
                 Ratio Calculator
             </Link>
-            <Link href='/unemployment-rate' className='unemployment-rate-calculator icon'>
+            <Link href='/unemployment-rate' className='unemployment-rate-icon menu-icon'>
                 Unemployment Rate Calculator
             </Link>
-            <Link href='/current-account' className='current-account-calculator icon'>
+            <Link href='/current-account' className='current-account-icon menu-icon'>
                 Current Account Calculator
             </Link>
             <Link 
             href='/net-foreign-factor-income'
-            className='nffi-calculator icon'
+            className='nffi-icon menu-icon'
             >
                 Net Foreign Factor Income Calculator
             </Link>

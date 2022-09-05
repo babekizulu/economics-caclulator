@@ -8,19 +8,18 @@ import BackBtn from '../BackBtn';
 import InputDisplay from '../InputDisplay';
 import Keyboard from '../Keyboard';
 import CalcBtn from '../CalcBtn';
+import ClearBtn from '../ClearBtn';
 import SolutionName from '../SolutionName';
 import SolutionDisplay from '../SolutionDisplay';
 
 const SimpleInterestRate = ({
-    unitOfMeasurement, 
-    focusHandler,
+    unitOfMeasurement,
     toggleKeyboard,
-    keyboardVisibility,
-    activeInput
+    keyboardVisibility
 }) => {
-    const [interestRate, setInterestRate] = useState(0);
-    const [principalAmount, setPrincipalAmount] = useState(0);
-    const [timePeriod, setTimePeriod] = useState(0);
+    const [interestRate, setInterestRate] = useState('');
+    const [principalAmount, setPrincipalAmount] = useState('');
+    const [timePeriod, setTimePeriod] = useState('');
     const [solution, setSolution] = useState(0);
     //calculator name, variable names & solution name
     const calcName = 'Simple Interest Rate Calculator';
@@ -50,34 +49,65 @@ const SimpleInterestRate = ({
         );
         setSolution(calc.solve());
     };
+
+    const onClearHandler = () => {
+        setInterestRate('');
+        setPrincipalAmount('');
+        setTimePeriod('');
+        setSolution(0);
+    }
+
+    const onKeyType = (targetInputField, keyNum) => {
+        if (targetInputField === vname1) {
+            setInterestRate(prevInterestRate => prevInterestRate += keyNum);
+        }
+        else if (targetInputField === vname2) {
+            setPrincipalAmount(prevPrincipalAmount => prevPrincipalAmount += keyNum);
+        }
+        else if (targetInputField === vname3) {
+            setTimePeriod(prevTimePeriod => prevTimePeriod += keyNum);
+        };
+    };
+
     return (
-        <div className='calculator'>
+        <div className='calc-container'>
             <CalcName calculatorName={calcName}/>
             <BackBtn prevDir='/interest'/>
             <InputDisplay
             variableName={vname1}
             onChangeHandler={onChangeHandler}
             inputState={interestRate}
-            focusHandler={focusHandler}
+            />
+            <Keyboard
+            toggleKeyboard={toggleKeyboard} 
+            keyboardVisibility={keyboardVisibility}
+            targetInputField={vname1}
+            onKeyType={onKeyType}
             />
             <InputDisplay
             variableName={vname2}
             onChangeHandler={onChangeHandler}
             inputState={principalAmount}
-            focusHandler={focusHandler}
+            />
+            <Keyboard
+            toggleKeyboard={toggleKeyboard} 
+            keyboardVisibility={keyboardVisibility}
+            targetInputField={vname2}
+            onKeyType={onKeyType}
             />
             <InputDisplay
             variableName={vname3}
             onChangeHandler={onChangeHandler}
             inputState={timePeriod}
-            focusHandler={focusHandler}
             />
             <Keyboard
-             toggleKeyboard={toggleKeyboard} 
-             keyboardVisibility={keyboardVisibility}
-             activeInput={activeInput}
+            toggleKeyboard={toggleKeyboard} 
+            keyboardVisibility={keyboardVisibility}
+            targetInputField={vname3}
+            onKeyType={onKeyType}
             />
             <CalcBtn calculateHandler={calculateHandler}/>
+            <ClearBtn onClearHandler={onClearHandler}/>
             <SolutionName solutionName={solName}/>
             <SolutionDisplay solution={solution}/>
         </div>

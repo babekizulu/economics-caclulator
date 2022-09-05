@@ -8,18 +8,17 @@ import BackBtn from '../BackBtn';
 import InputDisplay from "../InputDisplay";
 import Keyboard from "../Keyboard";
 import CalcBtn from '../CalcBtn';
+import ClearBtn from "../ClearBtn";
 import SolutionName from '../SolutionName';
 import SolutionDisplay from '../SolutionDisplay';
 
 const NetExports = ({
     unitOfMeasurement, 
-    focusHandler,
     toggleKeyboard,
-    keyboardVisibility,
-    activeInput
+    keyboardVisibility
 }) => {
-    const [valueOfExports, setValueOfExports] = useState(0);
-    const [valueOfImports, setValueOfImports] = useState(0);
+    const [valueOfExports, setValueOfExports] = useState('');
+    const [valueOfImports, setValueOfImports] = useState('');
     const [solution, setSolution] = useState(0);
     //calculator name, variable names & solution name 
     const calcName = 'Net Exports Calculator';
@@ -42,29 +41,51 @@ const NetExports = ({
             unitOfMeasurement
         );
         setSolution(calc.solve());
-    }
+    };
+
+    const onClearHandler = () => {
+        setValueOfExports('');
+        setValueOfImports('');
+        setSolution(0);
+    };
+
+    const onKeyType = (targetInputField, keyNum) => {
+        if (targetInputField === vname1) {
+            setValueOfExports(prevValueOfExports => prevValueOfExports += keyNum);
+        }
+        else if (targetInputField === vname2) {
+            setValueOfImports(prevValueOfImports => prevValueOfImports += keyNum);
+        };
+    };
+
     return (
-        <div className="calculator">
+        <div className="calc-container">
             <CalcName calculatorName={calcName}/>
             <BackBtn prevDir='/gdp'/>
             <InputDisplay
             variableName={vname1}
             onChangeHandler={onChangeHandler}
             inputState={valueOfExports}
-            focusHandler={focusHandler}
+            />
+            <Keyboard
+            toggleKeyboard={toggleKeyboard} 
+            keyboardVisibility={keyboardVisibility}
+            targetInputField={vname1}
+            onKeyType={onKeyType}
             />
             <InputDisplay
             variableName={vname2}
             onChangeHandler={onChangeHandler}
             inputState={valueOfImports}
-            focusHandler={focusHandler}
             />
             <Keyboard
-             toggleKeyboard={toggleKeyboard} 
-             keyboardVisibility={keyboardVisibility}
-             activeInput={activeInput}
+            toggleKeyboard={toggleKeyboard} 
+            keyboardVisibility={keyboardVisibility}
+            targetInputField={vname2}
+            onKeyType={onKeyType}
             />
             <CalcBtn calculateHandler={calculateHandler}/>
+            <ClearBtn onClearHandler={onClearHandler}/>
             <SolutionName solutionName={solName}/>
             <SolutionDisplay solution={solution}/>
         </div>

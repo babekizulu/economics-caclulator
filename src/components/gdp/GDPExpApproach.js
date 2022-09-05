@@ -8,20 +8,19 @@ import BackBtn from "../BackBtn";
 import InputDisplay from "../InputDisplay";
 import Keyboard from "../Keyboard";
 import CalcBtn from "../CalcBtn";
+import ClearBtn from "../ClearBtn";
 import SolutionName from "../SolutionName";
 import SolutionDisplay from "../SolutionDisplay";
 
 const GDPExpApproach = ({
-    unitOfMeasurement, 
-    focusHandler,
+    unitOfMeasurement,
     toggleKeyboard,
-    keyboardVisibility,
-    activeInput
+    keyboardVisibility
 }) => {
-    const [consumption, setConsumption] = useState(0);
-    const [investment, setInvestment] = useState(0);
-    const [governmentExpenditure, setGovernmentExpenditure] = useState(0);
-    const [netExports, setNetExports] = useState(0);
+    const [consumption, setConsumption] = useState('');
+    const [investment, setInvestment] = useState('');
+    const [governmentExpenditure, setGovernmentExpenditure] = useState('');
+    const [netExports, setNetExports] = useState('');
     const [solution, setSolution] = useState(0);
     //calculator name, variable names, solution name 
     const calcName = 'GDP Expenditure Approach Calculator';
@@ -57,40 +56,79 @@ const GDPExpApproach = ({
         setSolution(calc.solve());
     }
 
+    const onClearHandler = () => {
+        setConsumption('');
+        setInvestment('');
+        setGovernmentExpenditure('');
+        setNetExports('');
+        setSolution(0);
+    }
+
+    const onKeyType = (targetInputField, keyNum) => {
+        if (targetInputField === vname1) {
+            setConsumption(prevConsumption => prevConsumption += keyNum);
+        }
+        else if (targetInputField === vname2) {
+            setInvestment(prevInvestment => prevInvestment += keyNum);
+        }
+        else if (targetInputField === vname3) {
+            setGovernmentExpenditure(prevGovernmentExpenditure => prevGovernmentExpenditure += keyNum);
+        }
+        else if (targetInputField === vname4) {
+            setNetExports(prevNetExports => prevNetExports += keyNum);
+        };
+    };
+
     return (
-        <div className="calculator">
+        <div className="calc-container">
             <CalcName calculatorName={calcName}/>
             <BackBtn prevDir='/gdp'/>
             <InputDisplay
             variableName={vname1}
             onChangeHandler={onChangeHandler}
             inputState={consumption}
-            focusHandler={focusHandler}
+            />
+            <Keyboard
+            toggleKeyboard={toggleKeyboard} 
+            keyboardVisibility={keyboardVisibility}
+            targetInputField={vname1}
+            onKeyType={onKeyType}
             />
             <InputDisplay
             variableName={vname2}
             onChangeHandler={onChangeHandler}
             inputState={investment}
-            focusHandler={focusHandler}
+            />
+            <Keyboard
+            toggleKeyboard={toggleKeyboard} 
+            keyboardVisibility={keyboardVisibility}
+            targetInputField={vname2}
+            onKeyType={onKeyType}
             />
             <InputDisplay
             variableName={vname3}
             onChangeHandler={onChangeHandler}
             inputState={governmentExpenditure}
-            focusHandler={focusHandler}
+            />
+            <Keyboard
+             toggleKeyboard={toggleKeyboard} 
+             keyboardVisibility={keyboardVisibility}
+             targetInputField={vname3}
+             onKeyType={onKeyType}
             />
             <InputDisplay
             variableName={vname4}
             onChangeHandler={onChangeHandler}
             inputState={netExports}
-            focusHandler={focusHandler}
             />
             <Keyboard
              toggleKeyboard={toggleKeyboard} 
              keyboardVisibility={keyboardVisibility}
-             activeInput={activeInput}
+             targetInputField={vname4}
+             onKeyType={onKeyType}
             />
             <CalcBtn calculateHandler={calculateHandler}/>
+            <ClearBtn onClearHandler={onClearHandler}/>
             <SolutionName solutionName={solName}/>
             <SolutionDisplay solution={solution}/>
         </div>
