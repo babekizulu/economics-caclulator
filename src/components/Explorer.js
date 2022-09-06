@@ -3,6 +3,9 @@ import React from 'react';
 //components
 import Link from './Link';
 
+/* Explorer Menu
+* @Desc: A menu of links to each calculator/calculator set
+*/
 const Explorer = () => {
     return (
         <div className='explorer-container'>

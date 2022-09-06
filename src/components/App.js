@@ -2,7 +2,6 @@
 * @Author: Lwandle Babekizulu Dlamini
 * @Desc: Main App file for Econmics Calculator
 * @TODO: 
-    - Add clear button to all calculators
     - Add more currency symbols to "currency" array
 * @Date: 2022/08/28
 */
@@ -48,10 +47,18 @@ import '../scss/App.scss';
 
 
 const App = () => {
+    //state: controls whether keyboard is hidden or shown
     const [keyboardVisibility, setKeyboardVisibility] = useState(false);
+    //destructured units of measurements 
+    // - These will be passed into each component to be appended 
+    //   onto the final answer of a calculation e.g percent will be 
+    //   used to represent the answer 100 as 100%
     const {percent} = symbols;
     const {rands} = currency;
 
+    //functionality for showing and hiding keyboard
+    // - If the keyboard is shown and the user clicks the show/hide button
+    //   then this function will hide the keyboard, and vice-versa
     const toggleKeyboard = () => {
         if (keyboardVisibility === true) {
             setKeyboardVisibility(false);
@@ -61,6 +68,18 @@ const App = () => {
         };
     };
 
+    /*
+    * @Desc: App JSX 
+    * @Props: unitOfMeasurement, toggleKeyboard, keyboardVisibility
+    * - unitOfMeasurement: contains appropriate unit of measurement
+    *   to be appended onto the respective answer
+    * - toggleKeyboard: A function to show/hide the keyboard, which I passed 
+    *   down to each component to be passed down to each of it's custom 
+    *   keyboard instances
+    * - keyboardVisibility: A piece of state which holds a boolean and determines
+    *   whether the keyboard is shown or hidden. Updates every time the
+    *   toggleKeyboard Function is executed
+    */
     return (
         <div className="app-container">
             <Header/>
