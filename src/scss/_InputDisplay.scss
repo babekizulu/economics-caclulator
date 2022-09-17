@@ -1,11 +1,14 @@
 @import 'utils';
 .input-display-container {
     @include grid1;
+    border: 1px solid #e7e5e5;
+    margin-bottom: 5px;
 }
 
 .input-label {
     @include centerFlex;
     font-family: $rob;
+    background: none;
 }
 
 .calc-input {
@@ -15,4 +18,6 @@
     padding: 8px 20px;
     font-family: $rob;
     font-size: 1.4rem;
+    border: none;
+    background: none;
 }
