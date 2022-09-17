@@ -6,16 +6,13 @@ import {currency, timePeriods} from '../../libs/UnitsOfMeasurement';
 import BackBtn from "../BackBtn";
 import CalcName from '../CalcName';
 import InputDisplay from "../InputDisplay";
-import Keyboard from "../Keyboard";
 import CalcBtn from '../CalcBtn';
 import ClearBtn from '../ClearBtn';
 import SolutionDisplay from '../SolutionDisplay';
 import SolutionName from "../SolutionName";
 
 const DDBDepreciation = ({
-    unitOfMeasurement,
-    toggleKeyboard,
-    keyboardVisibility
+    unitOfMeasurement
 }) => {
     const [startingBookValue, setStartingBookValue] = useState('');
     const [assetLifespan, setAssetLifespan] = useState('');
@@ -50,15 +47,6 @@ const DDBDepreciation = ({
         setSolution(0);
     };
 
-    const onKeyType = (targetInputField, keyNum) => {
-        if (targetInputField === vname1) {
-            setStartingBookValue(prevStartingBookValue => prevStartingBookValue += keyNum);
-        }
-        else if (targetInputField === vname2) {
-            setAssetLifespan(prevAssetLifespan => prevAssetLifespan += keyNum);
-        };
-    };
-
     return (
         <div className="calc-container">
             <CalcName calculatorName={calcName}/>
@@ -68,22 +56,10 @@ const DDBDepreciation = ({
             onChangeHandler={onChangeHandler} 
             inputState={startingBookValue}
             />
-            <Keyboard
-             toggleKeyboard={toggleKeyboard} 
-             keyboardVisibility={keyboardVisibility}
-             targetInputField={vname1}
-             onKeyType={onKeyType}
-            />
             <InputDisplay 
             variableName={vname2} 
             onChangeHandler={onChangeHandler} 
             inputState={assetLifespan}
-            />
-            <Keyboard
-             toggleKeyboard={toggleKeyboard} 
-             keyboardVisibility={keyboardVisibility}
-             targetInputField={vname2}
-             onKeyType={onKeyType}
             />
             <CalcBtn calculateHandler={calculateHandler}/>
             <ClearBtn onClearHandler={onClearHandler}/>

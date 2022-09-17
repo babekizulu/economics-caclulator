@@ -6,16 +6,13 @@ import {currency} from '../../../libs/UnitsOfMeasurement';
 import CalcName from "../../CalcName";
 import BackBtn from "../../BackBtn";
 import InputDisplay from "../../InputDisplay";
-import Keyboard from "../../Keyboard";
 import CalcBtn from '../../CalcBtn';
 import ClearBtn from '../../ClearBtn';
 import SolutionName from '../../SolutionName';
 import SolutionDisplay from '../../SolutionDisplay';
 
 const RealGDPAGRate = ({
-    unitOfMeasurement,
-    toggleKeyboard,
-    keyboardVisibility
+    unitOfMeasurement
 }) => {
     const [gdpPreviousYear, setGDPPreviousYear] = useState('');
     const [gdpCurrentYear, setGDPCurrentYear] = useState('');
@@ -50,15 +47,6 @@ const RealGDPAGRate = ({
         setSolution(0);
     };
 
-    const onKeyType = (targetInputField, keyNum) => {
-        if(targetInputField === vname1) {
-            setGDPPreviousYear(prevGDPPreviousYear => prevGDPPreviousYear += keyNum);
-        }
-        else if (targetInputField === vname2) {
-            setGDPCurrentYear(prevGDPCurrentYear => prevGDPCurrentYear += keyNum);
-        };
-    };
-
     return (
         <div className="calc-container">
             <CalcName calculatorName={calcName}/>
@@ -68,22 +56,10 @@ const RealGDPAGRate = ({
             onChangeHandler={onChangeHandler}
             inputState={gdpPreviousYear}
             />
-            <Keyboard
-             toggleKeyboard={toggleKeyboard} 
-             keyboardVisibility={keyboardVisibility}
-             targetInputField={vname1}
-             onKeyType={onKeyType}
-            />
             <InputDisplay
             variableName={vname2}
             onChangeHandler={onChangeHandler}
             inputState={gdpCurrentYear}
-            />
-            <Keyboard
-             toggleKeyboard={toggleKeyboard} 
-             keyboardVisibility={keyboardVisibility}
-             targetInputField={vname2}
-             onKeyType={onKeyType}
             />
             <CalcBtn calculateHandler={calculateHandler}/>
             <ClearBtn onClearHandler={onClearHandler}/>

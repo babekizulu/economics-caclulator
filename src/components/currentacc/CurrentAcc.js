@@ -6,7 +6,6 @@ import {currency} from '../../libs/UnitsOfMeasurement';
 import CalcName from '../CalcName';
 import BackBtn from '../BackBtn';
 import InputDisplay from "../InputDisplay";
-import Keyboard from "../Keyboard";
 import CalcBtn from "../CalcBtn";
 import ClearBtn from "../ClearBtn";
 import SolutionName from '../SolutionName';
@@ -14,9 +13,7 @@ import SolutionDisplay from "../SolutionDisplay";
 
 
 const CurrentAcc = ({
-    unitOfMeasurement,
-    toggleKeyboard,
-    keyboardVisibility,
+    unitOfMeasurement
 }) => {
     const [expGoodsServices, setExpGoodsServices] = useState('');
     const [impGoodsServices, setImpGoodsServices] = useState('');
@@ -65,21 +62,6 @@ const CurrentAcc = ({
         setSolution(0);
     }
 
-    const onKeyType = (targetInputField, keyNum) => {
-        if (targetInputField === vname1) {
-            setExpGoodsServices(prevExpGoodsServices => prevExpGoodsServices += keyNum);
-        }
-        else if (targetInputField === vname2) {
-            setImpGoodsServices(prevImpGoodsServices => prevImpGoodsServices += keyNum);
-        }
-        else if (targetInputField === vname3) {
-            setNetEarningsAbroad(prevNetEarningsAbroad => prevNetEarningsAbroad += keyNum);
-        }
-        else if (targetInputField === vname4) {
-            setNetTransferPayments(prevNetTransferPayments => prevNetTransferPayments += keyNum);
-        };
-    };
-
     return (
         <div className="calc-container">
             <CalcName calculatorName={calcName}/>
@@ -89,44 +71,20 @@ const CurrentAcc = ({
             onChangeHandler={onChangeHandler} 
             inputState={expGoodsServices}
             />
-            <Keyboard
-             toggleKeyboard={toggleKeyboard} 
-             keyboardVisibility={keyboardVisibility}
-             targetInputField={vname1}
-             onKeyType={onKeyType}
-            />
             <InputDisplay 
             variableName={vname2} 
             onChangeHandler={onChangeHandler} 
             inputState={impGoodsServices}
-            />
-            <Keyboard
-             toggleKeyboard={toggleKeyboard} 
-             keyboardVisibility={keyboardVisibility}
-             targetInputField={vname2}
-             onKeyType={onKeyType}
             />
             <InputDisplay 
             variableName={vname3} 
             onChangeHandler={onChangeHandler} 
             inputState={netEarningsAbroad}
             />
-            <Keyboard
-             toggleKeyboard={toggleKeyboard} 
-             keyboardVisibility={keyboardVisibility}
-             targetInputField={vname3}
-             onKeyType={onKeyType}
-            />
             <InputDisplay 
             variableName={vname4} 
             onChangeHandler={onChangeHandler} 
             inputState={netTransferPayments}
-            />
-            <Keyboard
-             toggleKeyboard={toggleKeyboard} 
-             keyboardVisibility={keyboardVisibility}
-             targetInputField={vname4}
-             onKeyType={onKeyType}
             />
             <CalcBtn calculateHandler={calculateHandler}/>
             <ClearBtn onClearHandler={onClearHandler}/>

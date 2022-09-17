@@ -6,16 +6,13 @@ import {currency} from '../../libs/UnitsOfMeasurement';
 import CalcName from '../CalcName';
 import BackBtn from '../BackBtn';
 import InputDisplay from "../InputDisplay";
-import Keyboard from "../Keyboard";
 import CalcBtn from '../CalcBtn';
 import ClearBtn from "../ClearBtn";
 import SolutionName from '../SolutionName';
 import SolutionDisplay from '../SolutionDisplay';
 
 const GDPIncomeApproach = ({
-    unitOfMeasurement,
-    toggleKeyboard,
-    keyboardVisibility
+    unitOfMeasurement
 }) => {
     const [totalNationalIncome, setTotalNationalIncome] = useState('');
     const [salesTaxes, setSalesTaxes] = useState('');
@@ -63,21 +60,6 @@ const GDPIncomeApproach = ({
         setNetForeignFactorIncome('');
     };
 
-    const onKeyType = (targetInputField, keyNum) => {
-        if (targetInputField === vname1) {
-            setTotalNationalIncome(prevTotalNationalIncome => prevTotalNationalIncome += keyNum);
-        }
-        else if (targetInputField === vname2) {
-            setSalesTaxes(prevSalesTaxes => prevSalesTaxes += keyNum);
-        }
-        else if (targetInputField === vname3) {
-            setDepreciation(prevDepreciation => prevDepreciation += keyNum);
-        }
-        else if (targetInputField === vname4) {
-            setNetForeignFactorIncome(prevNetForeignFactorIncome => prevNetForeignFactorIncome += keyNum);
-        };
-    };
-
     return (
         <div className="calc-container">
             <CalcName calculatorName={calcName}/>
@@ -87,44 +69,20 @@ const GDPIncomeApproach = ({
             onChangeHandler={onChangeHandler}
             inputState={totalNationalIncome}
             />
-            <Keyboard
-             toggleKeyboard={toggleKeyboard} 
-             keyboardVisibility={keyboardVisibility}
-             targetInputField={vname1}
-             onKeyType={onKeyType}
-            />
             <InputDisplay
             variableName={vname2}
             onChangeHandler={onChangeHandler}
             inputState={salesTaxes}
-            />
-            <Keyboard
-             toggleKeyboard={toggleKeyboard} 
-             keyboardVisibility={keyboardVisibility}
-             targetInputField={vname2}
-             onKeyType={onKeyType}
             />
             <InputDisplay
             variableName={vname3}
             onChangeHandler={onChangeHandler}
             inputState={depreciation}
             />
-            <Keyboard
-             toggleKeyboard={toggleKeyboard} 
-             keyboardVisibility={keyboardVisibility}
-             targetInputField={vname3}
-             onKeyType={onKeyType}
-            />
             <InputDisplay
             variableName={vname4}
             onChangeHandler={onChangeHandler}
             inputState={netForeignFactorIncome}
-            />
-            <Keyboard
-             toggleKeyboard={toggleKeyboard} 
-             keyboardVisibility={keyboardVisibility}
-             targetInputField={vname4}
-             onKeyType={onKeyType}
             />
             <CalcBtn calculateHandler={calculateHandler}/>
             <ClearBtn onClearHandler={onClearHandler}/>

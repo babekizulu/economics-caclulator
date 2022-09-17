@@ -6,16 +6,13 @@ import {currency, timePeriods} from '../../libs/UnitsOfMeasurement';
 import BackBtn from "../BackBtn";
 import CalcName from '../CalcName';
 import InputDisplay from "../InputDisplay";
-import Keyboard from "../Keyboard";
 import CalcBtn from '../CalcBtn';
 import ClearBtn from '../ClearBtn';
 import SolutionName from '../SolutionName';
 import SolutionDisplay from '../SolutionDisplay';
 
 const SLDepreciation = ({
-    unitOfMeasurement,
-    toggleKeyboard,
-    keyboardVisibility
+    unitOfMeasurement
 }) => {
     const [cost, setCost] = useState('');
     const [salvageValue, setSalvageValue] = useState('');
@@ -57,18 +54,6 @@ const SLDepreciation = ({
         setAssetLifespan('');
         setSolution(0);
     };
-
-    const onKeyType = (targetInputField, keyNum) => {
-        if(targetInputField === vname1) {
-            setCost(prevCost => prevCost += keyNum);
-        }
-        else if (targetInputField === vname2) {
-            setSalvageValue(prevSalvageValue => prevSalvageValue += keyNum);
-        }
-        else if (targetInputField === vname3) {
-            setAssetLifespan(prevAssetLifespan => prevAssetLifespan += keyNum);
-        };
-    };
     
     return (
         <div className="calc-container">
@@ -79,33 +64,15 @@ const SLDepreciation = ({
             onChangeHandler={onChangeHandler} 
             inputState={cost}
             />
-            <Keyboard
-             toggleKeyboard={toggleKeyboard} 
-             keyboardVisibility={keyboardVisibility}
-             targetInputField={vname1}
-             onKeyType={onKeyType}
-            />
             <InputDisplay 
             variableName={vname2} 
             onChangeHandler={onChangeHandler} 
             inputState={salvageValue}
             />
-            <Keyboard
-             toggleKeyboard={toggleKeyboard} 
-             keyboardVisibility={keyboardVisibility}
-             targetInputField={vname2}
-             onKeyType={onKeyType}
-            />
             <InputDisplay 
             variableName={vname3} 
             onChangeHandler={onChangeHandler} 
             inputState={assetLifespan}
-            />
-            <Keyboard
-             toggleKeyboard={toggleKeyboard} 
-             keyboardVisibility={keyboardVisibility}
-             targetInputField={vname3}
-             onKeyType={onKeyType}
             />
             <CalcBtn calculateHandler={calculateHandler}/>
             <ClearBtn onClearHandler={onClearHandler}/>

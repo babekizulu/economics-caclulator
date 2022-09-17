@@ -6,16 +6,13 @@ import {symbols, currency, timePeriods} from '../../libs/UnitsOfMeasurement';
 import CalcName from '../CalcName';
 import BackBtn from '../BackBtn';
 import InputDisplay from '../InputDisplay';
-import Keyboard from '../Keyboard';
 import CalcBtn from '../CalcBtn';
 import ClearBtn from '../ClearBtn';
 import SolutionName from '../SolutionName';
 import SolutionDisplay from '../SolutionDisplay';
 
 const SimpleInterestRate = ({
-    unitOfMeasurement,
-    toggleKeyboard,
-    keyboardVisibility
+    unitOfMeasurement
 }) => {
     const [interestRate, setInterestRate] = useState('');
     const [principalAmount, setPrincipalAmount] = useState('');
@@ -57,18 +54,6 @@ const SimpleInterestRate = ({
         setSolution(0);
     }
 
-    const onKeyType = (targetInputField, keyNum) => {
-        if (targetInputField === vname1) {
-            setInterestRate(prevInterestRate => prevInterestRate += keyNum);
-        }
-        else if (targetInputField === vname2) {
-            setPrincipalAmount(prevPrincipalAmount => prevPrincipalAmount += keyNum);
-        }
-        else if (targetInputField === vname3) {
-            setTimePeriod(prevTimePeriod => prevTimePeriod += keyNum);
-        };
-    };
-
     return (
         <div className='calc-container'>
             <CalcName calculatorName={calcName}/>
@@ -78,33 +63,15 @@ const SimpleInterestRate = ({
             onChangeHandler={onChangeHandler}
             inputState={interestRate}
             />
-            <Keyboard
-            toggleKeyboard={toggleKeyboard} 
-            keyboardVisibility={keyboardVisibility}
-            targetInputField={vname1}
-            onKeyType={onKeyType}
-            />
             <InputDisplay
             variableName={vname2}
             onChangeHandler={onChangeHandler}
             inputState={principalAmount}
             />
-            <Keyboard
-            toggleKeyboard={toggleKeyboard} 
-            keyboardVisibility={keyboardVisibility}
-            targetInputField={vname2}
-            onKeyType={onKeyType}
-            />
             <InputDisplay
             variableName={vname3}
             onChangeHandler={onChangeHandler}
             inputState={timePeriod}
-            />
-            <Keyboard
-            toggleKeyboard={toggleKeyboard} 
-            keyboardVisibility={keyboardVisibility}
-            targetInputField={vname3}
-            onKeyType={onKeyType}
             />
             <CalcBtn calculateHandler={calculateHandler}/>
             <ClearBtn onClearHandler={onClearHandler}/>
