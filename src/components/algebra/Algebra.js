@@ -7,8 +7,17 @@ import BackBtn from "../BackBtn";
 
 const Algebra = () => {
     return (
-        <div>
-            Algebra
+        <div className='calc-set'>
+            <CalcName calculatorName='Algebra Calculators'/>
+            <BackBtn prevDir='/'/>
+            <div className='calc-set-grid'>
+                <Link 
+                href='/mathematics/algebra/exponent-rules'
+                className='exponent-calcs-icon menu-icon'
+                >
+                    Exponent Calculators
+                </Link>
+            </div>
         </div>
     );
 };

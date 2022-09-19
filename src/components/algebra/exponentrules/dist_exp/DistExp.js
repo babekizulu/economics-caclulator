@@ -8,7 +8,7 @@ const DistExp = () => {
     return (
         <div className='calc-set'>
             <CalcName calculatorName='Distribute an Exponent'/>
-            <BackBtn prevDir='/mathematics/algebra'/>
+            <BackBtn prevDir='/mathematics/algebra/exponent-rules'/>
             <div className="calc-set-grid">
             <Link 
             href='/mathematics/algebra/exponent-rules/dist-exp/dist-exp-product'
