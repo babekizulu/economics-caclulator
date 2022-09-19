@@ -42,6 +42,11 @@ import CompoundInterestRate from './interest/CompoundInterestRate';
 //ratio calcs 
 import CurrentAccGDPRatio from './ratios/CurrentAccGDPRatio';
 import GovDebtGDPRatio from './ratios/GovDebtGDPRatio';
+//algebra
+import Algebra from "./algebra/Algebra";
+//algebra - exponent rules
+import ExponentRules from './algebra/exponentrules/ExponentRules';
+import DistExp from "./algebra/exponentrules/dist_exp/DistExp";
 //styling
 import '../scss/App.scss';
 
@@ -239,6 +244,15 @@ const App = () => {
                 toggleKeyboard={toggleKeyboard} 
                 keyboardVisibility={keyboardVisibility}
                 />
+            </Route>
+            <Route path='/mathematics/algebra'>
+                <Algebra/>
+            </Route>
+            <Route path='/mathematics/algebra/exponent-rules'>
+                <ExponentRules/>
+            </Route>
+            <Route path='/mathematics/algebra/exponent-rules/dist-exp'>
+                <DistExp/>
             </Route>
         </div>
     );

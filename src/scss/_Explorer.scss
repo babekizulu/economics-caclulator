@@ -1,10 +1,14 @@
 @import 'utils';
 .explorer-container {
-    @include grid3;
+    @include grid1;
     margin: auto;
     position: relative;
     top: 3.75rem;
     width: 50rem;
+}
+
+.explorer-grid {
+    @include grid3;
 }
 
 .calc-set {
