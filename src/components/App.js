@@ -43,18 +43,6 @@ import CompoundInterestRate from './interest/CompoundInterestRate';
 //ratio calcs 
 import CurrentAccGDPRatio from './ratios/CurrentAccGDPRatio';
 import GovDebtGDPRatio from './ratios/GovDebtGDPRatio';
-//algebra
-import Algebra from "./algebra/Algebra";
-//algebra - exponent rules
-import ExponentRules from './algebra/exponentrules/ExponentRules';
-import ProductRule from "./algebra/exponentrules/ProductRule";
-import QuotientRule from './algebra/exponentrules/QuotientRule';
-import PowerRule from './algebra/exponentrules/PowerRule';
-import NegativeExponents from './algebra/exponentrules/NegativeExponents';
-import FractionalExponents from './algebra/exponentrules/FractionalExponents';
-import DistExp from "./algebra/exponentrules/dist_exp/DistExp";
-import DistExpProduct from './algebra/exponentrules/dist_exp/DistExpProduct';
-import DistExpQuotient from './algebra/exponentrules/dist_exp/DistExpQuotient';
 //styling
 import '../scss/App.scss';
 
@@ -252,40 +240,6 @@ const App = () => {
                 toggleKeyboard={toggleKeyboard} 
                 keyboardVisibility={keyboardVisibility}
                 />
-            </Route>
-            <Route path='/mathematics/algebra'>
-                <Algebra/>
-            </Route>
-            <Route path='/mathematics/algebra/exponent-rules'>
-                <ExponentRules/>
-            </Route>
-            <Route path='/mathematics/algebra/exponent-rules/product-rule'>
-                <ProductRule/>
-            </Route>
-            <Route path='/mathematics/algebra/exponent-rules/quotient-rule'>
-                <QuotientRule/>
-            </Route>
-            <Route path='/mathematics/algebra/exponent-rules/power-rule'>
-                <PowerRule/>
-            </Route>
-            <Route path='/mathematics/algebra/exponent-rules/negative-exponents'>
-                <NegativeExponents/>
-            </Route>
-            <Route path='/mathematics/algebra/exponent-rules/fractional-exponents'>
-                <FractionalExponents/>
-            </Route>
-            <Route path='/mathematics/algebra/exponent-rules/dist-exp'>
-                <DistExp/>
-            </Route>
-            <Route 
-            path='/mathematics/algebra/exponent-rules/dist-exp/dist-exp-product'
-            >
-                <DistExpProduct/>
-            </Route>
-            <Route 
-            path='/mathematics/algebra/exponent-rules/dist-exp/dist-exp-quotient'
-            >
-                <DistExpQuotient/>
             </Route>
         </div>
     );
